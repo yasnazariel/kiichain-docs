@@ -751,7 +751,8 @@ FirmName
 CounterParty
 askOrderCt
 SortIndex
-Global's", 'lcd
+Global's
+lcd
 Repo
 uploadDate
 APIKey
@@ -983,3 +984,4 @@ verticalization
 cancelation
 delegator's
 lcd
+widrawCode

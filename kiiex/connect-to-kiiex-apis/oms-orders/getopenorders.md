@@ -6,7 +6,7 @@
 
 Returns an array of 0 or more orders that have not yet been filled (open orders) for a single account on a specific Order Management System. The call returns an empty array if an account has no open orders.
 
-A user with Trading or AccountReadOnly permission must be associated with the account named by AccountId; a user with Operator permissoin can get open orders for any account.
+A user with Trading or AccountReadOnly permission must be associated with the account named by AccountId; a user with Operator permission can get open orders for any account.
 
 #### Request <a href="#request" id="request"></a>
 
