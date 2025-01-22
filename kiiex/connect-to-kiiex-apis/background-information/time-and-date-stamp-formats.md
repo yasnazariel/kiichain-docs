@@ -1,0 +1,6 @@
+# Time– and Date-Stamp Formats
+
+KIIEX software uses two different time– and date-stamp formats, POSIX and Microsoft Ticks. Where the value of a time field key is an integer or long, the value is in POSIX format; when the value of a time field key is a string, it is in Microsoft Ticks format (also called _datetime_).
+
+* **POSIX** stores date/time values as the number of seconds since 1 January 1970 (long integer). AlphaPoint software often multiples this number by 1000 for the number of milliseconds since 1 January 1970. **Recognize POSIX format:** POSIX format is a long integer. It is usually formatted like this: `1501603632000`
+* **Microsoft Ticks** (datetime) format represents the number of ticks that have elapsed since 00:00:00 UTC, 1 January 0001, in the Gregorian calendar. A single tick represents one hundred nanoseconds (one ten-millionth of a second). There are 10,000 ticks in a millisecond; ten million ticks in a second. Ticks format does not include the number of ticks attributable to leap-seconds. **Recognize Ticks format:** Ticks format is a string. In AlphaPoint software, it is usually formatted like this: `"2018-08-17T17:57:56Z"` Note that a T (for time) separates the initial date from the time. The trailing Z represents the time zone, in all cases in AlphaPoint software, this is UTC (also called Zulu time).

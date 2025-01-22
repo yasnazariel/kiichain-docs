@@ -1,0 +1,122 @@
+# GetOrdersHistory
+
+**Category:** User\
+**Permissions:** Operator, Trading\
+**Call Type:** Synchronous
+
+Retrieves an array of multiple orders (hence, **GetOrdersHistory** with plural _Orders_) for the specified account, order ID, user, instrument, or time stamp. The history starts at index _i_, where _i_ is an integer identifying a specific order (the most recent order has an index of 0). “Depth” is the count of trades to report backwards from _startIndex_. All values in the call other than _OMSId_ are optional.
+
+For example, if _depth_ = 200 and _startIndex_ = 0, the history returns 200 orders into the past starting with the most recent (0) order. If _depth_ = 200 and _startIndex_ = 100, the history returns 200 orders into the past starting at 100 orders in the past.
+
+The owner of the trading venue determines how long to retain order history before archiving.
+
+A user with Trading permission can retrieve a history only for accounts with which the user is associated; a user with Operator permission can retrieve a history for any user or account.
+
+**Note:** In this call, "Depth" refers to the count of trades to report, not the depth of the order book.
+
+#### Request <a href="#request" id="request"></a>
+
+```
+{
+    "omsId": 0,
+    "accountId": 0,
+    "clientOrderId": 0,
+    "originalOrderId": 0,
+    "originalClientOrderId": 0,
+    "userId": 0,
+    "instrumentId": 0,
+    "startTimestamp": 0,
+    "endTimestamp": 0,
+    "depth": 100,
+    "startIndex": 0
+}
+```
+
+All values other than _OMSId_ are optional. If account ID is not supplied, the Exchange assumes the default account of the user issuing the call.
+
+| Key                   | Value                                                                                                                                                                                                                                                                             |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| omsId                 | **Integer**. The ID of the Order Management System on which the orders took place. _Required_. If no other values are specified, the call returns the orders associated with the default account for the logged-in user on this Order Management System.                          |
+| accountId             | **Integer**. The account ID that made the trades. A user with Trading permission must be associated with this account, although other users also can be associated with the account. If no account ID is supplied, the system assumes the default account for the logged-in user. |
+| ClientOrderId         | **long integer**. A user-assigned ID for the order (like a purchase-order number assigned by a company). _clientOrderId_ defaults to 0.                                                                                                                                           |
+| originalOrderId       | **long integer**. The original ID of the order. If specified, the call returns changed orders associated with this order ID.                                                                                                                                                      |
+| originalClientOrderId | **long integer**. If the order has been changed, shows the original client order ID, a value that the client can create (much like a purchase order).                                                                                                                             |
+| userId                | **integer**. The ID of the user whose account orders will be returned. If not specified, the call returns the orders of the logged-in user.                                                                                                                                       |
+| instrumentId          | **long integer**. The ID of the instrument named in the order. If not specified, the call returns orders for all instruments traded by this account.                                                                                                                              |
+| startTimestamp        | **long integer**. Date and time at which to begin the orders history, in POSIX format.                                                                                                                                                                                            |
+| endTimestamp          | **long integer**. Date and time at which to end the orders report, in POSIX format.                                                                                                                                                                                               |
+| depth                 | **integer**. In this case, the count of orders to return, counting from the _StartIndex_. If not specified, returns all orders between _BeginTimeStamp_ and _EndTimeStamp_, beginning at _StartIndex_ and working backwards.                                                      |
+| startIndex            | **integer**. The starting index into the order history, from 0 (the most recent trade) and moving backwards in time. If not specified, defaults to 0.                                                                                                                             |
+
+#### Response <a href="#response" id="response"></a>
+
+```
+[
+    {
+        "Side": "Buy",
+        "OrderId": 0,
+        "Price":  0.0,
+        "Quantity":  0.0,
+        "DisplayQuantity":  0.0,
+        "Instrument": 0,
+        "Account": 0,
+        "OrderType": "Unknown",
+        "ClientOrderId": 0,
+        "OrderState": "Unknown",
+        "ReceiveTime": 0,
+        "ReceiveTimeTicks": 0,
+        "OrigQuantity": 0.0,
+        "QuantityExecuted": 0.0,
+        "AvgPrice": 0.0,
+        "CounterPartyId": 0,
+        "ChangeReason": "Unknown",
+        "OrigOrderId": 0,
+        "OrigClOrdId": 0,
+        "EnteredBy": 0,
+        "IsQuote": false,
+        "InsideAsk": 0.0,
+        "InsideAskSize": 0.0,
+        "InsideBid": 0.0,
+        "InsideBidSize": 0.0,
+        "LastTradePrice": 0.0,
+        "RejectReason": "",
+        "IsLockedIn": false,
+        "CancelReason": "",
+        "OMSId": 0
+    },
+]
+```
+
+The call **GetOrdersHistory** returns an array containing all four types of orders for the named account. The call returns an empty array if there are no orders for the account.
+
+| Key              | Value                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Side             | <p><strong>string.</strong> The side of a trade. One of:<br><strong>0</strong> Buy<br><strong>1</strong> Sell<br><strong>2</strong> Short<br><strong>3</strong> Unknown (an error condition)</p>                                                                                                                                                                                                                                                                                                                                                                 |
+| OrderId          | **long integer.** The ID of the open order. The _OrderID_ is unique in each Order Management System.                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Price            | **real.** The price at which the buy or sell has been ordered.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| Quantity         | **real.** The quantity of the product to be bought or sold.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| DisplayQuantity  | **real.** The quantity available to buy or sell that is publicly displayed to the market. To display a _displayQuantity_ value, an order must be a Limit order with a reserve.                                                                                                                                                                                                                                                                                                                                                                                   |
+| Instrument       | **integer.** ID of the instrument being traded. The call **GetInstruments** can supply the instrument IDs that are available.                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| orderType        | <p><strong>string.</strong> Describes the type of order this is. One of:<br><strong>0</strong> Unknown (an error condition)<br><strong>1</strong> Market order<br><strong>2</strong> Limit<br><strong>3</strong> StopMarket<br><strong>4</strong> StopLimit<br><strong>5</strong> TrailingStopMarket<br><strong>6</strong> TrailingStopLimit<br><strong>7</strong> BlockTrade</p>                                                                                                                                                                                |
+| ClientOrderId    | **long integer.** An ID supplied by the client to identify the order (like a purchase order number). The _ClientOrderId_ defaults to 0 if not supplied.                                                                                                                                                                                                                                                                                                                                                                                                          |
+| OrderState       | <p><strong>string.</strong> The current state of the order. One of:<br><strong>0</strong> Unknown<br><strong>1</strong> Working<br><strong>2</strong> Rejected<br><strong>3</strong> Canceled<br><strong>4</strong> Expired<br><strong>5</strong> Fully Executed.</p>                                                                                                                                                                                                                                                                                            |
+| ReceiveTime      | **long integer.** Time stamp of the order in POSIX format x 1000 (milliseconds since 1/1/1970 in UTC time zone).                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ReceiveTimeTicks | **long integer.** Time stamp of the order Microsoft Ticks format and UTC time zone. **Note:** Microsoft Ticks format is usually provided as a string. Here it is provided as a long integer.                                                                                                                                                                                                                                                                                                                                                                     |
+| OrigQuantity     | **real.** If the open order has been changed or partially filled, this value shows the original quantity of the order.                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| QuantityExecuted | **real.** If the open order has been at least partially executed, this value shows the amount that has been executed.                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| AvgPrice         | **real.** The average executed price for the instrument in the order.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| CounterPartyId   | **integer.** The ID of the other party in an off-market trade.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ChangeReason     | <p><strong>string.</strong> If the order has been changed, this string value holds the reason. One of:<br><strong>0</strong> Unknown<br><strong>1</strong> NewInputAccepted<br><strong>2</strong> NewInputRejected<br><strong>3</strong> OtherRejected<br><strong>4</strong> Expired<br><strong>5</strong> Trade<br><strong>6</strong> SystemCanceled_NoMoreMarket<br><strong>7</strong> SystemCanceled_BelowMinimum<br><strong>8</strong> SystemCanceled_PriceCollar<br><strong>9</strong> SystemCanceled_MarginFailed<br><strong>100</strong> UserModified</p> |
+| OrigOrderId      | **integer.** If the order has been changed, this is the ID of the original order.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| OrigClOrdId      | **integer.** If the order has been changed, this is the ID of the original client order ID.                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| EnteredBy        | **integer.** The user ID of the person who entered the order.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| IsQuote          | **Boolean.** If this order is a quote, the value for _IsQuote_ is _true,_ else _false._                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| InsideAsk        | **real.** If this order is a quote, this value is the Inside Ask price.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| InsideAskSize    | **real.** If this order is a quote, this value is the quantity of the Inside Ask quote.                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| InsideBid        | **real.** If this order is a quote, this value is the Inside Bid price.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| InsideBidSize    | **real.** If this order is a quote, this value is the quantity of the Inside Bid quote.                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| LastTradePrice   | **real.** The last price that this instrument traded at.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| RejectReason     | **string.** If this open order has been rejected, this string holds the reason for the rejection.                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| IsLockedIn       | **Boolean.** For a block trade, if both parties to the block trade agree that one of the parties will report the trade for both sides, this value is _true._ Othersise, _false._                                                                                                                                                                                                                                                                                                                                                                                 |
+| CancelReason     | **string.** If this order has been canceled, this string holds the cancelation reason.                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| OMSId            | **integer.** The ID of the Order Management System on which the order took place.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
