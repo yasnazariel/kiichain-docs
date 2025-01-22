@@ -238,7 +238,7 @@ kiichaind tx staking create-validator \
 
 * The transaction must be done on the machine running the node
   * An additional flag `--node` can be passed to point to an available RPC node
-* Further instruction on how to run a validator can be found at [Running a Validator](https://hub.cosmos.network/validators/validator-setup)
+* Further instruction on how to run a validator can be found at [Running a Validator](https://hub.cosmos.network/main/validators/validator-setup.html)
 
 ### Cosmosvisor
 
@@ -257,8 +257,8 @@ Further instruction on how to build a great node architecture can be found on:
 
 ## References
 
-* [Running a Validator](https://hub.cosmos.network/validators/validator-setup)
+* [Running a Validator](https://hub.cosmos.network/main/validators/validator-setup.html)
 * [Playbook For Cosmos Validators: Node Architecture Choices](https://medium.com/@kidinamoto/tech-choices-for-cosmos-validators-27c7242061ea)
 * [Cosmosvisor Quick Start](https://docs.cosmos.network/v0.45/run-node/cosmovisor.html)
-* [Join Testcorn](https://raw.githubusercontent.com/KiiChain/testnets/refs/heads/main/testnet_oro/join_oro.sh)
-* [Join Testcorn CV](https://raw.githubusercontent.com/KiiChain/testnets/refs/heads/main/testnet_oro/join_oro_cv.sh)
+* [Join Testnet Oro](https://raw.githubusercontent.com/KiiChain/testnets/refs/heads/main/testnet_oro/join_oro.sh)
+* [Join Testnet Oro CV](https://raw.githubusercontent.com/KiiChain/testnets/refs/heads/main/testnet_oro/join_oro_cv.sh)

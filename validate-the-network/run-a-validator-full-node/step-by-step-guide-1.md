@@ -102,7 +102,7 @@ kiichaind tx staking create-validator \
 
 _This is the Kiichain kiichain3 Testnet_
 
-> Genesis [Published](https://github.com/KiiChain/kiichain3/blob/main/remote/genesis.json)
+> Genesis [Published](https://raw.githubusercontent.com/KiiChain/testnets/refs/heads/main/testnet_oro/genesis.json)
 
 ### Hardware Requirements
 

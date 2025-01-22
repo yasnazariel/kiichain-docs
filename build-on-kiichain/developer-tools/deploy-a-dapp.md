@@ -218,8 +218,6 @@ To deploy your decentralized application (dApp) using Firebase Hosting, follow t
 
     <figure><img src="../../.gitbook/assets/image (24).png" alt="" width="375"><figcaption></figcaption></figure>
 
-    ![](https://prod-files-secure.s3.us-west-2.amazonaws.com/11aa0598-98a9-49c8-82e2-34cb3837755f/a76b85b9-1852-418b-aae9-70dea32cb801/image.png)
-
     * Click **"Continue"** once the project is ready.
 
     <figure><img src="../../.gitbook/assets/image (25).png" alt="" width="337"><figcaption></figcaption></figure>
