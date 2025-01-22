@@ -6,7 +6,7 @@
 
 Retrieves the status information for a single order.
 
-A user with Trading permission can retrieve status information for accounts and orders with which the user is associated; a user with Operator permission can retreive status information for any account or order ID.
+A user with Trading permission can retrieve status information for accounts and orders with which the user is associated; a user with Operator permission can retrieve status information for any account or order ID.
 
 #### Request <a href="#request" id="request"></a>
 

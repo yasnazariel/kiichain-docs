@@ -21,7 +21,7 @@ Emerging markets historically suffer from high inflation, high interest rates, a
 
 ### **Access to Institutional Liquidity & Credit**
 
-50% of individuals in emerging markets are underbanked and have extremely limited access to credit terms. The other 50% struggle with high banking costs and interest rates. Kii Global’s layer 1 with infrastructure for DeFi lending options mixed with the liquidity settlements of its centralized exchange is solving these problems.&#x20;
+50% of individuals in emerging markets are underbanked and have extremely limited access to credit terms. The other 50% struggle with high banking costs and interest rates. Kii Global layer 1 with infrastructure for DeFi lending options mixed with the liquidity settlements of its centralized exchange is solving these problems.&#x20;
 
 Through bridging the capital disparities between developed and emerging economies, the Kii ecosystem will support a wide range of DeFi lending protocols tailored for emerging markets in parallel with KIIEX’s open liquidity to centralized applications.&#x20;
 
@@ -35,17 +35,17 @@ Cosmos’ CometBFT can process roughly 10,000 transactions per second and is pre
 
 Cosmos based blockchains are built to deploy smart contracts written in Rust and deployed via CosmWasm. Although Rust is an advanced language of code with its benefits, there is a lack of real world developers who understand Rust, and companies who are looking to deploy their contracts with that language.&#x20;
 
-KiiChain has coded in the popular Solidity language for building and launching smart contracts, making KiiChain EVM compatible. Users can easily deploy their smart contracts, already written in Solidity, into the KiiChain. Kii Global has built an in-house dedicated team to help deploy user’s smart contracts within the blockchain. Companies looking for assistance on how to build smart contracts can rely on Kii Global’s developers for support and assistance when writing and deploying code.&#x20;
+KiiChain has coded in the popular Solidity language for building and launching smart contracts, making KiiChain EVM compatible. Users can easily deploy their smart contracts, already written in Solidity, into the KiiChain. Kii Global has built an in-house dedicated team to help deploy user’s smart contracts within the blockchain. Companies looking for assistance on how to build smart contracts can rely on Kii Global developers for support and assistance when writing and deploying code.&#x20;
 
 ### **The Best Cash Settlements in Latin America (LatAm)**
 
 Mainstream remittance and payment providers, tethered to archaic banking systems like ACH and SWIFT, grapple with inefficiencies, tardiness and inflated costs. Their modern counterparts, built on decentralized ledger tech, often falter at the “last mile”, rendering their P2P solutions uneconomical.
 
-Kii Global’s ecosystem offers a much better on-ramp and off-ramp than any other provider in LatAm. Typical on and off-ramp services have limits, delays, and generally are not a reliable way to onboard into crypto or to off-ramp into fiat. KIIEX is able to utilize the local financial infrastructure, because they have built relationships with the local banks, which makes their services low cost, reliable, and without long delays. A spotlight feature of the exchange is its emphasis on "last mile delivery," addressing the importance of deep liquidity pairs against local fiat and the efficient verticalization of its on/off ramp rails for less than 1% cost. This infrastructure helps onboard more web2 users into web3.&#x20;
+Kii Global ecosystem offers a much better on-ramp and off-ramp than any other provider in LatAm. Typical on and off-ramp services have limits, delays, and generally are not a reliable way to onboard into crypto or to off-ramp into fiat. KIIEX is able to utilize the local financial infrastructure, because they have built relationships with the local banks, which makes their services low cost, reliable, and without long delays. A spotlight feature of the exchange is its emphasis on "last mile delivery," addressing the importance of deep liquidity pairs against local fiat and the efficient verticalization of its on/off ramp rails for less than 1% cost. This infrastructure helps onboard more web2 users into web3.&#x20;
 
 ### **An Equitable Ecosystem Built for Latam**
 
-The Kii token and KiiChain gives a chance for Latam locals to participate in an ecosystem built just for them, and one they can own a piece of. Users can earn a return on their KII by staking it through validator nodes, and rewards are replenished with 5% of Kii Global’s cash flow. This gives every Latam person an opportunity to take part of a community and a company with a vision of equitable justice for all.
+The Kii token and KiiChain gives a chance for Latam locals to participate in an ecosystem built just for them, and one they can own a piece of. Users can earn a return on their KII by staking it through validator nodes, and rewards are replenished with 5% of Kii Global cash flow. This gives every Latam person an opportunity to take part of a community and a company with a vision of equitable justice for all.
 
 ### **A Compliant Ecosystem**
 

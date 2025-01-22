@@ -99,7 +99,7 @@ Then press “Compile” button under the Compiler selector.
 
 <figure><img src="../../.gitbook/assets/image (17) (1).png" alt="" width="320"><figcaption></figcaption></figure>
 
-#### 3. Select your Metamask wallet as Deploy’s environment
+#### 3. Select your Metamask wallet as Deploy environment
 
 In the “Deploy and Run Transactions” section, move to the Environment and select your Metamask Provider, remember you must be connected to KiiChain Testnet
 

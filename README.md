@@ -19,7 +19,7 @@ The Cosmos SDK is an open-source framework for building multi-asset public Proof
 
 ### Comet BFT & Tendermint Core
 
-Comet BFT (Byzantine Fault Tolerant) is the upgraded version of Tendermint Core, the Interchain’s consensus mechanism that powers Cosmos SDK blockchain systems. Comet BFT has a modular architecture that separates the consensus engine from the application layer, allowing developers to build custom blockchain applications easily. It offers fast transaction finality and high throughput, making it ideal for applications that require quick and reliable performance. Learn more about Comet BFT [here](https://cometbft.com/).
+Comet BFT (Byzantine Fault Tolerant) is the upgraded version of Tendermint Core, the Interchain's consensus mechanism that powers Cosmos SDK blockchain systems. Comet BFT has a modular architecture that separates the consensus engine from the application layer, allowing developers to build custom blockchain applications easily. It offers fast transaction finality and high throughput, making it ideal for applications that require quick and reliable performance. Learn more about Comet BFT [here](https://cometbft.com/).
 
 ### Proof-of-Stake
 

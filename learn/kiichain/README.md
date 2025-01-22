@@ -8,7 +8,7 @@ coverY: 0
 
 ### About KII
 
-A lot has transpired since Satoshi’s whitepaper announcing the arrival of Bitcoin in 2008 as Bitcoin has become the digital gold standard and is positioning itself as the reserve currency of the world. In 2013, Etherum established itself as the leader in layer 1 infrastructure, initiating the cycle of growth among web2 and web3 businesses. Since then, over 10,000 tokens have been publicly launched, each with their unique focus.
+A lot has transpired since Satoshi's whitepaper announcing the arrival of Bitcoin in 2008 as Bitcoin has become the digital gold standard and is positioning itself as the reserve currency of the world. In 2013, Ethereum established itself as the leader in layer 1 infrastructure, initiating the cycle of growth among web2 and web3 businesses. Since then, over 10,000 tokens have been publicly launched, each with their unique focus.
 
 The growth of each project has a common theme within the technology: Communication. Blockchain infrastructure connects users in ways never before, eliminating a centralized counterparty needed to facilitate that connection, and instead proposes changes to the architecture enabling decentralization as the preferred means of communication. Even though this change has prompted user adoption globally, there remains gaps in the technology that adjust to specific market and cultural conditions in emerging economies.
 

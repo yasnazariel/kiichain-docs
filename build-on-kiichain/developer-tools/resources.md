@@ -20,7 +20,7 @@ A python library created by fetchai.  Similar to CosmJS, this library handles co
 
 
 
-If adding a library in your dApp is not an option or you prefer not to use javascript/typescript or python, communicating via rpc endpoints is also possible. Kiichain’s validators expose rpc endpoints that dApp developers can utilize when building dApps. It is highly recommended  for dApp developers to bring up their own node in order to utilize these rpc endpoints (more information about setting up a node here: [https://kii-blockchain.gitbook.io/docs/validate-the-network/run-a-validator-full-node/getting-started](https://kii-blockchain.gitbook.io/docs/validate-the-network/run-a-validator-full-node/getting-started))
+If adding a library in your dApp is not an option or you prefer not to use javascript/typescript or python, communicating via rpc endpoints is also possible. Kiichain validators expose rpc endpoints that dApp developers can utilize when building dApps. It is highly recommended  for dApp developers to bring up their own node in order to utilize these rpc endpoints (more information about setting up a node here: [https://kii-blockchain.gitbook.io/docs/validate-the-network/run-a-validator-full-node/getting-started](https://kii-blockchain.gitbook.io/docs/validate-the-network/run-a-validator-full-node/getting-started))
 
 
 

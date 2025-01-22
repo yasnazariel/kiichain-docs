@@ -1,6 +1,6 @@
 ---
 description: >-
-  Kii Global’s activity will be driven through its suite of revenue generating
+  Kii Global activity will be driven through its suite of revenue generating
   products. We make this information clear so users can better understand our
   vision with our evergreen staking model.
 ---
@@ -29,4 +29,4 @@ Our footprint in the blockchain space hasn't gone unnoticed. By integrating KII'
 
 ### **Secondary Suite of Products**
 
-Apart from the main revenue streams, Kii Global’s roadmap entails launching a suite of banking-as-a-service products like cold storage processing cards which will further produce earnings for the company.&#x20;
+Apart from the main revenue streams, Kii Global roadmap entails launching a suite of banking-as-a-service products like cold storage processing cards which will further produce earnings for the company.&#x20;

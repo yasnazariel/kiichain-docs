@@ -27,7 +27,7 @@ Forget the agonizing wait of sluggish transaction confirmations. CometBFT's Byza
 
 _Security_
 
-CometBFT properties ensure that unless more than one-third of the network is compromised, your data is impenetrable. It's a bedrock promise of reliability, and it aligns perfectly with KiiChain’s commitment to robust security.
+CometBFT properties ensure that unless more than one-third of the network is compromised, your data is impenetrable. It's a bedrock promise of reliability, and it aligns perfectly with KiiChain's commitment to robust security.
 
 _Seamless Chain-to-Chain Interactions_
 

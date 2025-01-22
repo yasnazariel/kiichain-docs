@@ -30,4 +30,4 @@ Validate 2FA to get access to the 2FA required endpoints
 
 | Key              | Value                                                        |
 | ---------------- | ------------------------------------------------------------ |
-| TFaAuthenticated | **Boolean.** If authenticatation is successful, returns true |
+| TFaAuthenticated | **Boolean.** If authentication is successful, returns true |

@@ -30,7 +30,7 @@ Kii protocols can be found at these links:
 
 ## Endpoints
 
-Generally, our chains (tesnets and mainnet) follow the same set of endpoints. More information about our endpoints can be found here:
+Generally, our chains (testnets and mainnet) follow the same set of endpoints. More information about our endpoints can be found here:
 
 * [Endpoints](endpoints-cosmos/)
 

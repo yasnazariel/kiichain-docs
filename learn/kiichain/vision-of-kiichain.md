@@ -6,7 +6,7 @@ description: Our vision of what and why we are building relentlessly everyday.
 
 ### Why KII?
 
-While the cryptocurrency space is saturated with a myriad of options, Kii Global distinguishes itself through its profound commitment to societal betterment. Beyond the technical marvels and financial prospects, KiiChain’s ethos is rooted in fostering an accessible, and inclusive financial landscape, especially for the Latino community.&#x20;
+While the cryptocurrency space is saturated with a myriad of options, Kii Global distinguishes itself through its profound commitment to societal betterment. Beyond the technical marvels and financial prospects, KiiChain's ethos is rooted in fostering an accessible, and inclusive financial landscape, especially for the Latino community.&#x20;
 
 Currently, 50% of citizens in developing countries are unbanked, or underbanked. The main reason: their income isn’t sufficient enough to pay for the monthly costs associated with traditional financial services. As a result, these users, and many small businesses associated, lack access to basic financial services and credit lines.&#x20;
 

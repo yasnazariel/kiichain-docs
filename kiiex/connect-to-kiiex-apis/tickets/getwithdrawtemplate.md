@@ -25,7 +25,7 @@ The system "knows" which Account Provider's withdrawal template to return based 
 | OMSId             | **integer.** REQUIRED The ID of the Order Management System on which the withdrawal will be made. |
 | ProductId         | **integer.** REQUIRED The ID of the product (asset) about to be withdrawn.                        |
 | TemplateType      | **string.** REQUIRED The name of the withdrawal template you want to return.                      |
-| AccountId         | **integer.** OPTIONAL The ID of the account from which you plan to make the withrawal.            |
+| AccountId         | **integer.** OPTIONAL The ID of the account from which you plan to make the withdrawal.            |
 | AccountProviderId | **integer.** OPTIONAL The ID of the Account Provider you plan to use for the withdrawal.          |
 
 #### Response <a href="#response" id="response"></a>

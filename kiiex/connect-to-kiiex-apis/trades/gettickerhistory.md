@@ -24,7 +24,7 @@ Because permission is Public, any user can retrieve the ticker history for any i
 | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | InstrumentId | **integer.** The ID of a specific instrument. The current Order Management System is assumed.                                                                     |
 | Interval     | **integer.** The time between ticks, in seconds. For example, a value of 60 returns ticker array elements between _FromDate_ to _ToDate_ in 60-second increments. |
-| FromDate     | **string.** Oldest date from which the ticker history will start, in Micrisoft Ticks format. The report moves toward _ToDate_ from this point.                    |
+| FromDate     | **string.** Oldest date from which the ticker history will start, in Microsoft Ticks format. The report moves toward _ToDate_ from this point.                    |
 | ToDate       | **string.** Most recent date, at which the ticker history will end, in Microsoft Ticks format.                                                                    |
 | OMSId        | **integer.** The ID of the Order Management System where the ticker history comes from.                                                                           |
 
