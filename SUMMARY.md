@@ -64,6 +64,13 @@
 * [Getting Started](validate-the-network/getting-started/README.md)
   * [What is a delegator?](validate-the-network/getting-started/what-is-a-delegator.md)
   * [What is a validator?](validate-the-network/getting-started/what-is-a-validator.md)
+* [Run a Validator / Full Node](validate-the-network/run-a-validator-full-node/README.md)
+  * [Getting started](validate-the-network/run-a-validator-full-node/getting-started.md)
+  * [Step-by-Step Guide](validate-the-network/run-a-validator-full-node/step-by-step-guide.md)
+  * [Incentive](validate-the-network/run-a-validator-full-node/incentive.md)
+  * [Technical requirements](validate-the-network/run-a-validator-full-node/technical-requirements.md)
+  * [Validator Security](validate-the-network/run-a-validator-full-node/validator-security.md)
+  * [Step by step guide](validate-the-network/run-a-validator-full-node/step-by-step-guide-1.md)
 * [Economics](validate-the-network/economics/README.md)
   * [Staking Requirements](validate-the-network/economics/staking-requirements.md)
   * [Delegation / Staking](validate-the-network/economics/delegation-staking.md)
@@ -76,13 +83,6 @@
   * [Incentive to stake](validate-the-network/delegator-information/incentive-to-stake.md)
   * [Security considerations](validate-the-network/delegator-information/security-considerations.md)
   * [Risks to consider](validate-the-network/delegator-information/risks-to-consider.md)
-* [Run a Validator / Full Node](validate-the-network/run-a-validator-full-node/README.md)
-  * [Getting started](validate-the-network/run-a-validator-full-node/getting-started.md)
-  * [Step-by-Step Guide](validate-the-network/run-a-validator-full-node/step-by-step-guide.md)
-  * [Incentive](validate-the-network/run-a-validator-full-node/incentive.md)
-  * [Technical requirements](validate-the-network/run-a-validator-full-node/technical-requirements.md)
-  * [Validator Security](validate-the-network/run-a-validator-full-node/validator-security.md)
-  * [Step by step guide](validate-the-network/run-a-validator-full-node/step-by-step-guide-1.md)
 
 ## KIIEX
 

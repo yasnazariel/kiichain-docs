@@ -4,7 +4,7 @@ description: Everything you need to know  about our Testnet Oro
 
 # Testnet Oro
 
-KiiChain is a peer-to-peer decentralized EVM-compatible network built with the Cosmos SDK.  The public testnet is called KiiChain Testnet Oro.
+KiiChain is a peer-to-peer decentralized EVM-compatible network built with the Cosmos SDK. The public testnet is called KiiChain Testnet Oro.
 
 Testnet Oro is the permanent testnet with smart contract functionality and EVM compatibility. All Hackathons, Builds, Airdrops, and test deployments should be done on this network.
 
@@ -12,7 +12,6 @@ Testnet Oro is the permanent testnet with smart contract functionality and EVM c
 
 The source code for the Testnet Oro can be found at:
 
-<!-- markdown-link-check-disable -->
 * [Kiichain](https://github.com/KiiChain/kiichain)
 
 ## Endpoints
@@ -44,6 +43,12 @@ Here you can find further information about Testnet Oro:
 * **Token Denom:** `ukii`
 * **EVM Chain ID:** `1336`
 * **Bench32 Prefix:** `kii`
+
+## How to chain the network
+
+Instructions on how to join the network can be found at:
+
+* [Step-by-Step Guide](../validate-the-network/run-a-validator-full-node/step-by-step-guide.md)
 
 ## Faucet
 
@@ -91,8 +96,8 @@ kii123abc...
 0x123abc...
 ```
 
-## **Tokens**&#x20;
+## **Tokens**
 
-Kiichain Testnet Oro introduces a mirrored token system comprising uKII in both ERC and CW token standards. KiiChain is a Cosmos-based blockchain built with the Cosmos SDK, therefore, all functionalities will be based on CW tokens. ERC tokens are mirrored from the cosmos environment through precompiled smart contracts that give users and builders access to EVM infrastructure.&#x20;
+Kiichain Testnet Oro introduces a mirrored token system comprising uKII in both ERC and CW token standards. KiiChain is a Cosmos-based blockchain built with the Cosmos SDK, therefore, all functionalities will be based on CW tokens. ERC tokens are mirrored from the cosmos environment through precompiled smart contracts that give users and builders access to EVM infrastructure.
 
 KII serves as the primary utility token within the KiiChain ecosystem, facilitating transactions and powering network operations, notably through the payment of gas fees. Distinguished by its fungibility and interoperability, KII can be seamlessly transferred and utilized across various wallet providers, including popular EVM rpc-based options like MetaMask & Coinbase wallet and cosmos-based wallets like Keplr and Leap. By leveraging KII, users can engage in a diverse array of interactions within the KiiChain network, ranging from simple transactions to more complex smart contract executions, thereby driving the adoption and utility of the native token within the broader blockchain landscape.
