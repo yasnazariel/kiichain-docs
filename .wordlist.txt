@@ -209,7 +209,9 @@ OrderTrade
 StartTimeStamp
 io
 venueInstrumentId
+Satoshi's
 Satoshi’s
+Satoshis
 instrumentType
 gaiad
 lastTradeTime
@@ -414,6 +416,8 @@ IBC
 endTimeStamp
 withdrawType
 Kiichain’s
+KiiChain's
+KiiChains
 ExecutionId
 submittedByUserId
 ExternalAddress
@@ -622,6 +626,7 @@ GetAccountTransactions
 TimeStamp
 reaccepted
 Interchain’s
+Interchain's
 Denom
 reportOutputFilePathname
 AddInstrument
@@ -972,3 +977,9 @@ PriceCollar
 uno
 Kiiex
 Accesscontrol
+fractionalization
+Fractionalization
+verticalization
+cancelation
+delegator's
+lcd
