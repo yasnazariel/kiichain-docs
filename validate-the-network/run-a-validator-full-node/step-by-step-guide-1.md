@@ -8,8 +8,8 @@ hidden: true
 ## Run Single Local Node (Docker)
 
 ```
-git clone git@github.com:KiiChain/kiichain3.git
-cd kiichain3
+git clone git@github.com:KiiChain/kiichain.git
+cd kiichain
 ```
 
 ```
@@ -42,8 +42,8 @@ kiichaind # you should now see a list of all the sub commands that can be used w
 ### Step 1: Run Single Testnet Node (Docker)
 
 ```sh
-git clone git@github.com:KiiChain/kiichain3.git
-cd kiichain3
+git clone git@github.com:KiiChain/kiichain.git
+cd kiichain
 make run-rpc-node # this is to run a rpc node
 
 # once the container is running, verify that you can reach the rpc
@@ -73,7 +73,7 @@ kiichaind keys show <KEY NAME> -a
 
 ### Step 3: Get Testnet Tokens
 
-Go to the Kiichain discord channel and request for kiichain3 testnet tokens from the faucet.
+Go to the Kiichain discord channel and request for kiichain testnet tokens from the faucet.
 
 ### Step 4: Create a Validator Transaction
 
@@ -100,7 +100,7 @@ kiichaind tx staking create-validator \
 
 **How to validate on the Kiichain Testnet**
 
-_This is the Kiichain kiichain3 Testnet_
+_This is the Kiichain kiichain Testnet_
 
 > Genesis [Published](https://raw.githubusercontent.com/KiiChain/testnets/refs/heads/main/testnet_oro/genesis.json)
 

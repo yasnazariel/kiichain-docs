@@ -23,7 +23,7 @@ To install Kiichain, download the pre-built binaries:
 
 ```bash
 git clone https://github.com/KiiChain/kiichain.git
-cd kiichain3
+cd kiichain
 make install
 ```
 
