@@ -10,6 +10,7 @@ Oro Testnet is the final upgraded testnet before mainnet. Users and builders can
 
 For on-chain activities, activations, airdrops and more, join our open testnet here:&#x20;
 
+<!-- markdown-link-check-disable -->
 * [**Testnet Oro**](https://kiichain.io/testnet)
 
 ### Get a wallet in Testnet

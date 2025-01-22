@@ -12,6 +12,7 @@ Testnet Oro is the permanent testnet with smart contract functionality and EVM c
 
 The source code for the Testnet Oro can be found at:
 
+<!-- markdown-link-check-disable -->
 * [Kiichain3](https://github.com/KiiChain/kiichain)
 
 ## Endpoints
