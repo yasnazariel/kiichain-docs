@@ -52,7 +52,7 @@ The way best of preparing a node is using our scripts:
 * **Join Testnet Oro Script**: Use this script to quickly bootstrap a full node.
 
 ```bash
-curl -O https://raw.githubusercontent.com/KiiChain/testnets/refs/heads/master/testnet_oro/join_oro.sh
+curl -O https://raw.githubusercontent.com/KiiChain/testnets/refs/heads/main/testnet_oro/join_oro.sh
 chmod +x join_oro.sh
 ./join_oro.sh
 ```
@@ -60,7 +60,7 @@ chmod +x join_oro.sh
 * **Join Testnet with Cosmosvisor Script**: Use this script to set up a full node with Cosmosvisor for automated upgrades
 
 ```bash
-curl -O https://raw.githubusercontent.com/KiiChain/testnets/refs/heads/master/testnet_oro/join_oro_cv.sh
+curl -O https://raw.githubusercontent.com/KiiChain/testnets/refs/heads/main/testnet_oro/join_oro_cv.sh
 chmod +x join_oro_cv.sh
 ./join_oro_cv.sh
 ```
@@ -147,8 +147,6 @@ fi
 # Get the sync block hash
 SYNC_BLOCK_HASH=$(curl -s "https://rpc.uno.sentry.testnet.v3.kiivalidator.com/block?height=$SYNC_BLOCK_HEIGHT" | jq -r ".block_id.hash")
 ```
-
-
 
 2. Enable State Sync in Configuration
 
