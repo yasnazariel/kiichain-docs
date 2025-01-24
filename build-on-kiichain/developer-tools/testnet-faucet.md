@@ -10,7 +10,7 @@ Testnet participation is a great way to signal to the community that you are rea
 
 Important to create your web wallet first and then link to the explorer app.&#x20;
 
-* [Testnet explorer app](https://app.kiichain.io/kiichain)
+* [Testnet explorer app](https://app.kiichain.io/faucet)
 
 Testnet KII can be found in the faucet in Discord and on our Explorer App. It can be called on every 24 hours.
 

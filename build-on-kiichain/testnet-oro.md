@@ -54,7 +54,7 @@ Instructions on how to join the network can be found at:
 
 You can get tokens to our Testnet Oro by using our Explorer app:
 
-* [KiiChain Explorer Faucet](https://app.kiichain.io/wallet/accounts)
+* [KiiChain Explorer Faucet](https://app.kiichain.io/faucet)
 
 Our through our Discord channel:
 
@@ -68,7 +68,7 @@ More information about how to use our discord Faucet can be found at:
 
 The testnet Oro also has its own Explorer, it can be found here:
 
-* [Testnet Oro Explorer](https://app.kiichain.io/Testnet%20Oro)
+* [Testnet Oro Explorer](https://app.kiichain.io)
 
 ## Developer Tools
 
