@@ -97,8 +97,8 @@ GENESIS_URL=https://raw.githubusercontent.com/KiiChain/testnets/refs/heads/main/
 # Initialize the chain
 kiichaind init $NODE_MONIKER --chain-id $CHAIN_ID --home $NODE_HOME
 
-# Set the PERSISTENT_PEERS
-sed -i -e "/persistent_peers =/ s^= .*^= \"$PERSISTENT_PEERS\"^" $NODE_HOME/config/config.toml
+# Set the persistent-peers
+sed -i -e "/persistent-peers =/ s^= .*^= \"$PERSISTENT_PEERS\"^" $NODE_HOME/config/config.toml
 
 # Set the genesis
 wget $GENESIS_URL -O genesis.json
@@ -233,11 +233,13 @@ kiichaind tx staking create-validator \
   --from=$VALIDATOR_KEY_NAME
 ```
 
-\==NOTE==:
+{% hint style="warning" %}
+The transaction must be done on the machine running the node
 
-* The transaction must be done on the machine running the node
-  * An additional flag `--node` can be passed to point to an available RPC node
-* Further instruction on how to run a validator can be found at [Running a Validator](https://hub.cosmos.network/main/validators/validator-setup.html)
+* An additional flag `--node` can be passed to point to an available RPC node
+{% endhint %}
+
+Further instruction on how to run a validator can be found at [Running a Validator](https://hub.cosmos.network/main/validators/validator-setup.html).
 
 ### Cosmosvisor
 
