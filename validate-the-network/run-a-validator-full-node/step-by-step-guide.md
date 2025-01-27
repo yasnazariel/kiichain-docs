@@ -14,8 +14,12 @@ This will guide you through the process of running your own node and becoming a 
 
 ### Requirements
 
-* Golang v1.22 linux/amd64
-* Linux build-essential
+* **Golang version:** `v1.21.x` or `v1.22.x`
+* **Build tools:** `build-essential` package (Linux)
+
+{% hint style="warning" %}
+Using Golang `v1.23.x` or higher will result in compilation errors. Please ensure you install an appropriate version.
+{% endhint %}
 
 ### Binary installation
 
@@ -47,9 +51,13 @@ For optimal performance, we recommend:
 
 ### Quick bootstrap
 
-The way best of preparing a node is using our scripts:
+The easiest way to prepare a node is by using our provided scripts.
 
-* **Join Testnet Oro Script**: Use this script to quickly bootstrap a full node.
+{% hint style="info" %}
+These scripts are designed for systems running **Ubuntu 20.04** or **Ubuntu 22.04**. Ensure your operating system matches this requirement before proceeding.
+{% endhint %}
+
+* **Join Testnet Oro Script**: Use this script to bootstrap a full node quickly.
 
 ```bash
 curl -O https://raw.githubusercontent.com/KiiChain/testnets/refs/heads/main/testnet_oro/join_oro.sh
