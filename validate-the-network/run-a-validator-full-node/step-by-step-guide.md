@@ -100,13 +100,6 @@ kiichaind init $NODE_MONIKER --chain-id $CHAIN_ID --home $NODE_HOME
 # Set the PERSISTENT_PEERS
 sed -i -e "/persistent_peers =/ s^= .*^= \"$PERSISTENT_PEERS\"^" $NODE_HOME/config/config.toml
 
-# Set the block time to 3 seconds
-sed -i 's/unsafe-propose-timeout-override = .*/unsafe-propose-timeout-override = "3s"/g' $NODE_HOME/config/config.toml
-sed -i 's/unsafe-propose-timeout-delta-override = .*/unsafe-propose-timeout-delta-override = "500ms"/g' $NODE_HOME/config/config.toml
-sed -i 's/unsafe-vote-timeout-override = .*/unsafe-vote-timeout-override = "1s"/g' $NODE_HOME/config/config.toml
-sed -i 's/unsafe-vote-timeout-delta-override = .*/unsafe-vote-timeout-delta-override = "500ms"/g' $NODE_HOME/config/config.toml
-sed -i 's/unsafe-commit-timeout-override = .*/unsafe-commit-timeout-override = "3s"/g' $NODE_HOME/config/config.toml
-
 # Set the genesis
 wget $GENESIS_URL -O genesis.json
 mv genesis.json $NODE_HOME/config/genesis.json
@@ -123,9 +116,9 @@ sha256sum $NODE_HOME/config/genesis.json
 
 The expected SHA256 checksum is: `e22442f19149db7658bcf777d086b52b38d834ea17010c313cd8aece137b647a`
 
-\==NOTE==:
-
-* This configuration runs a full node. For validators, update the configuration accordingly.
+{% hint style="warning" %}
+This configuration runs a full node. For validators, update the configuration accordingly:
+{% endhint %}
 
 ```bash
 # Set the node as validator
