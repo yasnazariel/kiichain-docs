@@ -38,7 +38,7 @@ Currently, there are no seed nodes or persistent peers available to the public.
 
 Here you can find further information about Testnet Oro:
 
-* **Chain ID:** `kiichain`
+* **Chain ID:** `kiichain3`
 * **Total Supply:** `1.8b Kii`
 * **Token Denom:** `ukii`
 * **EVM Chain ID:** `1336`
