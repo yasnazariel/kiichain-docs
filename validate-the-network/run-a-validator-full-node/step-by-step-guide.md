@@ -171,7 +171,7 @@ sed -i.bak -e "s|^trust-hash *=.*|trust-hash = \"$SYNC_BLOCK_HASH\"|" $NODE_HOME
 
 Validators are the main responsible of validating and committing blocks. The main advantages of becoming a validator are:
 
-* Fees: Each transaction has fees, and validators are the main entry points of fee distribution. And due to his help on decentralization, part of the fee is exclusive for validators.
+* **Fees.** Each transaction has fees, and validators are the main entry points of fee distribution. And due to his help on decentralization, part of the fee is exclusive for validators.
 
 ### Creating a validator
 
@@ -245,7 +245,7 @@ The transaction must be done on the machine running the node
 * An additional flag `--node` can be passed to point to an available RPC node
 {% endhint %}
 
-Further instruction on how to run a validator can be found at [Running a Validator](https://hub.cosmos.network/main/validators/validator-setup.html).
+Further instructions on how to run a validator can be found at [Running a Validator](https://hub.cosmos.network/main/validators/validator-setup.html).
 
 ### Cosmosvisor
 

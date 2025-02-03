@@ -67,6 +67,7 @@
 * [Run a Validator / Full Node](validate-the-network/run-a-validator-full-node/README.md)
   * [Getting started](validate-the-network/run-a-validator-full-node/getting-started.md)
   * [Step-by-Step Guide](validate-the-network/run-a-validator-full-node/step-by-step-guide.md)
+  * [Maintaining a validator](validate-the-network/run-a-validator-full-node/maintaining-a-validator.md)
   * [Incentive](validate-the-network/run-a-validator-full-node/incentive.md)
   * [Technical requirements](validate-the-network/run-a-validator-full-node/technical-requirements.md)
   * [Validator Security](validate-the-network/run-a-validator-full-node/validator-security.md)
