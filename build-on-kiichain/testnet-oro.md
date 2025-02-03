@@ -22,6 +22,7 @@ Testnet Oro has the following endpoints open for development purposes:
 
 * **RPC:** [https://rpc.uno.sentry.testnet.v3.kiivalidator.com/](https://rpc.dos.sentry.testnet.v3.kiivalidator.com/)
 * **Rest (LCD):** [https://lcd.uno.sentry.testnet.v3.kiivalidator.com/](https://lcd.dos.sentry.testnet.v3.kiivalidator.com/)
+* **GRPC:** grpc.uno.sentry.testnet.v3.kiivalidator.com:443
 * **JSON-RPC (EVM):** [https://json-rpc.uno.sentry.testnet.v3.kiivalidator.com/](https://json-rpc.dos.sentry.testnet.v3.kiivalidator.com/)
 * **Peer:** 5b6aa55124c0fd28e47d7da091a69973964a9fe1@uno.sentry.testnet.v3.kiivalidator.com:26656
 
@@ -29,6 +30,7 @@ Testnet Oro has the following endpoints open for development purposes:
 
 * **RPC:** [https://rpc.dos.sentry.testnet.v3.kiivalidator.com/](https://rpc.dos.sentry.testnet.v3.kiivalidator.com/)
 * **Rest (LCD):** [https://lcd.dos.sentry.testnet.v3.kiivalidator.com/](https://lcd.dos.sentry.testnet.v3.kiivalidator.com/)
+* **GRPC:** grpc.dos.sentry.testnet.v3.kiivalidator.com:443
 * **JSON-RPC (EVM):** [https://json-rpc.dos.sentry.testnet.v3.kiivalidator.com/](https://json-rpc.dos.sentry.testnet.v3.kiivalidator.com/)
 * **Peer:** 5e6b283c8879e8d1b0866bda20949f9886aff967@dos.sentry.testnet.v3.kiivalidator.com:26656
 
