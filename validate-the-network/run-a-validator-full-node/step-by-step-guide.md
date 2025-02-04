@@ -226,7 +226,7 @@ COMMISSION_RATE=0.1
 MIN_SELF_DELEGATION_AMOUNT=1000000000
 
 kiichaind tx staking create-validator \
-  --amount=$AMOUNTukii \
+  --amount=$AMOUNT \
   --pubkey=$(kiichaind tendermint show-validator) \
   --moniker=$MONIKER \
   --chain-id=$CHAIN_ID \
@@ -235,6 +235,7 @@ kiichaind tx staking create-validator \
   --commission-max-change-rate=$COMMISSION_MAX_CHANGE_RATE \
   --min-self-delegation=$MIN_SELF_DELEGATION_AMOUNT \
   --gas="auto" \
+  --gas-adjustment 1.3 \
   --gas-prices="0.01ukii" \
   --from=$VALIDATOR_KEY_NAME
 ```
