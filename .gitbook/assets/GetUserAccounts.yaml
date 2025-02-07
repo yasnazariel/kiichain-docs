@@ -1,0 +1,43 @@
+openapi: 3.0.0
+info:
+  title: Get User Accounts
+  description: Returns a list of account IDs for a given user.
+  version: 1.0.0
+paths:
+  GetUserAccounts: # Or a more suitable path
+    get:
+      summary: Get User Account IDs
+      tags:
+        - User
+      parameters:
+        - in: query
+          name: omsId
+          schema:
+            type: integer
+          description: The Order Management System ID.
+          required: true
+        - in: query
+          name: userId
+          schema:
+            type: integer
+          description: The ID of the user.
+          required: true
+        - in: query
+          name: userName
+          schema:
+            type: string
+          description: The name of the user.
+          required: true
+      responses:
+        "200":
+          description: Successful retrieval of user account IDs.
+          content:
+            application/json:
+              schema:
+                type: array # Response is a JSON array
+                items:
+                  type: integer # Each item in the array is an integer (account ID)
+              example:
+                - 123
+                - 456
+                - 789

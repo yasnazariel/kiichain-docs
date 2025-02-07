@@ -1,0 +1,49 @@
+openapi: 3.0.0
+info:
+  title: Get All Account Configs
+  description: Retrieves a list of key/value pairs for a given key across all accounts.
+  version: 1.0.0
+paths:
+  GetAllAccountConfigs: # More descriptive path
+    get: # Retrieving data uses GET
+      summary: Get All Account Configs
+      tags:
+        - System
+      parameters:
+        - in: query
+          name: key
+          schema:
+            type: string
+          description: The key to retrieve.
+          required: true
+      responses:
+        "200":
+          description: Successful retrieval of account configs.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/AccountConfig"
+components:
+  schemas:
+    AccountConfig:
+      type: object
+      properties:
+        AccountId:
+          type: integer
+          description: The ID of the account.
+        Key:
+          type: string
+          description: The config key.
+        Value:
+          type: string
+          description: The config value.
+      required: # List all required fields
+        - AccountId
+        - Key
+        - Value
+      example:
+        AccountId: 0
+        Key: "Config1"
+        Value: "Config1Val"

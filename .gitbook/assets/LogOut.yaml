@@ -1,0 +1,62 @@
+openapi: 3.0.0
+info:
+  title: Log Out
+  description: Ends the current websocket session.
+  version: 1.0.0
+paths:
+  LogOut:  # Or a more suitable path
+    post: # Logout is typically a POST operation
+      summary: Log Out
+      tags:
+        - Authentication
+      responses:
+        '200':
+          description: Successful logout.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: True for successful logout, false for error.
+                  errormsg:
+                    type: string
+                    nullable: true # Can be null
+                    description: Error message (null for success).
+                  errorcode:
+                    type: integer
+                    description: Error code (0 for success).
+                  detail:
+                    type: string
+                    nullable: true # Can be null
+                    description: Additional details (usually null).
+              example:
+                result: true
+                errormsg: null
+                errorcode: 0
+                detail: null
+        '400': # Example of a 400 response for an error
+          description: Unsuccessful logout.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    example: false
+                  errormsg:
+                    type: string
+                    example: "Not Authorized"
+                  errorcode:
+                    type: integer
+                    example: 20
+                  detail:
+                    type: string
+                    nullable: true
+              example:
+                result: false
+                errormsg: "Not Authorized"
+                errorcode: 20
+                detail: null

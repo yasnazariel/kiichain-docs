@@ -1,0 +1,87 @@
+openapi: 3.0.0
+info:
+  title: Get User Report Writer Result Records
+  description: Returns an array of user report writer results.
+  version: 1.0.0
+paths:
+  GetUserReportWriterResultRecords: # Or a more suitable path
+    get:
+      summary: Get User Report Writer Result Records
+      tags:
+        - User
+      parameters:
+        - in: query
+          name: userId
+          schema:
+            type: integer
+          description: The ID of the user.
+          required: true
+        - in: query
+          name: depth
+          schema:
+            type: integer
+          description: The count of records to return. Defaults to 50.
+        - in: query
+          name: startIndex
+          schema:
+            type: integer
+          description: The record number to start returning records from. Defaults to 0.
+      responses:
+        "200":
+          description: Successful retrieval of user report writer result records.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    RequestingUser:
+                      type: integer
+                      description: ID of the user requesting the records.
+                    urtTicketId:
+                      type: string
+                      description: The unique report ID.
+                    descriptorId:
+                      type: string
+                      description: A GUID describing the report.
+                    resultStatus:
+                      type: string
+                      enum: # Use enum for the status values
+                        - NotStarted
+                        - NotComplete
+                        - ErrorComplete
+                        - SuccessComplete
+                        - Cancelled
+                      description: The status of the report run.
+                    reportExecutionStartTime:
+                      type: string
+                      format: date-time # Use date-time format
+                      description: The report execution start time.
+                    reportExecutionCompleteTime:
+                      type: string
+                      format: date-time # Use date-time format
+                      description: The report execution complete time.
+                    reportOutputFilePathname:
+                      type: string
+                      description: The pathname of the report output file.
+                    reportDescriptiveHeader:
+                      type: string
+                      description: A string describing the report.
+              example:
+                - RequestingUser: 1
+                  urtTicketId: "mGzjUfylGEmqgJIxu651aQ=="
+                  descriptorId: "47TlpPQyTkKR4LKl9Hy1yA=="
+                  resultStatus: "SuccessComplete"
+                  reportExecutionStartTime: "2018-08-17T17:57:56Z"
+                  reportExecutionCompleteTime: "2018-08-17T17:57:57Z"
+                  reportOutputFilePathname: ""
+                  reportDescriptiveHeader: "TradeActivity|onDemand|2018-08-10T04:00:00.000Z|2018-08-10T05:00:00.000Z|2018-08-17T17:57:51.852Z|2018-08-17T17:57:56.840Z|0.19634 seconds"
+                - RequestingUser: 2 # Example of a second record
+                  urtTicketId: "anotherTicketId"
+                  descriptorId: "anotherDescriptorId"
+                  resultStatus: "NotComplete"
+                  reportExecutionStartTime: "2024-10-27T10:00:00Z" # Example date-time
+                  reportExecutionCompleteTime: null # Or a date-time if completed
+                  reportOutputFilePathname: "/path/to/report.csv"
+                  reportDescriptiveHeader: "SomeReport|Daily|..."

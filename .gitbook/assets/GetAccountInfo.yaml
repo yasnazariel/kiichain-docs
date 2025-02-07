@@ -1,0 +1,177 @@
+openapi: 3.0.0
+info:
+  title: Get Account Info
+  description: Returns detailed information about a specific account.
+  version: 1.0.0
+paths:
+  GetAccountInfo:
+    get: # Getting account info typically uses GET
+      summary: Get Account Information
+      tags:
+        - User
+      parameters: # Use query parameters for GET requests
+        - in: query
+          name: omsId
+          schema:
+            type: integer
+          description: The ID of the Order Management System.
+          required: true
+        - in: query
+          name: accountId
+          schema:
+            type: integer
+          description: The ID of the account.
+          required: true
+      responses:
+        "200":
+          description: Successful retrieval of account information.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AccountInfo"
+        # Add other responses as needed (e.g., 404 for not found)
+components:
+  schemas:
+    AccountInfo:
+      type: object
+      properties:
+        omsid:
+          type: integer
+          description: The ID of the Order Management System.
+        accountId:
+          type: integer
+          description: The ID of the account.
+        accountName:
+          type: string
+          description: Account name.
+        accountHandle:
+          type: string
+          description: Unique account handle.
+        firmId:
+          type: string
+          description: Firm ID.
+        firmName:
+          type: string
+          description: Firm name.
+        accountType:
+          type: object
+          properties:
+            Options:
+              type: array
+              items:
+                type: string
+                enum:
+                  - Asset
+                  - Liability
+                  - ProfitLoss
+          description: Type of account.
+        feeGroupID:
+          type: integer
+          description: Fee group ID.
+        parentID:
+          type: integer
+          description: Parent ID (reserved for future use).
+        riskType:
+          type: object
+          properties:
+            Options:
+              type: array
+              items:
+                type: string
+                enum:
+                  - Unknown
+                  - Normal
+                  - NoRiskCheck
+                  - NoTrading
+          description: Risk type.
+        verificationLevel:
+          type: integer
+          description: Verification level.
+        feeProductType:
+          type: object
+          properties:
+            Options:
+              type: array
+              items:
+                type: string
+                enum:
+                  - BaseProduct
+                  - SingleProduct
+          description: Fee product type.
+        feeProduct:
+          type: integer
+          description: Fee product ID.
+        refererId:
+          type: integer
+          description: Referer ID.
+        loyaltyProductId:
+          type: integer
+          description: Loyalty product ID.
+        loyaltyEnabled:
+          type: boolean
+          description: Is loyalty enabled?
+        marginEnabled:
+          type: boolean
+          description: Is margin enabled?
+        liabilityAccountId:
+          type: integer
+          description: Liability account ID.
+        lendingAccountId:
+          type: integer
+          description: Lending account ID.
+        profitLossAccountId:
+          type: integer
+          description: Profit/loss account ID.
+        frozen:
+          type: boolean
+          description: Is the account frozen?
+      required: # Add all required fields here
+        - omsid
+        - accountId
+        - accountName
+        - accountHandle
+        - firmId
+        - firmName
+        - accountType
+        - feeGroupID
+        - parentID
+        - riskType
+        - verificationLevel
+        - feeProductType
+        - feeProduct
+        - refererId
+        - loyaltyProductId
+        - loyaltyEnabled
+        - marginEnabled
+        - liabilityAccountId
+        - lendingAccountId
+        - profitLossAccountId
+        - frozen
+      example:
+        omsid: 0
+        accountId: 0
+        accountName: ""
+        accountHandle: ""
+        firmId: ""
+        firmName: ""
+        accountType:
+          Options:
+            - Asset
+        feeGroupID: 0
+        parentID: 0
+        riskType:
+          Options:
+            - Normal
+        verificationLevel: 0
+        feeProductType:
+          Options:
+            - BaseProduct
+        feeProduct: 0
+        refererId: 0
+        loyaltyProductId: 0
+        loyaltyEnabled: false
+        marginEnabled: false
+        liabilityAccountId: 0
+        lendingAccountId: 0
+        profitLossAccountId: 0
+        frozen: false

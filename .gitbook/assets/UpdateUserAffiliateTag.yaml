@@ -1,0 +1,76 @@
+openapi: 3.0.0
+info:
+  title: Update User Affiliate Tag
+  description: Updates the user affiliate tag.
+  version: 1.0.0
+paths:
+  UpdateUserAffiliateTag: # A descriptive path
+    post: # Updating data typically uses POST
+      summary: Update User Affiliate Tag
+      tags:
+        - User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                omsId:
+                  type: integer
+                  description: The ID of the Order Management System.
+                userId:
+                  type: integer
+                  description: The ID of the user.
+                affiliateId:
+                  type: integer
+                  description: The ID of the affiliate.
+                affiliateTag:
+                  type: string
+                  description: The alphanumeric affiliate tag.
+              required: # List all required fields
+                - omsId
+                - userId
+                - affiliateId
+                - affiliateTag
+            example:
+              omsId: 0
+              userId: 0
+              affiliateId: 0
+              affiliateTag: "someAffiliateTag"
+      responses:
+        "200":
+          description: Successful update.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UpdateAffiliateTagResponse"
+        "400": # Example of a 400 response for an error
+          description: Unsuccessful update.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UpdateAffiliateTagResponse"
+components:
+  schemas:
+    UpdateAffiliateTagResponse:
+      type: object
+      properties:
+        result:
+          type: boolean
+          description: True for success, false for failure.
+        errormsg:
+          type: string
+          nullable: true
+          description: Error message (null for success).
+        errorcode:
+          type: integer
+          description: Error code (0 for success).
+        detail:
+          type: string
+          nullable: true
+          description: Additional details (usually null).
+      example:
+        result: true
+        errormsg: "" # Or null if the API actually returns null
+        errorcode: 0
+        detail: "" # Or null if the API actually returns null

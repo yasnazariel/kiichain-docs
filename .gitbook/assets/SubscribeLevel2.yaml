@@ -1,0 +1,73 @@
+openapi: 3.0.0
+info:
+  title: Subscribe Level 2
+  description: Retrieves Level 2 ticker information and subscribes to market data updates.
+  version: 1.0.0
+paths:
+  SubscribeLevel2:
+    post:
+      summary: Subscribe Level 2 Market Data
+      tags:
+        - User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - type: object
+                  properties:
+                    OMSId:
+                      type: integer
+                    InstrumentId:
+                      type: integer
+                    Depth:
+                      type: integer
+                  required:
+                    - OMSId
+                    - InstrumentId
+                    - Depth
+                - type: object
+                  properties:
+                    OMSId:
+                      type: integer
+                    Symbol:
+                      type: string
+                    Depth:
+                      type: integer
+                  required:
+                    - OMSId
+                    - Symbol
+                    - Depth
+            example:
+              OMSId: 1
+              InstrumentId: 0
+              Depth: 10 # Or: {"OMSId": 1, "Symbol": "BTCUSD", "Depth": 10}
+      responses:
+        "200":
+          description: Successful subscription and initial Level 2 data.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Level2Data"
+      description: |
+        Retrieves the latest Level 2 Ticker information and then subscribes the user to Level 2 market data event updates for one specific instrument. See the [Level 2 Data Schema](#components-schemas-Level2Data) for details. The updates are sent asynchronously. Use the `/market-data/unsubscribe-level2` endpoint to unsubscribe.
+
+components:
+  schemas:
+    Level2Data:
+      type: array
+      items:
+        type: array
+        items: # Define the type of each element in the inner array
+          oneOf:
+            - type: integer
+            - type: number
+              format: float
+            - type: string # If any element is a string
+      example:
+        - [0, 1, 1534862990343, 0, 0.0, 0, 0.0, 0, 0.0, 0]
+        - [1, 1, 1534862990344, 1, 100.0, 1, 6423.50, 47, 1.0, 0]
+        - [2, 1, 1534862990345, 2, 0.0, 0, 6423.60, 47, 0.5, 1]
+        # ... more entries up to the specified "Depth"

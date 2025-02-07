@@ -1,0 +1,47 @@
+openapi: 3.0.0
+info:
+  title: Get User Config
+  description: Returns an array of configuration key-value pairs for the specified user.
+  version: 1.0.0
+paths:
+  GetUserConfig: # Or a more suitable path
+    get:
+      summary: Get User Configuration
+      tags:
+        - System
+      parameters:
+        - in: query
+          name: userId
+          schema:
+            type: integer
+          description: The ID of the user.
+          required: true
+        - in: query
+          name: userName
+          schema:
+            type: string
+          description: The user name of the user.
+          required: true
+      responses:
+        "200":
+          description: Successful retrieval of user configuration.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    Key:
+                      type: string
+                      description: The configuration key.
+                    Value:
+                      type: string
+                      description: The configuration value.
+              example:
+                - Key: "Config1"
+                  Value: "Config1Val"
+                - Key: "Setting2" # Example of a second key-value pair
+                  Value: "Value2"
+                - Key: "API_KEY"
+                  Value: "REDACTED_API_KEY" # Example of a redacted value

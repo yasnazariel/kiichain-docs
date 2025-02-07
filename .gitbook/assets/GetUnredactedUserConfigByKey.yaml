@@ -1,0 +1,49 @@
+openapi: 3.0.0
+info:
+  title: Get Unredacted User Config By Key
+  description: Gets an unredacted config for a user config by key.
+  version: 1.0.0
+paths:
+  GetUnredactedUserConfigByKey:
+    get:
+      summary: Get Unredacted User Config By Key
+      tags:
+        - System
+      parameters:
+        - in: query
+          name: userId
+          schema:
+            type: integer
+          description: The ID of the user.
+          required: true
+        - in: query
+          name: userName
+          schema:
+            type: string
+          description: The user name of the user.
+          required: true
+        - in: query
+          name: key
+          schema:
+            type: string
+          description: The specific configuration key to retrieve.
+          required: true
+      responses:
+        "200":
+          description: Successful retrieval of unredacted user configuration by key.
+          content:
+            application/json:
+              schema:
+                type: array # Still an array, even if only one item is expected
+                items:
+                  type: object
+                  properties:
+                    Key:
+                      type: string
+                      description: The configuration key.
+                    Value:
+                      type: string
+                      description: The configuration value.
+              example:
+                - Key: "Config1"
+                  Value: "Config1Val"

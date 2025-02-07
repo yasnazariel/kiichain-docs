@@ -1,0 +1,190 @@
+openapi: 3.0.0
+info:
+  title: Schedule Trade Activity Report
+  description: Schedules a series of trade activity reports.
+  version: 1.0.0
+paths:
+  ScheduleTradeActivityReport:
+    post:
+      summary: Schedule Trade Activity Report
+      tags:
+        - User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                frequency:
+                  type: object
+                  properties:
+                    Options:
+                      type: array
+                      items:
+                        type: string
+                        enum:
+                          - OnDemand
+                          - Hourly
+                          - Daily
+                          - Weekly
+                          - Monthly
+                          - Annual
+                  description: Report frequency.
+                accountIdList:
+                  type: array
+                  items:
+                    type: integer
+                  description: Array of account IDs.
+                omsId:
+                  type: integer
+                  description: The ID of the Order Management System.
+                beginTime:
+                  type: string
+                  format: date-time # ISO 8601 format
+                  description: Start time for the reports.
+                intervalDuration:
+                  type: integer
+                  description: Report interval duration in days.
+              required:
+                - frequency
+                - accountIdList
+                - omsId
+                - beginTime
+                - intervalDuration
+            example:
+              frequency:
+                Options:
+                  - Daily
+              accountIdList: [1]
+              omsId: 1
+              beginTime: "2018-08-10T04:00:00.000Z"
+              intervalDuration: 10
+      responses:
+        "200":
+          description: Successful report scheduling request.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ScheduledTradeActivityReportResponse"
+        # Add other responses as needed (e.g., 400 for bad request)
+components:
+  schemas:
+    ScheduledTradeActivityReportResponse:
+      type: object
+      properties:
+        RequestingUser:
+          type: integer
+          description: User ID of the requester.
+        OMSId:
+          type: integer
+          description: The ID of the Order Management System.
+        reportFlavor:
+          type: object
+          properties:
+            Options:
+              type: array
+              items:
+                type: string
+                enum:
+                  - TradeActivity
+                  - Transaction
+                  - Treasury
+          description: Type of report.
+        createTime:
+          type: string
+          format: date-time # ISO 8601 format
+          description: Request creation time.
+        initialRunTime:
+          type: string
+          format: date-time # ISO 8601 format
+          description: Initial run time.
+        intervalStartTime:
+          type: string
+          format: date-time # ISO 8601 format
+          description: Report interval start time.
+        intervalEndTime:
+          type: string
+          format: date-time # ISO 8601 format
+          description: Report interval end time.
+        RequestStatus:
+          type: object
+          properties:
+            Options:
+              type: array
+              items:
+                type: string
+                enum:
+                  - Submitted
+                  - Validating
+                  - Scheduled
+                  - InProgress
+                  - Completed
+                  - Aborting
+                  - Aborted
+                  - UserCancelled
+                  - SysRetired
+                  - UserCancelledPending
+          description: Status of the report request.
+        ReportFrequency:
+          type: object
+          properties:
+            Options:
+              type: array
+              items:
+                type: string
+                enum:
+                  - onDemand
+                  - Hourly
+                  - Daily
+                  - Weekly
+                  - Monthly
+                  - Annually
+          description: Report frequency.
+        intervalDuration:
+          type: integer # Or number, format: int64 if it's a long integer.
+          description: Report interval duration in milliseconds.
+        RequestId:
+          type: string
+          description: Request ID.
+        lastInstanceId:
+          type: string
+          nullable: true
+          description: Last instance ID (for scheduled reports).
+        accountIds:
+          type: array
+          items:
+            type: integer
+          description: Array of account IDs.
+      required: # Add all required fields
+        - RequestingUser
+        - OMSId
+        - reportFlavor
+        - createTime
+        - initialRunTime
+        - intervalStartTime
+        - intervalEndTime
+        - RequestStatus
+        - ReportFrequency
+        - intervalDuration
+        - RequestId
+        - accountIds
+      example:
+        RequestingUser: 1
+        OMSId: 1
+        reportFlavor:
+          Options:
+            - TradeActivity
+        createTime: "2018-08-17T17:57:51Z"
+        initialRunTime: "2018-08-10T04:00:00Z"
+        intervalStartTime: "2018-08-10T04:00:00Z"
+        intervalEndTime: "2018-08-10T05:00:00Z"
+        RequestStatus:
+          Options:
+            - Submitted
+        ReportFrequency:
+          Options:
+            - Daily
+        intervalDuration: 36000000000 # Example in milliseconds
+        RequestId: "mGzjUfylGEmqgJIxu651aQ=="
+        lastInstanceId: null
+        accountIds: [1]

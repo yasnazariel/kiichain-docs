@@ -1,0 +1,122 @@
+openapi: 3.0.0
+info:
+  title: Get User Report Tickets
+  description: Returns an array of user report tickets for a specific user ID.
+  version: 1.0.0
+paths:
+  GetUserReportTickets: # Or a more suitable path
+    get:
+      summary: Get User Report Tickets
+      tags:
+        - User
+      parameters:
+        - in: query
+          name: UserId
+          schema:
+            type: integer
+          description: The ID of the user.
+          required: true
+      responses:
+        "200":
+          description: Successful retrieval of user report tickets.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    RequestingUser:
+                      type: integer
+                      description: The User ID of the person requesting the report.
+                    OMSId:
+                      type: integer
+                      description: The ID of the Order Management System.
+                    reportFlavor:
+                      type: string
+                      enum:
+                        - TradeActivity
+                        - Transaction
+                        - Treasury
+                      description: The type of report.
+                    createTime:
+                      type: string
+                      format: date-time # Use date-time format
+                      description: The time and date of the request.
+                    initialRunTime:
+                      type: string
+                      format: date-time # Use date-time format
+                      description: The time and date the report was first run.
+                    intervalStartTime:
+                      type: string
+                      format: date-time # Use date-time format
+                      description: The start of the report period.
+                    intervalEndTime:
+                      type: string
+                      format: date-time # Use date-time format
+                      description: The end of the report period.
+                    RequestStatus:
+                      type: string
+                      enum:
+                        - Submitted
+                        - Validating
+                        - Scheduled
+                        - InProgress
+                        - Completed
+                        - Aborting
+                        - Aborted
+                        - UserCancelled
+                        - SysRetired
+                        - UserCancelledPending
+                      description: The status of the report request.
+                    ReportFrequency:
+                      type: string
+                      enum:
+                        - onDemand
+                        - Hourly
+                        - Daily
+                        - Weekly
+                        - Monthly
+                        - Annually
+                      description: How often the report runs.
+                    intervalDuration:
+                      type: integer # Or number, format: int64 if it's a long.
+                      description: The period the report looks back.
+                    RequestId:
+                      type: string
+                      description: The ID of the original request.
+                    lastInstanceId:
+                      type: string
+                      description: The ID of the most recent report instance.
+                    accountIds:
+                      type: array
+                      items:
+                        type: integer
+                      description: An array of account IDs.
+              example:
+                - RequestingUser: 123
+                  OMSId: 456
+                  reportFlavor: "TradeActivity"
+                  createTime: "2024-07-26T12:00:00Z" # Example date-time
+                  initialRunTime: "2024-07-26T13:00:00Z" # Example date-time
+                  intervalStartTime: "2024-07-25T00:00:00Z" # Example date-time
+                  intervalEndTime: "2024-07-26T00:00:00Z" # Example date-time
+                  RequestStatus: "Completed"
+                  ReportFrequency: "Daily"
+                  intervalDuration: 86400 # Example: 1 day in seconds
+                  RequestId: "I2nCtvyY8UuHsoSyrLe2QA=="
+                  lastInstanceId: "AAAAAAAAAAAAAAAAAAAAAA=="
+                  accountIds: [1, 2, 3] # Example array of account IDs
+                - RequestingUser: 789 # Example of a second report ticket
+                  OMSId: 1011
+                  reportFlavor: "Transaction"
+                  createTime: "2024-07-27T10:00:00Z" # Example date-time
+                  initialRunTime: "2024-07-27T11:00:00Z" # Example date-time
+                  intervalStartTime: "2024-07-26T00:00:00Z" # Example date-time
+                  intervalEndTime: "2024-07-27T00:00:00Z" # Example date-time
+                  RequestStatus: "Scheduled"
+                  ReportFrequency: "Weekly"
+                  intervalDuration: 604800 # Example: 1 week in seconds
+                  RequestId: "anotherRequestId123"
+                  lastInstanceId: null
+                  accountIds: [4, 5]

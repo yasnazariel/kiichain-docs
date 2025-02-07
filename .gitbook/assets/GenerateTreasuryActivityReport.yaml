@@ -1,0 +1,172 @@
+openapi: 3.0.0
+info:
+  title: Generate Treasury Activity Report
+  description: Generates a historical treasury activity report.
+  version: 1.0.0
+paths:
+  GenerateTreasuryActivityReport:
+    post:
+      summary: Generate Treasury Activity Report
+      tags:
+        - User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accountIdList:
+                  type: array
+                  items:
+                    type: integer
+                  description: Array of account IDs.
+                omsId:
+                  type: integer
+                  description: The ID of the Order Management System.
+                startTime:
+                  type: string
+                  format: date-time
+                  description: Start time for the report.
+                endTime:
+                  type: string
+                  format: date-time
+                  description: End time for the report.
+              required:
+                - accountIdList
+                - omsId
+                - startTime
+                - endTime
+            example:
+              accountIdList: [0]
+              omsId: 0
+              startTime: "0001-01-01T05:00:00Z"
+              endTime: "0001-01-01T05:00:00Z"
+      responses:
+        '200':
+          description: Successful report generation request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TreasuryActivityReportResponse'
+        # Add other responses as needed (e.g., 400 for bad request)
+components:
+  schemas:
+    TreasuryActivityReportResponse:
+      type: object
+      properties:
+        RequestingUser:
+          type: integer
+          description: User ID of the requester.
+        OMSId:
+          type: integer
+          description: The ID of the Order Management System.
+        reportFlavor:
+          type: object
+          properties:
+            Options:
+              type: array
+              items:
+                type: string
+                enum:
+                  - TradeActivity
+                  - Transaction
+                  - Treasury
+          description: Type of report.
+        createTime:
+          type: string
+          format: date-time
+          description: Request creation time.
+        initialRunTime:
+          type: string
+          format: date-time
+          description: Initial run time.
+        intervalStartTime:
+          type: string
+          format: date-time
+          description: Report interval start time.
+        intervalEndTime:
+          type: string
+          format: date-time
+          description: Report interval end time.
+        RequestStatus:
+          type: object
+          properties:
+            Options:
+              type: array
+              items:
+                type: string
+                enum:
+                  - Submitted
+                  - Validating
+                  - Scheduled
+                  - InProgress
+                  - Completed
+                  - Aborting
+                  - Aborted
+                  - UserCancelled
+                  - SysRetired
+                  - UserCancelledPending
+          description: Status of the report request.
+        ReportFrequency:
+          type: object
+          properties:
+            Options:
+              type: array
+              items:
+                type: string
+                enum:
+                  - onDemand
+                  - Hourly
+                  - Daily
+                  - Weekly
+                  - Monthly
+                  - Annually
+          description: Report frequency.
+        intervalDuration:
+          type: integer # Or number, format: int64 if it's a long integer.
+          description: Report interval duration.
+        RequestId:
+          type: string
+          description: Request ID.
+        lastInstanceId:
+          type: string
+          nullable: true
+          description: Last instance ID (for scheduled reports).
+        accountIds:
+          type: array
+          items:
+            type: integer
+          description: Array of account IDs.
+      required:  # Add all required fields here
+        - RequestingUser
+        - OMSId
+        - reportFlavor
+        - createTime
+        - initialRunTime
+        - intervalStartTime
+        - intervalEndTime
+        - RequestStatus
+        - ReportFrequency
+        - intervalDuration
+        - RequestId
+        - accountIds
+      example:
+        RequestingUser: 1
+        OMSId: 1
+        reportFlavor:
+          Options:
+            - Treasury  # Corrected to "Treasury"
+        createTime: "2018-08-17T15:38:59Z"
+        initialRunTime: "2018-08-17T15:38:59Z"
+        intervalStartTime: "2019-04-10T04:00:00Z"
+        intervalEndTime: "2020-04-10T04:00:00Z"
+        RequestStatus:
+          Options:
+            - Submitted
+        ReportFrequency:
+          Options:
+            - onDemand
+        intervalDuration: 316224000000000
+        RequestId: "adduAIKE6Ee0eGxFM+ydsg=="
+        lastInstanceId: null
+        accountIds: [1]

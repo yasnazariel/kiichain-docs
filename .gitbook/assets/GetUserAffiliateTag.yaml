@@ -1,0 +1,55 @@
+openapi: 3.0.0
+info:
+  title: Get User Affiliate Tag
+  description: Returns an array of affiliate tags associated with the identified user.
+  version: 1.0.0
+paths:
+  GetUserAfilliateTag: # Or a more appropriate path
+    get:
+      summary: Get User Affiliate Tags
+      tags:
+        - User
+      parameters:
+        - in: query
+          name: userId
+          schema:
+            type: integer
+          description: The ID of the user.
+          required: true
+        - in: query
+          name: omsId
+          schema:
+            type: integer
+          description: The ID of the Order Management System.
+          required: true
+      responses:
+        "200":
+          description: Successful retrieval of affiliate tags.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: # Define the structure of each item in the array
+                  type: object
+                  properties:
+                    omsId:
+                      type: integer
+                      description: The ID of the Order Management System.
+                    userId:
+                      type: integer
+                      description: The ID of the user.
+                    affiliateId:
+                      type: integer
+                      description: The ID of the affiliate.
+                    affiliateTag:
+                      type: string
+                      description: The affiliate tag.
+              example:
+                - omsId: 1
+                  userId: 123
+                  affiliateId: 456
+                  affiliateTag: "ABC123"
+                - omsId: 1 # Example of a second tag for the same user
+                  userId: 123
+                  affiliateId: 789
+                  affiliateTag: "XYZ789"

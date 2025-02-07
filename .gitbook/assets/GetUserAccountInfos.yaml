@@ -1,0 +1,153 @@
+openapi: 3.0.0
+info:
+  title: Get User Account Infos
+  description: Returns a list of account information for all accounts belonging to the specified user.
+  version: 1.0.0
+paths:
+  GetUserAccountInfos: # Path for the API endpoint
+    get:
+      summary: Get User Account Information
+      tags:
+        - User
+      parameters:
+        - in: query
+          name: OMSId
+          schema:
+            type: integer
+          description: The Order Management System ID.
+          required: true
+        - in: query
+          name: UserId
+          schema:
+            type: integer
+          description: The ID of the user.
+          required: true
+        - in: query
+          name: UserName
+          schema:
+            type: string
+          description: The name of the user.
+          required: true
+      responses:
+        "200":
+          description: Successful retrieval of user account information.
+          content:
+            application/json:
+              schema:
+                type: array # Response is a list of account objects
+                items: # Define the structure of each account object
+                  type: object
+                  properties:
+                    OMSID:
+                      type: integer
+                      description: The ID of the Order Management System.
+                    AccountId:
+                      type: integer
+                      description: The ID of the account.
+                    AccountName:
+                      type: string
+                      description: The name of the account.
+                    AccountHandle:
+                      type: string
+                      description: A unique user-assigned account name.
+                    FirmId:
+                      type: string
+                      description: An identifier assigned to the trading firm.
+                    FirmName:
+                      type: string
+                      description: The name of the trading firm.
+                    AccountType:
+                      type: string
+                      enum: # Use enum for predefined values
+                        - Asset
+                        - Liability
+                        - ProfitLoss
+                      description: The type of the account.
+                    FeeGroupID:
+                      type: integer
+                      description: Account attributes relating to fees.
+                    ParentID:
+                      type: integer
+                      description: Reserved for future development.
+                    RiskType:
+                      type: string
+                      enum:
+                        - Unknown
+                        - Normal
+                        - NoRiskCheck
+                        - NoTrading
+                      description: The risk type of the account.
+                    VerificationLevel:
+                      type: integer
+                      description: Verification level ID.
+                    FeeProductType:
+                      type: string
+                      enum:
+                        - BaseProduct
+                        - SingleProduct
+                      description: The fee product type.
+                    FeeProduct:
+                      type: integer
+                      description: The ID of the preferred fee product.
+                    RefererId:
+                      type: integer
+                      description: The ID of the referrer.
+                    LoyaltyProductId:
+                      type: integer
+                      description: The ID of the loyalty product.
+                    LoyaltyEnabled:
+                      type: boolean
+                      description: Indicates if loyalty is enabled.
+                    MarginEnabled:
+                      type: boolean
+                      description: Indicates if margin is enabled.
+                    LiabilityAccountId:
+                      type: integer
+                      description: The ID of the liability account.
+                    LendingAccountId:
+                      type: integer
+                      description: The ID of the lending account.
+                    ProfitLossAccountId:
+                      type: integer
+                      description: The ID of the profit and loss account.
+              example: # Example of the array of account objects
+                - OMSID: 1
+                  AccountId: 123
+                  AccountName: "My Account"
+                  AccountHandle: "my_account_1"
+                  FirmId: "ABC"
+                  FirmName: "ABC Trading"
+                  AccountType: "Asset"
+                  FeeGroupID: 1
+                  ParentID: 0
+                  RiskType: "Normal"
+                  VerificationLevel: 1
+                  FeeProductType: "BaseProduct"
+                  FeeProduct: 0
+                  RefererId: 0
+                  LoyaltyProductId: 0
+                  LoyaltyEnabled: false
+                  MarginEnabled: false
+                  LiabilityAccountId: 0
+                  LendingAccountId: 0
+                  ProfitLossAccountId: 0
+                - OMSID: 1 # Example of a second account object
+                  AccountId: 456
+                  AccountName: "Another Account"
+                  AccountHandle: "another_account_1"
+                  FirmId: "ABC"
+                  FirmName: "ABC Trading"
+                  AccountType: "Asset"
+                  FeeGroupID: 1
+                  ParentID: 0
+                  RiskType: "Normal"
+                  VerificationLevel: 1
+                  FeeProductType: "BaseProduct"
+                  FeeProduct: 0
+                  RefererId: 0
+                  LoyaltyProductId: 0
+                  LoyaltyEnabled: false
+                  MarginEnabled: false
+                  LiabilityAccountId: 0
+                  LendingAccountId: 0
+                  ProfitLossAccountId: 0

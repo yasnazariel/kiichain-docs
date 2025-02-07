@@ -1,0 +1,159 @@
+openapi: 3.0.0
+info:
+  title: KIIEX API
+  description: >
+    API for associating an affiliate tag with a user.  
+    **Note:** To make API calls using Node.js, you must install the **alphapoint-apex-api** library:
+    
+    ```
+    npm install alphapoint-apex-api
+    ```
+  version: 1.0.0
+
+servers:
+  - url: https://api.kiiex.com
+
+paths:
+  /addUserAffiliateTag:
+    post:
+      summary: Add User Affiliate Tag
+      description: Associates a user affiliate tag with a user, enabling referral tracking.
+      operationId: addUserAffiliateTag
+      tags:
+        - User
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                omsId:
+                  type: integer
+                  description: The ID of the Order Management System on which the user operates.
+                userId:
+                  type: integer
+                  description: The user's ID.
+                affiliateId:
+                  type: integer
+                  description: The affiliate ID.
+                affiliateTag:
+                  type: string
+                  description: The alphanumeric tag used to identify new affiliating members.
+              required:
+                - omsId
+                - userId
+                - affiliateId
+                - affiliateTag
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: >
+                      `true` signifies that the server has received the request 
+                      (not necessarily processed it successfully). `false` signifies an error.
+                  errormsg:
+                    type: string
+                    description: >
+                      Null for a successful response. Otherwise, returns messages such as:
+                      - "Not Authorized" (errorcode 20)
+                      - "Invalid Request" (errorcode 100)
+                      - "Operation Failed" (errorcode 101)
+                      - "Server Error" (errorcode 102)
+                      - "Resource Not Found" (errorcode 104)
+                  errorcode:
+                    type: integer
+                    description: >
+                      `0` for success, or one of the error codes shown in `errormsg`.
+                  detail:
+                    type: string
+                    description: Additional system message (usually null).
+        "400":
+          description: Bad request
+        "401":
+          description: Unauthorized
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: APIKey
+
+x-examples:
+  curl: |
+    curl -X POST https://api.kiiex.com/addUserAffiliateTag \
+      -H "Content-Type: application/json" \
+      -H "APIKey: your_api_key" \
+      -H "Signature: your_signature" \
+      -H "UserId: your_user_id" \
+      -H "Nonce: your_nonce" \
+      -d '{
+        "omsId": 0,
+        "userId": 0,
+        "affiliateId": 0,
+        "affiliateTag": ""
+      }'
+
+  javascript: |
+    fetch("https://api.kiiex.com/addUserAffiliateTag", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "APIKey": getEnvVar("APIKey"),
+        "Signature": getEnvVar("Signature"),
+        "UserId": getEnvVar("UserId"),
+        "Nonce": getEnvVar("Nonce"),
+      },
+      body: JSON.stringify({
+        omsId: 0,
+        userId: 0,
+        affiliateId: 0,
+        affiliateTag: "",
+      }),
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error("Error:", error));
+
+  typescript: |
+    import fetch from "node-fetch";
+
+    interface AddUserAffiliateTagResponse {
+      result: boolean;
+      errormsg?: string;
+      errorcode: number;
+      detail?: string;
+    }
+
+    async function addUserAffiliateTag(
+      omsId: number,
+      userId: number,
+      affiliateId: number,
+      affiliateTag: string
+    ): Promise<void> {
+      const response = await fetch("https://api.kiiex.com/addUserAffiliateTag", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "APIKey": process.env.APIKey!,
+          "Signature": process.env.Signature!,
+          "UserId": process.env.UserId!,
+          "Nonce": process.env.Nonce!,
+        },
+        body: JSON.stringify({ omsId, userId, affiliateId, affiliateTag }),
+      });
+
+      const data: AddUserAffiliateTagResponse = await response.json();
+      console.log(data);
+    }
+
+    addUserAffiliateTag(0, 0, 0, "");

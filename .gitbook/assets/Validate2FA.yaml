@@ -1,0 +1,60 @@
+openapi: 3.0.0
+info:
+  title: Validate 2FA
+  description: Validates 2FA to access protected endpoints.
+  version: 1.0.0
+paths:
+  Validate2FA: # A descriptive path
+    post: # Validation usually uses POST
+      summary: Validate 2FA
+      tags:
+        - System
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                TFaType:
+                  type: string
+                  description: Type of authentication.
+                Code:
+                  type: string
+                  description: Authentication code.
+              required:
+                - TFaType
+                - Code
+            example:
+              TFaType: "TFATYPE" # Replace with a real example
+              Code: "YourCode" # Replace with a real example (but never a real code)
+      responses:
+        "200":
+          description: Successful 2FA validation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  TFaAuthenticated:
+                    type: boolean
+                    description: True if authenticated, false otherwise.
+                required:
+                  - TFaAuthenticated
+              example:
+                TFaAuthenticated: true
+        "401": # Example of a 401 response for invalid code
+          description: Invalid 2FA code.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  TFaAuthenticated:
+                    type: boolean
+                    example: false
+                  error: # Optional error message
+                    type: string
+                    example: "Invalid 2FA code"
+              example:
+                TFaAuthenticated: false
+                error: "Invalid 2FA code"

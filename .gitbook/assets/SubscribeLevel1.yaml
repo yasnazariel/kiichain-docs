@@ -1,0 +1,178 @@
+openapi: 3.0.0
+info:
+  title: Subscribe Level 1
+  description: Retrieves Level 1 ticker information and subscribes to market data updates.
+  version: 1.0.0
+paths:
+  SuscribeLeve1:
+    post: # Subscribing generally uses POST
+      summary: Subscribe Level 1 Market Data
+      tags:
+        - User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf: # Use oneOf to allow either InstrumentId or Symbol
+                - type: object
+                  properties:
+                    OMSId:
+                      type: integer
+                      description: The ID of the Order Management System.
+                    InstrumentId:
+                      type: integer
+                      description: The ID of the instrument.
+                  required:
+                    - OMSId
+                    - InstrumentId
+                - type: object
+                  properties:
+                    OMSId:
+                      type: integer
+                      description: The ID of the Order Management System.
+                    Symbol:
+                      type: string
+                      description: The symbol of the instrument.
+                  required:
+                    - OMSId
+                    - Symbol
+            example:
+              OMSId: 1
+              InstrumentId: 0 # Or:  {"OMSId": 1, "Symbol": "BTCUSD"}
+      responses:
+        "200":
+          description: Successful subscription and initial Level 1 data.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Level1Data" # Reference the schema
+      description: |
+        Retrieves the latest Level 1 Ticker information and then subscribes the user to ongoing Level 1 market data event updates for one specific instrument.  See the [Level 1 Data Schema](#components-schemas-Level1Data) for details.  The updates are sent asynchronously.  Use the `/market-data/unsubscribe-level1` endpoint to unsubscribe.
+
+components:
+  schemas:
+    Level1Data: # Reusable schema for Level 1 data (initial and updates)
+      type: object
+      properties:
+        OMSId:
+          type: integer
+          description: The ID of the Order Management System.
+        InstrumentId:
+          type: integer
+          description: The ID of the instrument.
+        BestBid:
+          type: number
+          format: float # Or double
+          description: The current best bid.
+        BestOffer:
+          type: number
+          format: float
+          description: The current best offer.
+        LastTradedPx:
+          type: number
+          format: float
+          description: The last-traded price.
+        LastTradedQty:
+          type: number
+          format: float
+          description: The last-traded quantity.
+        LastTradeTime:
+          type: integer # Or number, format: int64 if it's a long integer.
+          description: The time of the last trade (POSIX format).
+        SessionOpen:
+          type: number
+          format: float
+          description: Opening price.
+        SessionHigh:
+          type: number
+          format: float
+          description: Highest price.
+        SessionLow:
+          type: number
+          format: float
+          description: Lowest price.
+        SessionClose:
+          type: number
+          format: float
+          description: Closing price.
+        Volume:
+          type: number
+          format: float
+          description: The last-traded quantity.
+        CurrentDayVolume:
+          type: number
+          format: float
+          description: Current day volume.
+        CurrentDayNumTrades:
+          type: integer
+          description: Number of trades today.
+        CurrentDayPxChange:
+          type: number
+          format: float
+          description: Current day price change.
+        CurrentNotional:
+          type: number
+          format: float
+          description: Current day notional.
+        Rolling24HrNotional:
+          type: number
+          format: float
+          description: Rolling 24-hour notional.
+        Rolling24HrVolume:
+          type: number
+          format: float
+          description: Rolling 24-hour volume.
+        Rolling24HrNumTrades:
+          type: integer
+          description: Rolling 24-hour number of trades.
+        Rolling24HrPxChange:
+          type: number
+          format: float
+          description: Rolling 24-hour price change.
+        TimeStamp:
+          type: integer # Or number, format: int64 if it's a long integer.
+          description: The time this information was provided (POSIX format).
+      required: # Add all required fields here
+        - OMSId
+        - InstrumentId
+        - BestBid
+        - BestOffer
+        - LastTradedPx
+        - LastTradedQty
+        - LastTradeTime
+        - SessionOpen
+        - SessionHigh
+        - SessionLow
+        - SessionClose
+        - Volume
+        - CurrentDayVolume
+        - CurrentDayNumTrades
+        - CurrentDayPxChange
+        - CurrentNotional
+        - Rolling24HrNotional
+        - Rolling24HrVolume
+        - Rolling24HrNumTrades
+        - Rolling24HrPxChange
+        - TimeStamp
+      example: # Example data
+        OMSId: 1
+        InstrumentId: 1
+        BestBid: 6423.57
+        BestOffer: 6436.53
+        LastTradedPx: 6423.57
+        LastTradedQty: 0.96183964
+        LastTradeTime: 1534862990343
+        SessionOpen: 6249.64
+        SessionHigh: 11111
+        SessionLow: 4433
+        SessionClose: 6249.64
+        Volume: 0.96183964
+        CurrentDayVolume: 3516.31668185
+        CurrentDayNumTrades: 8529
+        CurrentDayPxChange: 173.93
+        CurrentNotional: 0.0
+        Rolling24HrNotional: 0.0
+        Rolling24HrVolume: 4319.63870783
+        Rolling24HrNumTrades: 10585
+        Rolling24HrPxChange: -0.4165607307408487
+        TimeStamp: 1534862990358

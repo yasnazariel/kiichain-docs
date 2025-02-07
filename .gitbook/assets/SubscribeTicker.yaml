@@ -1,0 +1,101 @@
+openapi: 3.0.0
+info:
+  title: Subscribe Ticker
+  description: Subscribes to a ticker market data feed.
+  version: 1.0.0
+paths:
+  SubscribeTicker:
+    post:
+      summary: Subscribe Ticker Market Data
+      tags:
+        - User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                OMSId:
+                  type: integer
+                  description: The ID of the Order Management System.
+                InstrumentId:
+                  type: integer
+                  description: The ID of the instrument.
+                Interval:
+                  type: integer
+                  description: Update interval in seconds. Default is 60.
+                IncludeLastCount:
+                  type: integer
+                  description: Limit of records in ticker history. Default is 100.
+              required:
+                - OMSId
+                - InstrumentId
+            example:
+              OMSId: 1
+              InstrumentId: 1
+              Interval: 60
+              IncludeLastCount: 100
+      responses:
+        "200":
+          description: Successful subscription and initial ticker data.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: array
+                  items: # Define the types of each element in the inner array
+                    oneOf:
+                      - type: integer
+                      - type: number
+                        format: float # Or double
+              example:
+                - [
+                    1501603632000,
+                    2700.33,
+                    2701.268701,
+                    2687.01,
+                    2687.01,
+                    24.86100992,
+                    0,
+                    2870.95,
+                    1,
+                  ]
+                - [
+                    1501604532000,
+                    2792.73,
+                    2667.95,
+                    2687.01,
+                    2700.81,
+                    242.61340767,
+                    0,
+                    2871,
+                    0,
+                  ]
+      description: |
+        Subscribes a user to a Ticker Market Data Feed. See the [Ticker Data Format](#components-schemas-TickerData) for details. The updates are sent asynchronously. Use the `/market-data/unsubscribe-ticker` endpoint to unsubscribe.
+
+components:
+  schemas:
+    TickerData: # Schema for the ticker data array
+      type: array
+      items:
+        type: array
+        items: # Define the types of each element in the inner array
+          oneOf:
+            - type: integer # DateTime
+            - type: number # High, Low, Open, Close, Volume, Bid, Ask
+              format: float # Or double
+            - type: integer # InstrumentId
+      example:
+        - [
+            1510719222970,
+            6943.51,
+            6890.27,
+            6898.41,
+            6891.16,
+            0,
+            6890.98,
+            6891.98,
+            1,
+          ]

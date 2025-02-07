@@ -1,0 +1,334 @@
+openapi: 3.0.0
+info:
+  title: Subscribe Account Events API
+  description: API for subscribing to account-level events.
+  version: 1.0.0
+paths:
+  SuscribeAccountEvents:
+    post:
+      summary: Subscribe Account Events
+      tags:
+        - User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                AccountId:
+                  type: integer
+                  description: The ID of the account.
+                OMSId:
+                  type: integer
+                  description: The ID of the Order Management System.
+              required:
+                - AccountId
+                - OMSId
+            example:
+              AccountId: 1
+              OMSId: 1
+      responses:
+        "200":
+          description: Successful subscription.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Subscribe:
+                    type: boolean
+                    description: True for success, false for failure.
+              example:
+                Subscribe: true
+      description: |
+        Subscribes to account events. See the [Event Schemas](#components-schemas-AccountPositionEvent) section for details on the event structures and formats (CSV). This API uses a push model to send events asynchronously.
+
+components:
+  schemas:
+    AccountPositionEvent:
+      $ref: "#/components/schemas/AccountPositionEventSchema"
+    CancelAllOrdersRejectEvent:
+      $ref: "#/components/schemas/CancelAllOrdersRejectEventSchema"
+    CancelOrderRejectEvent:
+      $ref: "#/components/schemas/CancelOrderRejectEventSchema"
+    CancelReplaceOrderRejectEvent:
+      $ref: "#/components/schemas/CancelReplaceOrderRejectEventSchema"
+    MarketStateUpdate:
+      $ref: "#/components/schemas/MarketStateUpdateSchema"
+    NewOrderRejectEvent:
+      $ref: "#/components/schemas/NewOrderRejectEventSchema"
+    OrderStateEvent:
+      $ref: "#/components/schemas/OrderStateEventSchema"
+    OrderTradeEvent:
+      $ref: "#/components/schemas/OrderTradeEventSchema"
+    PendingDepositUpdate:
+      $ref: "#/components/schemas/PendingDepositUpdateSchema"
+
+    AccountPositionEventSchema: # Define each schema separately
+      type: object
+      properties:
+        OMSId:
+          type: integer
+        AccountId:
+          type: integer
+        ProductSymbol:
+          type: string
+        ProductId:
+          type: integer
+        Amount:
+          type: number
+          format: float
+        Hold:
+          type: number
+          format: float
+        PendingDeposits:
+          type: number
+          format: float
+        PendingWithdraws:
+          type: number
+          format: float
+        TotalDayDeposits:
+          type: number
+          format: float
+        TotalDayWithdraws:
+          type: number
+          format: float
+        NotionalHoldAmount:
+          type: number
+          format: float
+        NotionalRate:
+          type: number
+          format: float
+        TotalDayDepositNotional:
+          type: number
+          format: float
+        TotalMonthDepositNotional:
+          type: number
+          format: float
+        TotalDayWithdrawNotional:
+          type: number
+          format: float
+        TotalMonthWithdrawNotional:
+          type: number
+          format: float
+      required: # Add required fields here
+        - OMSId
+        - AccountId
+        - ProductSymbol
+        - ProductId
+        - Amount
+        - Hold
+        - PendingDeposits
+        - PendingWithdraws
+        - TotalDayDeposits
+        - TotalDayWithdraws
+        - NotionalHoldAmount
+        - NotionalRate
+        - TotalDayDepositNotional
+        - TotalMonthDepositNotional
+        - TotalDayWithdrawNotional
+        - TotalMonthWithdrawNotional
+      example: # ... (Example data) ...
+
+    CancelAllOrdersRejectEventSchema: # Define each schema separately
+      type: object
+      properties:
+        OMSId:
+          type: integer
+        AccountId:
+          type: integer
+        InstrumentId:
+          type: integer
+        Status:
+          type: string
+          enum:
+            - Rejected
+        RejectReason:
+          type: string
+      required: # Add required fields here
+        - OMSId
+        - AccountId
+        - InstrumentId
+        - Status
+        - RejectReason
+      example: # ... (Example data) ...
+
+    # ... (Repeat the above pattern for all other event schemas)
+
+    CancelOrderRejectEventSchema:
+      type: object
+      properties:
+        OMSId:
+          type: integer
+        AccountId:
+          type: integer
+        OrderId:
+          type: integer
+        OrderRevision:
+          type: integer
+        OrderType:
+          type: string
+        InstrumentId:
+          type: integer
+        Status:
+          type: string
+          enum:
+            - Rejected
+        RejectReason:
+          type: string
+      required:
+        - OMSId
+        - AccountId
+        - OrderId
+        - OrderRevision
+        - OrderType
+        - InstrumentId
+        - Status
+        - RejectReason
+      example:
+        OMSId: 1
+        AccountId: 4
+        OrderId: 1
+        OrderRevision: 0
+        OrderType: "Unknown"
+        InstrumentId: 1
+        Status: "Rejected"
+        RejectReason: "Order Not Found"
+
+    CancelReplaceOrderRejectEventSchema:
+      type: object
+      properties:
+        OMSId:
+          type: integer
+        AccountId:
+          type: integer
+        OrderId:
+          type: integer
+        ClientOrderId:
+          type: integer
+        LimitPrice:
+          type: number
+          format: float
+        OrderIdOCO:
+          type: integer
+        OrderType:
+          type: string
+        PegPriceType:
+          type: string
+        OrderIdToReplace:
+          type: integer
+        InstrumentId:
+          type: integer
+        ReferencePrice:
+          type: number
+          format: float
+        Quantity:
+          type: number
+          format: float
+        Side:
+          type: string
+        StopPrice:
+          type: number
+          format: float
+        TimeInForce:
+          type: string
+        Status:
+          type: string
+          enum:
+            - Rejected
+        RejectReason:
+          type: string
+      required:
+        - OMSId
+        - AccountId
+        - OrderId
+        - ClientOrderId
+        - LimitPrice
+        - OrderIdOCO
+        - OrderType
+        - PegPriceType
+        - OrderIdToReplace
+        - InstrumentId
+        - ReferencePrice
+        - Quantity
+        - Side
+        - StopPrice
+        - TimeInForce
+        - Status
+        - RejectReason
+      example:
+        OMSId: 1
+        AccountId: 4
+        OrderId: 9342
+        ClientOrderId: 1234
+        LimitPrice: 99.1
+        OrderIdOCO: 0
+        OrderType: "Limit"
+        PegPriceType: "Bid"
+        OrderIdToReplace: 9333
+        InstrumentId: 1
+        ReferencePrice: 99.1
+        Quantity: 1.0
+        Side: "Buy"
+        StopPrice: 0
+        TimeInForce: "GTC"
+        Status: "Rejected"
+        RejectReason: "Order Not Found"
+
+    MarketStateUpdateSchema:
+      type: object
+      properties:
+        ExchangeId:
+          type: integer
+        VenueAdapterId:
+          type: integer
+        VenueInstrumentId:
+          type: integer
+        Action:
+          type: string
+          enum:
+            - Pause
+            - Resume
+            - Halt
+            - ReOpen
+        PreviousStatus:
+          type: string
+          enum:
+            - Running
+            - Paused
+            - Stopped
+            - Starting
+        NewStatus:
+          type: string
+          enum:
+            - Running
+            - Paused
+            - Stopped
+            - Starting
+        ExchangeDateTime:
+          type: string
+          format: date-time
+      required:
+        - ExchangeId
+        - VenueAdapterId
+        - VenueInstrumentId
+        - Action
+        - PreviousStatus
+        - NewStatus
+        - ExchangeDateTime
+      example:
+        ExchangeId: 1
+        VenueAdapterId: 1
+        VenueInstrumentId: 1
+        Action: "ReOpen"
+        PreviousStatus: "Stopped"
+        NewStatus: "Running"
+        ExchangeDateTime: "2016-04-21T21:48:22Z"
+
+    NewOrderRejectEventSchema:
+      type: object
+      properties:
+        OMSId:
+          type: integer
+        AccountId:
+          type: integer

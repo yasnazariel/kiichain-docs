@@ -1,0 +1,66 @@
+openapi: 3.0.0
+info:
+  title: Unsubscribe Level 1
+  description: Unsubscribes from a Level 1 Market Data Feed.
+  version: 1.0.0
+paths:
+  UnsubscribeLevel1:
+    post: # Unsubscribing typically uses POST
+      summary: Unsubscribe Level 1
+      tags:
+        - User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                OMSId:
+                  type: integer
+                  description: The ID of the Order Management System.
+                InstrumentId:
+                  type: integer
+                  description: The ID of the instrument.
+              required:
+                - OMSId
+                - InstrumentId
+            example:
+              OMSId: 1
+              InstrumentId: 1
+      responses:
+        "200":
+          description: Successful unsubscription.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UnsubscribeResponse"
+        "400": # Example of a 400 response for an error
+          description: Unsuccessful unsubscription.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UnsubscribeResponse"
+components:
+  schemas:
+    UnsubscribeResponse:
+      type: object
+      properties:
+        result:
+          type: boolean
+          description: True for success, false for failure.
+        errormsg:
+          type: string
+          nullable: true
+          description: Error message (null for success).
+        errorcode:
+          type: integer
+          description: Error code (0 for success).
+        detail:
+          type: string
+          nullable: true
+          description: Additional details (usually null).
+      example:
+        result: true
+        errormsg: null
+        errorcode: 0
+        detail: null

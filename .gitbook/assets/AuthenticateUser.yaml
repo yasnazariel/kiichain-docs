@@ -1,0 +1,217 @@
+{
+  "openapi": "3.0.0",
+  "info":
+    {
+      "title": "Authentication API",
+      "description": "Authenticate a user for the current websocket session.",
+      "version": "1.0.0",
+    },
+  "paths":
+    {
+      "/AuthenticateUser":
+        {
+          "post":
+            {
+              "summary": "Authenticate a user",
+              "description": "Authenticates a user for the current websocket session.",
+              "operationId": "AuthenticateUser",
+              "tags": ["Authentication"],
+              "requestBody":
+                {
+                  "required": true,
+                  "content":
+                    {
+                      "application/json":
+                        {
+                          "schema":
+                            {
+                              "oneOf":
+                                [
+                                  {
+                                    "type": "object",
+                                    "properties":
+                                      {
+                                        "UserName":
+                                          {
+                                            "type": "string",
+                                            "description": "The user's assigned user name.",
+                                          },
+                                        "Password":
+                                          {
+                                            "type": "string",
+                                            "description": "The user's assigned password.",
+                                          },
+                                      },
+                                    "required": ["UserName", "Password"],
+                                  },
+                                  {
+                                    "type": "object",
+                                    "properties":
+                                      {
+                                        "APIKey":
+                                          {
+                                            "type": "string",
+                                            "description": "AlphaPoint-generated key used in user-identification.",
+                                          },
+                                        "Signature":
+                                          {
+                                            "type": "string",
+                                            "description": "Generated using APIKey and Nonce.",
+                                          },
+                                        "UserId":
+                                          {
+                                            "type": "string",
+                                            "description": "The ID of the user.",
+                                          },
+                                        "UserName":
+                                          {
+                                            "type": "string",
+                                            "description": "The user's assigned user name.",
+                                          },
+                                        "Nonce":
+                                          {
+                                            "type": "string",
+                                            "description": "An arbitrary number or random string used with the APIKey to generate a signature.",
+                                          },
+                                      },
+                                    "required":
+                                      [
+                                        "APIKey",
+                                        "Signature",
+                                        "UserId",
+                                        "Nonce",
+                                      ],
+                                  },
+                                ],
+                            },
+                        },
+                    },
+                },
+              "responses":
+                {
+                  "200":
+                    {
+                      "description": "Successful authentication response",
+                      "content":
+                        {
+                          "application/json":
+                            {
+                              "schema":
+                                {
+                                  "type": "object",
+                                  "properties":
+                                    {
+                                      "authenticated":
+                                        {
+                                          "type": "boolean",
+                                          "description": "True if the user is authenticated; false otherwise.",
+                                        },
+                                      "user":
+                                        {
+                                          "type": "object",
+                                          "properties":
+                                            {
+                                              "userId":
+                                                {
+                                                  "type": "integer",
+                                                  "description": "The ID of the user being authenticated.",
+                                                },
+                                              "userName":
+                                                {
+                                                  "type": "string",
+                                                  "description": "The name of the user.",
+                                                },
+                                              "email":
+                                                {
+                                                  "type": "string",
+                                                  "description": "The email address of the user.",
+                                                },
+                                              "emailVerified":
+                                                {
+                                                  "type": "boolean",
+                                                  "description": "Whether the email address has been verified.",
+                                                },
+                                              "accountId":
+                                                {
+                                                  "type": "integer",
+                                                  "description": "The ID of the account associated with the user.",
+                                                },
+                                              "omsId":
+                                                {
+                                                  "type": "integer",
+                                                  "description": "The ID of the Order Management System associated with the user.",
+                                                },
+                                              "use2FA":
+                                                {
+                                                  "type": "boolean",
+                                                  "description": "True if the user must use 2FA to log in; false otherwise.",
+                                                },
+                                            },
+                                        },
+                                      "locked":
+                                        {
+                                          "type": "boolean",
+                                          "description": "True if the user is currently locked; false otherwise.",
+                                        },
+                                      "requires2FA":
+                                        {
+                                          "type": "boolean",
+                                          "description": "True if the user requires two-factor authentication; false otherwise.",
+                                        },
+                                      "twoFAType":
+                                        {
+                                          "type": "string",
+                                          "description": "The type of 2FA required, e.g., 'Google'.",
+                                        },
+                                      "twoFAToken":
+                                        {
+                                          "type": "string",
+                                          "description": "An appropriate token for 2FA.",
+                                        },
+                                      "errormsg":
+                                        {
+                                          "type": "string",
+                                          "description": "Null if the call is successful; otherwise, an error message.",
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
+                  "400":
+                    {
+                      "description": "Invalid authentication response",
+                      "content":
+                        {
+                          "application/json":
+                            {
+                              "schema":
+                                {
+                                  "type": "object",
+                                  "properties":
+                                    {
+                                      "authenticated":
+                                        {
+                                          "type": "boolean",
+                                          "description": "False if authentication fails.",
+                                        },
+                                      "locked":
+                                        {
+                                          "type": "boolean",
+                                          "description": "True if the user is locked.",
+                                        },
+                                      "errormsg":
+                                        {
+                                          "type": "string",
+                                          "description": "Error message describing the failure.",
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
+                },
+            },
+        },
+    },
+}

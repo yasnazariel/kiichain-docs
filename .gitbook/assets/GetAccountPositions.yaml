@@ -1,0 +1,173 @@
+openapi: 3.0.0
+info:
+  title: Get Account Positions
+  description: Retrieves a list of account positions.
+  version: 1.0.0
+paths:
+  GetAccountPositions:
+    get: # Getting positions typically uses GET
+      summary: Get Account Positions
+      tags:
+        - User
+      parameters:
+        - in: query
+          name: AccountId
+          schema:
+            type: integer
+          description: The ID of the account.
+          required: true
+        - in: query
+          name: OMSId
+          schema:
+            type: integer
+          description: The ID of the Order Management System.
+          required: true
+        - in: query
+          name: IncludePending
+          schema:
+            type: boolean
+          description: Include pending positions?
+      responses:
+        "200":
+          description: Successful retrieval of account positions.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/AccountPosition"
+components:
+  schemas:
+    AccountPosition:
+      type: object
+      properties:
+        omsId:
+          type: integer
+          description: The ID of the Order Management System.
+        accountId:
+          type: integer
+          description: The ID of the account.
+        productSymbol:
+          type: string
+          description: Product symbol (e.g., BTC, USD).
+        productId:
+          type: integer
+          description: Product ID.
+        amount:
+          type: number
+          format: float
+          description: Unit amount of the product.
+        hold:
+          type: number
+          format: float
+          description: Amount held and not available for trade.
+        pendingDeposits:
+          type: number
+          format: float
+          description: Pending deposits.
+        pendingWithdraws:
+          type: number
+          format: float
+          description: Pending withdrawals.
+        totalDayDeposits:
+          type: number
+          format: float
+          description: Total deposits today.
+        totalMonthDeposits:
+          type: number
+          format: float
+          description: Total deposits this month.
+        totalYearDeposits:
+          type: number
+          format: float
+          description: Total deposits this year.
+        totalYearDepositNotional:
+          type: number
+          format: float
+          description: Yearly notional deposit amount.
+        totalDayWithdraws:
+          type: number
+          format: float
+          description: Total withdrawals today.
+        totalMonthWithdraws:
+          type: number
+          format: float
+          description: Total withdrawals this month.
+        totalYearWithdraws:
+          type: number
+          format: float
+          description: Total withdrawals this year.
+        totalYearWithdrawNotional:
+          type: number
+          format: float
+          description: Yearly notional withdrawal amount.
+        notionalHoldAmount:
+          type: number
+          format: float
+          description: Notional hold amount.
+        notionalRate:
+          type: number
+          format: float
+          description: Notional rate.
+        totalDayDepositNotional:
+          type: number
+          format: float
+          description: Total daily notional deposit amount.
+        totalMonthDepositNotional:
+          type: number
+          format: float
+          description: Total monthly notional deposit amount.
+        totalDayWithdrawNotional:
+          type: number
+          format: float
+          description: Total daily notional withdrawal amount.
+        totalMonthWithdrawNotional:
+          type: number
+          format: float
+          description: Total monthly notional withdrawal amount.
+      required: # Add all required fields here
+        - omsId
+        - accountId
+        - productSymbol
+        - productId
+        - amount
+        - hold
+        - pendingDeposits
+        - pendingWithdraws
+        - totalDayDeposits
+        - totalMonthDeposits
+        - totalYearDeposits
+        - totalYearDepositNotional
+        - totalDayWithdraws
+        - totalMonthWithdraws
+        - totalYearWithdraws
+        - totalYearWithdrawNotional
+        - notionalHoldAmount
+        - notionalRate
+        - totalDayDepositNotional
+        - totalMonthDepositNotional
+        - totalDayWithdrawNotional
+        - totalMonthWithdrawNotional
+      example:
+        omsId: 1
+        accountId: 4
+        productSymbol: "BTC"
+        productId: 1
+        amount: 0.0
+        hold: 0.0
+        pendingDeposits: 0.0
+        pendingWithdraws: 0.0
+        totalDayDeposits: 0.0
+        totalMonthDeposits: 0.0
+        totalYearDeposits: 0.0
+        totalYearDepositNotional: 0.0
+        totalDayWithdraws: 0.0
+        totalMonthWithdraws: 0.0
+        totalYearWithdraws: 0.0
+        totalYearWithdrawNotional: 0.0
+        notionalHoldAmount: 0.0
+        notionalRate: 0.0
+        totalDayDepositNotional: 0.0
+        totalMonthDepositNotional: 0.0
+        totalDayWithdrawNotional: 0.0
+        totalMonthWithdrawNotional: 0.0

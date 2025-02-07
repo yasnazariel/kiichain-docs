@@ -1,0 +1,38 @@
+openapi: 3.0.0
+info:
+  title: Get Treasury Products for Account
+  description: Returns a list of product symbols allowed for treasury operations on an account.
+  version: 1.0.0
+paths:
+  GetTreasuryProductsForAccount: # More descriptive path
+    get: # Retrieving data uses GET
+      summary: Get Treasury Products for Account
+      tags:
+        - User
+      parameters:
+        - in: query
+          name: AccountId
+          schema:
+            type: integer
+          description: The ID of the account.
+          required: true
+        - in: query
+          name: OMSId
+          schema:
+            type: integer
+          description: The ID of the Order Management System.
+          required: true
+      responses:
+        '200':
+          description: Successful retrieval of treasury products.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string # Each item is a string (product symbol)
+              example:
+                - "LTC"
+                - "BTC"
+                - "USD"
+        # Add other responses as needed (e.g., 404 for not found)

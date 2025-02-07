@@ -1,0 +1,120 @@
+openapi: 3.0.0
+info:
+  title: Subscribe Trades
+  description: Subscribes to a trades market data feed.
+  version: 1.0.0
+paths:
+  SubscribeTrades:
+    post:
+      summary: Subscribe Trades Market Data
+      tags:
+        - User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                OMSId:
+                  type: integer
+                  description: The ID of the Order Management System.
+                InstrumentId:
+                  type: integer
+                  description: The ID of the instrument.
+                IncludeLastCount:
+                  type: integer
+                  description: Number of previous trades to retrieve. Default is 100.
+              required:
+                - OMSId
+                - InstrumentId
+            example:
+              OMSId: 1
+              InstrumentId: 1
+              IncludeLastCount: 100
+      responses:
+        "200":
+          description: Successful subscription and initial trades data.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TradeData"
+      description: |
+        Subscribes to the Trades Market Data Feed. See the [Trade Data Schema](#components-schemas-TradeData) for details. The initial snapshot and subsequent updates are arrays of trades with numerical keys.  The OrderTradeEvent documented in SubscribeAccountEvents is also related.  Use the `/market-data/unsubscribe-trades` endpoint to unsubscribe.
+
+components:
+  schemas:
+    TradeData:
+      type: object # Use object since keys are numeric
+      properties:
+        "0": # TradeId
+          type: integer
+          description: The ID of this trade.
+        "1": # ProductPairCode
+          type: integer
+          description: ProductPairCode.
+        "2": # Quantity
+          type: number
+          format: float
+          description: Quantity traded.
+        "3": # Price
+          type: number
+          format: float
+          description: Price at which the instrument traded.
+        "4": # Order1
+          type: integer
+          description: ID of the first order.
+        "5": # Order2
+          type: integer
+          description: ID of the second order.
+        "6": # TradeTime
+          type: integer # Or number, format: int64 if it's a long integer.
+          description: UTC trade time in milliseconds (POSIX format).
+        "7": # Direction
+          type: integer
+          enum:
+            - 0 # NoChange
+            - 1 # UpTick
+            - 2 # DownTick
+          description: Effect on market price.
+        "8": # TakerSide
+          type: integer
+          enum:
+            - 0 # Buy
+            - 1 # Sell
+          description: Which side took liquidity.
+        "9": # BlockTrade
+          type: integer # Boolean represented as 1/0
+          enum:
+            - 0
+            - 1
+          description: Was this a block trade?
+        "10": # order1ClientId or order2ClientId
+          type: integer
+          description: Client-supplied order ID.
+
+      required:
+        - "0"
+        - "1"
+        - "2"
+        - "3"
+        - "4"
+        - "5"
+        - "6"
+        - "7"
+        - "8"
+        - "9"
+        - "10"
+      example:
+        "0": 1713390
+        "1": 1
+        "2": 0.25643269
+        "3": 6419.77
+        "4": 203100209
+        "5": 203101083
+        "6": 1534863265752
+        "7": 2
+        "8": 1
+        "9": 0
+        "10": 0

@@ -1,0 +1,24 @@
+openapi: 3.0.0
+info:
+  title: Get Validate 2FA Required Endpoints
+  description: Gets endpoints that require 2FA Validation.
+  version: 1.0.0
+paths:
+  GetValidate2FARequiredEndpoints: # Or a more suitable path
+    get:
+      summary: Get 2FA Required Endpoints
+      tags:
+        - System
+      responses:
+        "200":
+          description: Successful retrieval of 2FA required endpoints.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+              example:
+                - "createwithdrawticket"
+                - "createdepositticket"
+                - "adduserpermission"

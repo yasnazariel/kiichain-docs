@@ -1,0 +1,80 @@
+openapi: 3.0.0
+info:
+  title: Register New Device
+  description: Confirms device registration using the hash code and email validation code.
+  version: 1.0.0
+paths:
+  RegisterNewDevice: # Or a more suitable path
+    post: # Device registration involves changing state, so POST is appropriate
+      summary: Register New Device
+      tags:
+        - System
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                HashCode:
+                  type: string
+                  description: Hash code associated with the device.
+                PendingEmailCode:
+                  type: string
+                  description: Email validation code.
+              required: # Mark required fields
+                - HashCode
+                - PendingEmailCode
+            example:
+              HashCode: "someHashCodeValue"
+              PendingEmailCode: "someEmailCodeValue"
+      responses:
+        "200":
+          description: Successful device registration.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: True for success, false for failure.
+                  errormsg:
+                    type: string
+                    nullable: true
+                    description: Error message (null for success).
+                  errorcode:
+                    type: integer
+                    description: Error code (0 for success).
+                  detail:
+                    type: string
+                    nullable: true
+                    description: Additional details.
+              example:
+                result: true
+                errormsg: null
+                errorcode: 0
+                detail: null
+        "400": # Example of a 400 response for an error
+          description: Unsuccessful device registration.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    example: false
+                  errormsg:
+                    type: string
+                    example: "Invalid Response" # Or other error message
+                  errorcode:
+                    type: integer
+                    example: 100 # Or other error code
+                  detail:
+                    type: string
+                    nullable: true
+              example:
+                result: false
+                errormsg: "Invalid Response"
+                errorcode: 100
+                detail: null

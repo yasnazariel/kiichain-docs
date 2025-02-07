@@ -1,0 +1,82 @@
+openapi: 3.0.0
+info:
+  title: Get User Devices
+  description: Gets the Registered Device trail for the current session.
+  version: 1.0.0
+paths:
+  GetUserDevices: # Or a more suitable path
+    get:
+      summary: Get User Devices
+      tags:
+        - System
+      parameters:
+        - in: query
+          name: UserId
+          schema:
+            type: integer
+          description: The user ID.
+          required: true # UserId is required according to your example.
+        - in: query
+          name: action # Add action parameter if needed
+          schema:
+            type: string
+          description: The action performed on device.
+        - in: query
+          name: startDate # Add start date parameter for date range
+          schema:
+            type: string
+            format: date-time # Use date-time format
+          description: The start date for the date range.
+        - in: query
+          name: endDate # Add end date parameter for date range
+          schema:
+            type: string
+            format: date-time # Use date-time format
+          description: The end date for the date range.
+
+      responses:
+        "200":
+          description: Successful retrieval of user devices.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    HashCode:
+                      type: integer
+                      description: Hash code associated with the device.
+                    Location:
+                      type: string
+                      description: Location of device.
+                    DeviceName:
+                      type: string
+                      description: Name of device.
+                    IpAddress:
+                      type: string
+                      description: IP address associated with the device.
+                    UserId: # Corrected to UserId (case-sensitive)
+                      type: integer
+                      description: User ID associated with the device.
+                    IsTrusted:
+                      type: boolean
+                      description: If true, device is linked with location/IP.
+                    ExpirationTime:
+                      type: integer # Or number, format: int64 if it's a long integer.
+                      description: Epoch time when device registration expires.
+              example:
+                - HashCode: 12345
+                  Location: "New York"
+                  DeviceName: "My Laptop"
+                  IpAddress: "192.168.1.100"
+                  UserId: 1
+                  IsTrusted: true
+                  ExpirationTime: 1678886400 # Example Unix timestamp
+                - HashCode: 67890 # Example of a second device
+                  Location: "London"
+                  DeviceName: "My Phone"
+                  IpAddress: "10.0.0.1"
+                  UserId: 1
+                  IsTrusted: false
+                  ExpirationTime: 1678972800
