@@ -1,0 +1,163 @@
+openapi: 3.0.0
+info:
+  title: Get Instruments
+  description: Retrieves a list of available instruments.
+  version: 1.0.0
+paths:
+  GetInstruments:
+    get:
+      summary: Get Instruments
+      tags:
+        - Public
+      parameters:
+        - in: query
+          name: OMSId
+          schema:
+            type: integer
+          description: The ID of the Order Management System.
+          required: true
+        - in: query
+          name: InstrumentState
+          schema:
+            type: string
+            enum:
+              - both
+              - inactive
+              - active
+          description: Filter by instrument state.
+      responses:
+        "200":
+          description: Successful retrieval of instruments.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    omsId:
+                      type: integer
+                      description: The Order Management System ID.
+                    instrumentId:
+                      type: integer
+                      description: The ID of the instrument.
+                    symbol:
+                      type: string
+                      description: The trading symbol.
+                    product1:
+                      type: integer
+                      description: The ID of the first product.
+                    product1Symbol:
+                      type: string
+                      description: The symbol for Product 1.
+                    product2:
+                      type: integer
+                      description: The ID of the second product.
+                    product2Symbol:
+                      type: string
+                      description: The symbol for Product 2.
+                    instrumentType:
+                      type: string
+                      enum:
+                        - Unknown
+                        - Standard
+                      description: The type of instrument.
+                    venueInstrumentId:
+                      type: integer
+                      description: The venue instrument ID.
+                    venueId:
+                      type: integer
+                      description: The venue ID.
+                    sortIndex:
+                      type: integer
+                      description: The sort index.
+                    sessionStatus:
+                      type: string
+                      enum:
+                        - Unknown
+                        - Running
+                        - Paused
+                        - Stopped
+                        - Starting
+                      description: The session status.
+                    previousSessionStatus:
+                      type: string
+                      enum:
+                        - Unknown
+                        - Running
+                        - Paused
+                        - Stopped
+                        - Starting
+                      description: The previous session status.
+                    sessionStatusDateTime:
+                      type: string
+                      format: date-time
+                      description: The session status date and time.
+                    selfTradePrevention:
+                      type: boolean
+                      description: Is self-trade prevention enabled?
+                    quantityIncrement:
+                      type: number
+                      format: float
+                      description: The smallest tradeable increment.
+                    priceIncrement:
+                      type: number
+                      format: float
+                      description: The price increment.
+                    minimumPrice:
+                      type: number
+                      format: float
+                      description: The minimum price.
+                    displaySymbol:
+                      type: string
+                      description: The display symbol.
+                    isDisable:
+                      type: boolean
+                      description: Is the instrument disabled?
+                    masterDataId:
+                      type: integer
+                      description: The master data ID.
+                    allowOnlyMarketMakerCounterParty:
+                      type: boolean
+                      description: Allow only market maker counter party?
+                  required:
+                    - omsId
+                    - instrumentId
+                    - instrumentType
+                    - venueInstrumentId
+                    - venueId
+                    - sortIndex
+                    - sessionStatus
+                    - previousSessionStatus
+                    - sessionStatusDateTime
+                    - selfTradePrevention
+                    - quantityIncrement
+                    - priceIncrement
+                    - minimumPrice
+                    - displaySymbol
+                    - isDisable
+                    - masterDataId
+                    - allowOnlyMarketMakerCounterParty
+                  example:
+                    omsId: 0
+                    instrumentId: 0
+                    symbol: ""
+                    product1: 0
+                    product1Symbol: ""
+                    product2: 0
+                    product2Symbol: ""
+                    instrumentType: "Unknown"
+                    venueInstrumentId: 0
+                    venueId: 0
+                    sortIndex: 0
+                    sessionStatus: "Unknown"
+                    previousSessionStatus: "Unknown"
+                    sessionStatusDateTime: "0001-01-01T00:00:00"
+                    selfTradePrevention: false
+                    quantityIncrement: 0.0
+                    priceIncrement: 0.0
+                    minimumPrice: 0.0
+                    displaySymbol: ""
+                    isDisable: false
+                    masterDataId: 0
+                    allowOnlyMarketMakerCounterParty: false
