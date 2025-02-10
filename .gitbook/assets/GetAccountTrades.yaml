@@ -1,0 +1,269 @@
+openapi: 3.0.0
+info:
+  title: Get Account Trades
+  description: Retrieves a list of past trade executions for an account.
+  version: 1.0.0
+paths:
+  GetAccountTrades:
+    get:
+      summary: Get Account Trades
+      tags:
+        - User
+      parameters:
+        - in: query
+          name: OMSId
+          schema:
+            type: integer
+          description: The ID of the Order Management System.
+          required: true
+        - in: query
+          name: accountId
+          schema:
+            type: integer
+          description: The ID of the account.
+          required: true
+        - in: query
+          name: executionId
+          schema:
+            type: integer
+          description: The specific execution ID (0 for all).
+        - in: query
+          name: tradeId
+          schema:
+            type: integer
+          description: The specific trade ID (0 for all).
+        - in: query
+          name: orderId
+          schema:
+            type: integer
+          description: The specific order ID (0 for all).
+        - in: query
+          name: userId
+          schema:
+            type: integer
+          description: The ID of the user.
+        - in: query
+          name: startTimestamp
+          schema:
+            type: integer
+          description: Start timestamp (seconds since epoch).
+        - in: query
+          name: endTimestamp
+          schema:
+            type: integer
+          description: End timestamp (seconds since epoch).
+        - in: query
+          name: depth
+          schema:
+            type: integer
+          description: Maximum number of trade records to retrieve.
+        - in: query
+          name: StartIndex
+          schema:
+            type: integer
+          description: Starting index into the history of trades.
+      responses:
+        "200":
+          description: Successful retrieval of trades.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TradeInfo"
+components:
+  schemas:
+    TradeInfo:
+      type: object
+      properties:
+        OMSId:
+          type: integer
+          description: The ID of the Order Management System.
+        ExecutionId:
+          type: integer
+          description: The ID of the execution.
+        TradeId:
+          type: integer
+          description: The ID of the trade.
+        OrderId:
+          type: integer
+          description: The ID of the order.
+        AccountId:
+          type: integer
+          description: The ID of the account.
+        AccountName:
+          type: string
+          description: The name of the account.
+        SubAccountId:
+          type: integer
+          description: Sub-account ID (reserved for future use).
+        ClientOrderId:
+          type: integer
+          description: Client order ID.
+        InstrumentId:
+          type: integer
+          description: The ID of the instrument.
+        Side:
+          type: string
+          enum:
+            - Buy
+            - Sell
+            - Short
+            - Unknown
+          description: Side of the trade.
+        OrderType:
+          type: string
+          enum:
+            - Market
+            - Limit
+            - BlockTrade
+            - StopMarket
+            - StopLimit
+            - TrailingStopLimit
+            - TrailingStopMarket
+          description: Type of order.
+        Quantity:
+          type: number
+          format: float
+          description: Quantity of the trade.
+        RemainingQuantity:
+          type: number
+          format: float
+          description: Remaining quantity of the order.
+        Price:
+          type: number
+          format: float
+          description: Price of the trade.
+        Value:
+          type: number
+          format: float
+          description: Value of the trade.
+        CounterParty:
+          type: string
+          description: Counterparty ID.
+        OrderTradeRevision:
+          type: integer
+          description: Order trade revision.
+        Direction:
+          type: integer
+          enum:
+            - 0 # No change
+            - 1 # Uptick
+            - 2 # DownTick
+          description: Direction of the trade.
+        IsBlockTrade:
+          type: boolean
+          description: Is it a block trade?
+        Fee:
+          type: number
+          format: float
+          description: Fee levied on the trade.
+        FeeProductId:
+          type: integer
+          description: ID of the fee product.
+        OrderOriginator:
+          type: integer
+          description: ID of the order originator.
+        UserName:
+          type: string
+          description: User name.
+        TradeTimeMS:
+          type: integer
+          description: Trade time in milliseconds (POSIX format).
+        MakerTaker:
+          type: string
+          enum:
+            - Maker
+            - Taker
+          description: Maker/Taker.
+        AdapterTradeId:
+          type: integer
+          description: Adapter trade ID.
+        InsideBid:
+          type: number
+          format: float
+          description: Inside bid price.
+        InsideBidSize:
+          type: number
+          format: float
+          description: Inside bid size.
+        InsideAsk:
+          type: number
+          format: float
+          description: Inside ask price.
+        InsideAskSize:
+          type: number
+          format: float
+          description: Inside ask size.
+        IsQuote:
+          type: integer
+          description: Is it a quote?
+        TradeTime:
+          type: integer
+          description: Trade time (C# Ticks).
+      required: # Add all required fields
+        - OMSId
+        - ExecutionId
+        - TradeId
+        - OrderId
+        - AccountId
+        - AccountName
+        - SubAccountId
+        - ClientOrderId
+        - InstrumentId
+        - Side
+        - OrderType
+        - Quantity
+        - RemainingQuantity
+        - Price
+        - Value
+        - CounterParty
+        - OrderTradeRevision
+        - Direction
+        - IsBlockTrade
+        - Fee
+        - FeeProductId
+        - OrderOriginator
+        - UserName
+        - TradeTimeMS
+        - MakerTaker
+        - AdapterTradeId
+        - InsideBid
+        - InsideBidSize
+        - InsideAsk
+        - InsideAskSize
+        - IsQuote
+        - TradeTime
+      example:
+        OMSId: 0
+        ExecutionId: 0
+        TradeId: 0
+        OrderId: 0
+        AccountId: 0
+        AccountName: ""
+        SubAccountId: 0
+        ClientOrderId: 0
+        InstrumentId: 0
+        Side: "Buy"
+        OrderType: "Limit"
+        Quantity: 0.0
+        RemainingQuantity: 0.0
+        Price: 0.0
+        Value: 0.0
+        CounterParty: ""
+        OrderTradeRevision: 0
+        Direction: 0
+        IsBlockTrade: false
+        Fee: 0.0
+        FeeProductId: 0
+        OrderOriginator: 0
+        UserName: ""
+        TradeTimeMS: 0
+        MakerTaker: "Maker"
+        AdapterTradeId: 0
+        InsideBid: 0
+        InsideBidSize: 0
+        InsideAsk: 0
+        InsideAskSize: 0
+        IsQuote: 0
+        TradeTime: 0
