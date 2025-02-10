@@ -1,0 +1,79 @@
+openapi: 3.0.0
+info:
+  title: Get Products
+  description: Returns an array of available products and currencies.
+  version: 1.0.0
+paths:
+  GetProducts:
+    get:
+      summary: Get Products
+      tags:
+        - Public
+      parameters:
+        - in: query
+          name: OMSId
+          schema:
+            type: integer
+          description: The ID of the Order Management System.
+          required: true
+        - in: query
+          name: GetDisabled
+          schema:
+            type: boolean
+          description: Include disabled products?
+      responses:
+        "200":
+          description: Successful retrieval of products.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    omsId:
+                      type: integer
+                      description: The Order Management System ID.
+                    productId:
+                      type: integer
+                      description: The ID of the product.
+                    product:
+                      type: string
+                      description: The product nickname.
+                    productFullName:
+                      type: string
+                      description: The full product name.
+                    productType:
+                      type: string
+                      enum:
+                        - Unknown
+                        - NationalCurrency
+                        - CryptoCurrency
+                        - Contract
+                      description: The type of product.
+                    decimalPlaces:
+                      type: integer
+                      description: The number of decimal places.
+                    tickSize:
+                      type: number
+                      format: float
+                      description: The smallest increment for trading.
+                    noFees:
+                      type: boolean
+                      description: Are there any fees?
+                  required:
+                    - omsId
+                    - productId
+                    - productType
+                    - decimalPlaces
+                    - tickSize
+                    - noFees
+                  example:
+                    omsId: 0
+                    productId: 0
+                    product: ""
+                    productFullName: ""
+                    productType: "Unknown"
+                    decimalPlaces: 0
+                    tickSize: 0.0
+                    noFees: false
