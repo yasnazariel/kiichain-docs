@@ -1,0 +1,68 @@
+openapi: 3.0.0
+info:
+  title: Cancel Withdraw
+  description: Cancels a pending withdrawal.
+  version: 1.0.0
+paths:
+  CancelWithdraw:
+    post:
+      summary: Cancel Withdraw
+      tags:
+        - User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                OMSId:
+                  type: integer
+                  description: The Order Management System ID.
+                  required: true
+                UserId:
+                  type: integer
+                  description: The user ID.
+                  required: true
+                AccountId:
+                  type: integer
+                  description: The account ID.
+                  required: true
+                RequestCode:
+                  type: string
+                  description: The globally unique ID (GUID) of the withdrawal.
+                  required: true
+              example:
+                OMSId: 1
+                UserId: 1
+                AccountId: 1
+                RequestCode: "Request Code GUID"
+      responses:
+        "200":
+          description: Successful cancellation request receipt.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: True if the request was received successfully, false otherwise.
+                  errormsg:
+                    type: string
+                    description: Error message.
+                  errorcode:
+                    type: integer
+                    description: Error code.
+                  detail:
+                    type: string
+                    description: Additional details.
+                required:
+                  - result
+                  - errormsg
+                  - errorcode
+                  - detail
+                example:
+                  result: true
+                  errormsg: "Operation Failed"
+                  errorcode: 101
+                  detail: "Withdraw Ticket not found for OmsId, AccountId, RequestCode"

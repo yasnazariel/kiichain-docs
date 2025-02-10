@@ -1,0 +1,79 @@
+openapi: 3.0.0
+info:
+  title: Submit Withdraw Ticket Comment
+  description: Creates and attaches a comment to a withdrawal ticket.
+  version: 1.0.0
+paths:
+  SubmitWithdrawTicketComment:
+    post:
+      summary: Submit Withdraw Ticket Comment
+      tags:
+        - User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                commentId:
+                  type: integer
+                  description: The comment ID (set to 0 on request).
+                enteredBy:
+                  type: integer
+                  description: The user ID of the commenter.
+                enteredDateTime:
+                  type: string
+                  format: date-time
+                  description: The comment timestamp.
+                comment:
+                  type: string
+                  description: The comment text.
+                operatorId:
+                  type: integer
+                  description: The operator ID.
+                omsId:
+                  type: integer
+                  description: The Order Management System ID.
+                ticketCode:
+                  type: string
+                  description: The ticket code (GUID).
+                ticketId:
+                  type: integer
+                  description: The ticket ID.
+              required:
+                - enteredBy
+                - enteredDateTime
+                - comment
+                - operatorId
+                - omsId
+                - ticketCode
+                - ticketId
+              example:
+                commentId: 0
+                enteredBy: 0
+                enteredDateTime: "0001-01-01T00:00:00"
+                comment: ""
+                operatorId: 0
+                omsId: 0
+                ticketCode: "43d1a9f0-8dc3-46f9-b457-297c800d8c9c"
+                ticketId: 0
+      responses:
+        "200":
+          description: Successful submission of the withdrawal ticket comment.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    description: True if successful, false otherwise.
+                  commentid:
+                    type: integer
+                    description: The system-assigned comment ID.
+                required:
+                  - success
+                  - commentid
+                example:
+                  success: true
+                  commentid: 10000002

@@ -1,0 +1,167 @@
+openapi: 3.0.0
+info:
+  title: Get Deposit Ticket
+  description: Returns details about a single deposit ticket.
+  version: 1.0.0
+paths:
+  GetDepositTicket:
+    get:
+      summary: Get Deposit Ticket
+      tags:
+        - User
+      parameters:
+        - in: query
+          name: OMSId
+          schema:
+            type: integer
+          description: The Order Management System ID.
+          required: true
+        - in: query
+          name: AccountId
+          schema:
+            type: integer
+          description: The account ID.
+          required: true
+        - in: query
+          name: RequestCode
+          schema:
+            type: string
+          description: The request code (GUID).
+        - in: query
+          name: TicketId
+          schema:
+            type: integer
+          description: The ticket ID.
+      responses:
+        "200":
+          description: Successful retrieval of deposit ticket details.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  assetManagerId:
+                    type: integer
+                    description: The asset manager ID.
+                  accountId:
+                    type: integer
+                    description: The account ID.
+                  assetId:
+                    type: integer
+                    description: The asset ID.
+                  assetName:
+                    type: string
+                    description: The asset name.
+                  amount:
+                    type: number
+                    format: float
+                    description: The deposit amount.
+                  omsId:
+                    type: integer
+                    description: The Order Management System ID.
+                  requestCode:
+                    type: string
+                    description: The request code.
+                  requestIP:
+                    type: string
+                    description: The request IP address.
+                  requestUser:
+                    type: integer
+                    description: The request user ID.
+                  requestUserName:
+                    type: string
+                    description: The request user name.
+                  operatorId:
+                    type: integer
+                    description: The operator ID.
+                  status:
+                    type: integer
+                    enum:
+                      - 0 # New
+                      - 1 # AdminProcessing
+                      - 2 # Accepted
+                      - 3 # Rejected
+                      - 4 # SystemProcessing
+                      - 5 # FullyProcessed
+                      - 6 # Failed
+                      - 7 # Pending
+                      - 8 # Confirmed
+                      - 9 # AmlProcessing
+                      - 10 # AmlAccepted
+                      - 11 # AmlRejected
+                      - 12 # AmlFailed
+                      - 13 # LimitsAccepted
+                      - 14 # LimitsRejected
+                    description: The deposit status.
+                  feeAmt:
+                    type: number
+                    format: float
+                    description: The fee amount.
+                  updatedByUser:
+                    type: integer
+                    description: The user ID of the updater.
+                  updatedByUserName:
+                    type: string
+                    description: The user name of the updater.
+                  ticketNumber:
+                    type: integer
+                    description: The ticket number.
+                  depositInfo:
+                    type: string # Or object with additionalProperties if it's JSON
+                    description: Deposit information.
+                  createdTimestamp:
+                    type: string
+                    format: date-time
+                    description: The creation timestamp.
+                  lastUpdateTimeStamp:
+                    type: string
+                    format: date-time
+                    description: The last update timestamp.
+                  comments:
+                    type: string
+                    description: Comments.
+                  attachments:
+                    type: string
+                    description: Attachments.
+                required:
+                  - assetManagerId
+                  - accountId
+                  - assetId
+                  - assetName
+                  - amount
+                  - omsId
+                  - requestCode
+                  - requestIP
+                  - requestUser
+                  - requestUserName
+                  - operatorId
+                  - status
+                  - feeAmt
+                  - updatedByUser
+                  - updatedByUserName
+                  - ticketNumber
+                  - depositInfo
+                  - createdTimestamp
+                  - lastUpdateTimeStamp
+                example:
+                  assetManagerId: 0
+                  accountId: 0
+                  assetId: 0
+                  assetName: null
+                  amount: 0.0
+                  omsId: 0
+                  requestCode: null
+                  requestIP: null
+                  requestUser: 0
+                  requestUserName: null
+                  operatorId: 0
+                  status: 0
+                  feeAmt: 0.0
+                  updatedByUser: 0
+                  updatedByUserName: null
+                  ticketNumber: 0
+                  depositInfo: null
+                  createdTimestamp: "0001-01-01T00:00:00"
+                  lastUpdateTimeStamp: "0001-01-01T00:00:00"
+                  comments: null
+                  attachments: null

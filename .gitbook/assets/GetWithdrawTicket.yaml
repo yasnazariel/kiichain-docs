@@ -1,0 +1,275 @@
+openapi: 3.0.0
+info:
+  title: Get Withdraw Ticket
+  description: Returns a single withdrawal ticket.
+  version: 1.0.0
+paths:
+  GetWithdrawTicket:
+    get:
+      summary: Get Withdraw Ticket
+      tags:
+        - User
+      parameters:
+        - in: query
+          name: OMSId
+          schema:
+            type: integer
+          description: The ID of the Order Management System.
+          required: true
+        - in: query
+          name: AccountId
+          schema:
+            type: integer
+          description: The account ID.
+          required: true
+        - in: query
+          name: RequestCode
+          schema:
+            type: string
+          description: The request code (GUID).
+          required: true
+        - in: query
+          name: TicketId
+          schema:
+            type: integer
+          description: The ticket ID.
+          required: true
+      responses:
+        "200":
+          description: Successful retrieval of the withdrawal ticket.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  assetManagerId:
+                    type: integer
+                    description: The asset manager ID.
+                  accountId:
+                    type: integer
+                    description: The account ID.
+                  assetId:
+                    type: integer
+                    description: The asset ID.
+                  assetName:
+                    type: string
+                    description: The asset name.
+                  amount:
+                    type: number
+                    format: float
+                    description: The withdrawal amount.
+                  templateForm:
+                    type: object # Template form is a JSON object
+                    additionalProperties: true
+                    description: The withdrawal template form.
+                  templateFormType:
+                    type: string
+                    description: The template form type.
+                  omsId:
+                    type: integer
+                    description: The Order Management System ID.
+                  requestCode:
+                    type: string
+                    description: The request code.
+                  requestIP:
+                    type: string
+                    description: The request IP address.
+                  requestUserId:
+                    type: integer
+                    description: The request user ID.
+                  requestUserName:
+                    type: string
+                    description: The request user name.
+                  operatorId:
+                    type: integer
+                    description: The operator ID.
+                  Status:
+                    type: integer
+                    enum:
+                      - 0 # New
+                      - 1 # AdminProcessing
+                      - 2 # Accepted
+                      - 3 # Rejected
+                      - 4 # SystemProcessing
+                      - 5 # FullyProcessed
+                      - 6 # Failed
+                      - 7 # Pending
+                      - 8 # Pending2Fa
+                      - 9 # AutoAccepted
+                      - 10 # Delayed
+                      - 11 # UserCanceled
+                      - 12 # AdminCanceled
+                      - 13 # AmlProcessing
+                      - 14 # AmlAccepted
+                      - 15 # AmlRejected
+                      - 16 # AmlFailed
+                      - 17 # LimitsAccepted
+                      - 18 # LimitsRejected
+                      - 19 # Submitted
+                      - 20 # Confirmed
+                      - 21 # ManuallyConfirmed
+                      - 22 # Confirmed2Fa
+                    description: The withdrawal status.
+                  feeAmt:
+                    type: number
+                    format: float
+                    description: The fee amount.
+                  updatedByUser:
+                    type: integer
+                    description: The user ID of the updater.
+                  updatedByUserName:
+                    type: string
+                    description: The user name of the updater.
+                  ticketNumber:
+                    type: integer
+                    description: The ticket number.
+                  createdTimestamp:
+                    type: string
+                    format: date-time
+                    description: The creation timestamp.
+                  lastUpdateTimestamp:
+                    type: string
+                    format: date-time
+                    description: The last update timestamp.
+                  Comments:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        commentId:
+                          type: integer
+                          description: The comment ID.
+                        enteredBy:
+                          type: integer
+                          description: The user ID of the commenter.
+                        enteredDateTime:
+                          type: string
+                          format: date-time
+                          description: The comment timestamp.
+                        comment:
+                          type: string
+                          description: The comment text.
+                        operatorId:
+                          type: integer
+                          description: The operator ID.
+                        omsId:
+                          type: integer
+                          description: The Order Management System ID.
+                        ticketCode:
+                          type: string
+                          description: The ticket code.
+                        ticketId:
+                          type: integer
+                          description: The ticket ID.
+                      required:
+                        - commentId
+                        - enteredBy
+                        - enteredDateTime
+                        - comment
+                        - operatorId
+                        - omsId
+                        - ticketCode
+                        - ticketId
+                    description: Comments on the withdrawal ticket.
+                  Attachments:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        attachmentId:
+                          type: integer
+                          description: The attachment ID.
+                        submittedByUserId:
+                          type: integer
+                          description: The user ID of the submitter.
+                        submittedByUserName:
+                          type: string
+                          description: The user name of the submitter.
+                        uploadDate:
+                          type: string
+                          format: date-time
+                          description: The upload timestamp.
+                        uploadIP:
+                          type: string
+                          description: The upload IP address.
+                        ticketNumber:
+                          type: integer
+                          description: The ticket number.
+                      required:
+                        - attachmentId
+                        - submittedByUserId
+                        - submittedByUserName
+                        - uploadDate
+                        - uploadIP
+                        - ticketNumber
+                    description: Attachments to the withdrawal ticket.
+                  AuditLog:
+                    type: array
+                    items:
+                      type: object # Or a more specific schema if known
+                    description: Audit log (reserved for future use).
+                required: # ...all the properties listed above
+                  - assetManagerId
+                  - accountId
+                  - assetId
+                  - assetName
+                  - amount
+                  - templateForm
+                  - templateFormType
+                  - omsId
+                  - requestCode
+                  - requestIP
+                  - requestUserId
+                  - requestUserName
+                  - operatorId
+                  - Status
+                  - feeAmt
+                  - updatedByUser
+                  - updatedByUserName
+                  - ticketNumber
+                  - createdTimestamp
+                  - lastUpdateTimestamp
+                  - Comments
+                  - Attachments
+                  - AuditLog
+                example: # ...an example object with all the properties
+                  assetManagerId: 0
+                  accountId: 0
+                  assetId: 0
+                  assetName: ""
+                  amount: 0.0
+                  templateForm:
+                    TemplateType: "TetherRPCWithdraw"
+                    Comment: "TestWithdraw"
+                    ExternalAddress: "ms6C3pKAAr8gRCcnVebs8VRkVrjcvqNYv3"
+                  templateFormType: "ThetherRPCWithdraw"
+                  omsId: 0
+                  requestCode: "490b4fa3-53fc-44f4-bd29-7e16be86fba3"
+                  requestIP: ""
+                  requestUserId: 0
+                  requestUserName: ""
+                  operatorId: 0
+                  Status: 0
+                  feeAmt: 0.0
+                  updatedByUser: 0
+                  updatedByUserName: ""
+                  ticketNumber: 0
+                  createdTimestamp: "0001-01-01T00:00:00"
+                  lastUpdateTimestamp: "0001-01-01T00:00:00"
+                  Comments:
+                    - commentId: 0
+                      enteredBy: 0
+                      enteredDateTime: "0001-01-01T00:00:00"
+                      comment: ""
+                      operatorId: 0
+                      omsId: 0
+                      ticketCode: ""
+                      ticketId: 0
+                  Attachments:
+                    - attachmentId: 0
+                      submittedByUserId: 0
+                      submittedByUserName: ""
+                      uploadDate: "0001-01-01T00:00:00"
+                      uploadIP: ""
+                      ticketNumber: 0
+                  AuditLog: []

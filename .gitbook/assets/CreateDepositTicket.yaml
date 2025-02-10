@@ -1,0 +1,128 @@
+openapi: 3.0.0
+info:
+  title: Create Deposit Ticket
+  description: Records a deposit ticket for fiat money deposits.
+  version: 1.0.0
+paths:
+  CreateDepositTicket:
+    post:
+      summary: Create Deposit Ticket
+      tags:
+        - User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                assetManagerId:
+                  type: integer
+                  description: The asset manager ID.
+                  required: true
+                accountId:
+                  type: integer
+                  description: The account ID.
+                  required: true
+                assetId:
+                  type: integer
+                  description: The asset ID.
+                  required: true
+                assetName:
+                  type: string
+                  description: The asset name.
+                  required: true
+                amount:
+                  type: number
+                  format: float
+                  description: The deposit amount.
+                  required: true
+                omsId:
+                  type: integer
+                  description: The Order Management System ID.
+                  required: true
+                requestCode:
+                  type: string
+                  description: The request code (leave null on request).
+                requestIP:
+                  type: string
+                  description: The request IP address.
+                requestUserName:
+                  type: string
+                  description: The request user name.
+                operatorId:
+                  type: integer
+                  description: The operator ID.
+                status:
+                  type: integer
+                  description: The deposit status.
+                feeAmt:
+                  type: number
+                  format: float
+                  description: The fee amount.
+                updatedByUser:
+                  type: integer
+                  description: The user ID of the updater.
+                updatedByUserName:
+                  type: string
+                  description: The user name of the updater.
+                ticketNumber:
+                  type: integer
+                  description: The ticket number.
+                depositInfo:
+                  type: string
+                  description: Deposit information.
+                createdTimestamp:
+                  type: string
+                  format: date-time
+                  description: The creation timestamp.
+                lastUpdateTimeStamp:
+                  type: string
+                  format: date-time
+                  description: The last update timestamp.
+                comments:
+                  type: string
+                  description: Comments.
+                attachments:
+                  type: string
+                  description: Attachments.
+              example:
+                assetManagerId: 0
+                accountId: 0
+                assetId: 0
+                assetName: null
+                amount: 0.0
+                omsId: 0
+                requestCode: null
+                requestIP: null
+                requestUserName: null
+                operatorId: 0
+                status: 0
+                feeAmt: 0.0
+                updatedByUser: 0
+                updatedByUserName: null
+                ticketNumber: 0
+                depositInfo: ""
+                createdTimestamp: "0001-01-01T00:00:00"
+                lastUpdateTimeStamp: "0001-01-01T00:00:00"
+                comments: null
+                attachments: null
+      responses:
+        "200":
+          description: Successful deposit ticket creation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    description: True if successful, false otherwise.
+                  requestcode:
+                    type: string
+                    description: The request code.
+                required:
+                  - success
+                  - requestcode
+                example:
+                  success: true
+                  requestcode: "866f21fe-3461-41d1-91aa-5689bc38503f"

@@ -1,0 +1,93 @@
+openapi: 3.0.0
+info:
+  title: Get Deposit Info
+  description: Retrieves deposit key information for cryptocurrency deposits.
+  version: 1.0.0
+paths:
+  GetDepositInfo:
+    get:
+      summary: Get Deposit Info
+      tags:
+        - User
+      parameters:
+        - in: query
+          name: OMSId
+          schema:
+            type: integer
+          description: The Order Management System ID.
+          required: true
+        - in: query
+          name: AccountId
+          schema:
+            type: integer
+          description: The account ID.
+          required: true
+        - in: query
+          name: ProductId
+          schema:
+            type: integer
+          description: The product ID.
+          required: true
+        - in: query
+          name: GenerateNewKey
+          schema:
+            type: boolean
+          description: Generate new key?
+          required: true
+        - in: query
+          name: DepositInfo
+          schema:
+            type: string
+          description: Additional deposit information (JSON string).
+      responses:
+        "200":
+          description: Successful retrieval of deposit information.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  AssetManagerId:
+                    type: integer
+                    description: The asset manager ID.
+                  AccountId:
+                    type: integer
+                    description: The account ID.
+                  AssetId:
+                    type: integer
+                    description: The asset ID.
+                  ProviderId:
+                    type: integer
+                    description: The provider ID.
+                  DepositInfo:
+                    type: array
+                    items:
+                      type: integer # Or string if the keys are strings
+                    description: Array of deposit keys.
+                  result:
+                    type: boolean
+                    description: True if successful, false otherwise.
+                  errormsg:
+                    type: string
+                    description: Error message.
+                  statuscode:
+                    type: integer
+                    description: Status code.
+                required:
+                  - AssetManagerId
+                  - AccountId
+                  - AssetId
+                  - ProviderId
+                  - DepositInfo
+                  - result
+                  - errormsg
+                  - statuscode
+                example:
+                  AssetManagerId: 1
+                  AccountId: 1
+                  AssetId: 1
+                  ProviderId: 1
+                  DepositInfo: []
+                  result: true
+                  errormsg: null
+                  statuscode: 0

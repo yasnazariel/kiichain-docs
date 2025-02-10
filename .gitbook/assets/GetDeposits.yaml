@@ -1,0 +1,67 @@
+openapi: 3.0.0
+info:
+  title: Get Deposits
+  description: Returns deposit objects for a specific account.
+  version: 1.0.0
+paths:
+  GetDeposits:
+    get:
+      summary: Get Deposits
+      tags:
+        - User
+      parameters:
+        - in: query
+          name: OMSId
+          schema:
+            type: integer
+          description: The ID of the Order Management System.
+          required: true
+        - in: query
+          name: AccountId
+          schema:
+            type: integer
+          description: The account ID.
+          required: true
+      responses:
+        "200":
+          description: Successful retrieval of deposits.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    omsId:
+                      type: integer
+                      description: The Order Management System ID.
+                    depositId:
+                      type: integer
+                      description: The deposit ID.
+                    accountId:
+                      type: integer
+                      description: The account ID.
+                    subAccountId:
+                      type: integer
+                      description: The sub-account ID.
+                    productId:
+                      type: integer
+                      description: The product ID.
+                    amount:
+                      type: number
+                      format: float
+                      description: The deposit amount.
+                  required:
+                    - omsId
+                    - depositId
+                    - accountId
+                    - subAccountId
+                    - productId
+                    - amount
+                  example:
+                    omsId: 0
+                    depositId: 0
+                    accountId: 0
+                    subAccountId: 0
+                    productId: 0
+                    amount: 0.0

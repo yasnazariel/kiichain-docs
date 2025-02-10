@@ -1,0 +1,62 @@
+openapi: 3.0.0
+info:
+  title: Get Withdraw Template Types
+  description: Returns a list of withdrawal template names.
+  version: 1.0.0
+paths:
+  GetWithdrawTemplateTypes:
+    get:
+      summary: Get Withdraw Template Types
+      tags:
+        - User
+      parameters:
+        - in: query
+          name: OMSId
+          schema:
+            type: integer
+          description: The ID of the Order Management System.
+          required: true
+        - in: query
+          name: ProductId
+          schema:
+            type: integer
+          description: The product ID.
+          required: true
+      responses:
+        "200":
+          description: Successful retrieval of withdrawal template types.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  TemplateTypes:
+                    type: array
+                    items:
+                      type: string
+                    description: Array of template names.
+                  AccountProviderName:
+                    type: string
+                    description: The account provider name.
+                  result:
+                    type: boolean
+                    description: True if successful, false otherwise.
+                  errormsg:
+                    type: string
+                    description: Error message.
+                  statuscode:
+                    type: integer
+                    description: Status code.
+                required:
+                  - TemplateTypes
+                  - AccountProviderName
+                  - result
+                  - errormsg
+                  - statuscode
+                example:
+                  TemplateTypes:
+                    - Standard
+                  AccountProviderName: ""
+                  result: true
+                  errormsg: ""
+                  statuscode: 0

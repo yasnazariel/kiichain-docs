@@ -1,0 +1,71 @@
+openapi: 3.0.0
+info:
+  title: Get Withdraw Template
+  description: Returns the text of a specific withdrawal template.
+  version: 1.0.0
+paths:
+  GetWithdrawTemplate:
+    get:
+      summary: Get Withdraw Template
+      tags:
+        - User
+      parameters:
+        - in: query
+          name: OMSId
+          schema:
+            type: integer
+          description: The ID of the Order Management System.
+          required: true
+        - in: query
+          name: ProductId
+          schema:
+            type: integer
+          description: The product ID.
+          required: true
+        - in: query
+          name: TemplateType
+          schema:
+            type: string
+          description: The template name.
+          required: true
+        - in: query
+          name: AccountId
+          schema:
+            type: integer
+          description: The account ID (optional).
+        - in: query
+          name: AccountProviderId
+          schema:
+            type: integer
+          description: The Account Provider ID (optional).
+      responses:
+        "200":
+          description: Successful retrieval of the withdrawal template.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Template:
+                    type: object # The template is a JSON object
+                    additionalProperties: true
+                    description: The withdrawal template (JSON object).
+                  result:
+                    type: boolean
+                    description: True if successful, false otherwise.
+                  errormsg:
+                    type: string
+                    description: Error message.
+                  statuscode:
+                    type: integer
+                    description: Status code.
+                required:
+                  - Template
+                  - result
+                  - errormsg
+                  - statuscode
+                example:
+                  Template: {} # Example of an empty template object
+                  result: true
+                  errormsg: ""
+                  statuscode: 0

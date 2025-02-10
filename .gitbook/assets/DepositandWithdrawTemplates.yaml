@@ -1,0 +1,66 @@
+openapi: 3.0.0
+info:
+  title: Deposit and Withdraw Templates
+  description: Templates for banking tasks during deposits and withdrawals.
+  version: 1.0.0
+paths:
+  GetStandardTemplateExample: # Example path, adjust as needed
+    get:
+      summary: Get Standard Template Example
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                "Full Name": "John Smith"
+                Language: "en"
+                Comment: ""
+                BankAddress: "123 Fourth St."
+                BankAccountNumber: "12345678"
+                BankAccountName: "John Smith & Sons"
+                Swiftcode: "ABCDUSA1"
+  GetTetherRPCWithdrawTemplateExample: # Example path, adjust as needed
+    get:
+      summary: Get TetherRPCWithdraw Template Example
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                TemplateType: "TetherRPCWithdraw"
+                Comment: "TestWithdraw"
+                ExternalAddress: "ms6C3pKAAr8gRCcnVebs8VRkVrjcvqNYv3"
+  /deposit-withdraw-template: # Example path, adjust as needed
+    get:
+      summary: Get Deposit/Withdraw Template Example (Standard)
+      parameters:
+        - in: query
+          name: TemplateformType
+          schema:
+            type: string
+            enum:
+              - Standard
+              - TetherRPCWithdraw
+          required: true
+          description: Type of template form.
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Standard: # Example of a Standard Template
+                  value:
+                    TemplateformType: Standard
+                    "Full Name": "John Smith"
+                    Language: "en"
+                    Comment: ""
+                    BankAddress: "123 Fourth St."
+                    BankAccountNumber: "12345678"
+                    BankAccountName: "John Smith & Sons"
+                    Swiftcode: "ABCDUSA1"
+                TetherRPCWithdraw: # Example of a TetherRPCWithdraw Template
+                  value:
+                    TemplateformType: TetherRPCWithdraw
+                    TemplateType: "TetherRPCWithdraw"
+                    Comment: "TestWithdraw"
+                    ExternalAddress: "ms6C3pKAAr8gRCcnVebs8VRkVrjcvqNYv3"

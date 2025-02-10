@@ -1,0 +1,96 @@
+openapi: 3.0.0
+info:
+  title: Get All Deposit Request Info Templates
+  description: Returns deposit form templates for a specific product.
+  version: 1.0.0
+paths:
+  GetAllDepositRequestInfoTemplates:
+    get:
+      summary: Get All Deposit Request Info Templates
+      tags:
+        - User
+      parameters:
+        - in: query
+          name: OMSId
+          schema:
+            type: integer
+          description: The Order Management System ID.
+          required: true
+        - in: query
+          name: ProductId
+          schema:
+            type: integer
+          description: The product ID.
+          required: true
+      responses:
+        "200":
+          description: Successful retrieval of deposit templates.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    Template:
+                      type: object
+                      properties:
+                        ProviderType:
+                          type: string
+                          enum:
+                            - BitcoinRpc
+                            - BitGoRpc
+                            - InternalAccounting
+                            - WsAccountingProvider
+                            - EthereumERC20
+                            - EthereumRPC
+                          description: The provider type.
+                        Template:
+                          type: object # Template is a JSON object, but its structure is dynamic
+                          additionalProperties: true
+                          description: The template (dynamic JSON object).
+                        ProcessInfo:
+                          type: string
+                          description: Process information.
+                        UseGetDepositWorkflow:
+                          type: boolean
+                          description: Use deposit workflow?
+                        DepositWorkflow:
+                          type: string
+                          enum:
+                            - CryptoWallet
+                            - ManualDeposit
+                            - MerchantForm
+                            - MerchantRedirect
+                            - Custom
+                          description: The deposit workflow.
+                      required:
+                        - ProviderType
+                        - Template
+                        - ProcessInfo
+                        - UseGetDepositWorkflow
+                        - DepositWorkflow
+                    result:
+                      type: boolean
+                      description: True if successful, false otherwise.
+                    errormsg:
+                      type: string
+                      description: Error message.
+                    statuscode:
+                      type: integer
+                      description: Status code.
+                  required:
+                    - Template
+                    - result
+                    - errormsg
+                    - statuscode
+                  example:
+                    Template:
+                      ProviderType: "BitcoinRpc"
+                      Template: {} # Empty JSON object example
+                      ProcessInfo: ""
+                      UseGetDepositWorkflow: true
+                      DepositWorkflow: "CryptoWallet"
+                    result: true
+                    errormsg: null
+                    statuscode: 0

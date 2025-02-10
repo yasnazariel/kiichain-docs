@@ -1,0 +1,65 @@
+openapi: 3.0.0
+info:
+  title: Get Withdraw Fee
+  description: Gets an estimate of a fee for a withdrawal.
+  version: 1.0.0
+paths:
+  GetWithdrawFee:
+    get:
+      summary: Get Withdraw Fee
+      tags:
+        - User
+      parameters:
+        - in: query
+          name: OMSId
+          schema:
+            type: integer
+          description: The ID of the Order Management System.
+          required: true
+        - in: query
+          name: AccountId
+          schema:
+            type: integer
+          description: The account ID.
+          required: true
+        - in: query
+          name: ProductId
+          schema:
+            type: integer
+          description: The product ID.
+          required: true
+        - in: query
+          name: Amount
+          schema:
+            type: number
+            format: float
+          description: The amount to withdraw.
+          required: true
+        - in: query
+          name: AccountProviderId
+          schema:
+            type: integer
+          description: The Account Provider Id.
+          required: true
+      responses:
+        "200":
+          description: Successful retrieval of withdraw fee estimate.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  FeeAmount:
+                    type: number
+                    format: float
+                    description: The estimated fee amount.
+                  TicketAmount:
+                    type: number
+                    format: float
+                    description: The estimated amount to withdraw.
+                required:
+                  - FeeAmount
+                  - TicketAmount
+                example:
+                  FeeAmount: 1.06
+                  TicketAmount: 10.24

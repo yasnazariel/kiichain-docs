@@ -1,0 +1,163 @@
+openapi: 3.0.0
+info:
+  title: Get Withdraws
+  description: Returns a list of withdrawals for a given account.
+  version: 1.0.0
+paths:
+  GetWithdraws:
+    get:
+      summary: Get Withdraws
+      tags:
+        - User
+      parameters:
+        - in: query
+          name: OMSId
+          schema:
+            type: integer
+          description: The ID of the Order Management System.
+          required: true
+        - in: query
+          name: AccountId
+          schema:
+            type: integer
+          description: The account ID.
+          required: true
+      responses:
+        "200":
+          description: Successful retrieval of withdrawals.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    amount:
+                      type: number
+                      format: float
+                      description: The withdrawal amount.
+                    feeAmount:
+                      type: number
+                      format: float
+                      description: The withdrawal fee amount.
+                    notionalValue:
+                      type: number
+                      format: float
+                      description: The notional value.
+                    withdrawId:
+                      type: integer
+                      description: The withdrawal ID.
+                    assetManagerId:
+                      type: integer
+                      description: The asset manager ID.
+                    accountId:
+                      type: integer
+                      description: The account ID.
+                    assetId:
+                      type: integer
+                      description: The asset ID.
+                    templateForm:
+                      type: object # Template form is a JSON object
+                      additionalProperties: true
+                      description: The withdrawal template form.
+                    templateFormType:
+                      type: string
+                      description: The template form type.
+                    omsId:
+                      type: integer
+                      description: The Order Management System ID.
+                    TicketStatus:
+                      type: integer
+                      enum:
+                        - 0 # New
+                        - 1 # AdminProcessing
+                        - 2 # Accepted
+                        - 3 # Rejected
+                        - 4 # SystemProcessing
+                        - 5 # FullyProcessed
+                        - 6 # Failed
+                        - 7 # Pending
+                        - 8 # Pending2Fa
+                        - 9 # AutoAccepted
+                        - 10 # Delayed
+                        - 11 # UserCanceled
+                        - 12 # AdminCanceled
+                        - 13 # AmlProcessing
+                        - 14 # AmlAccepted
+                        - 15 # AmlRejected
+                        - 16 # AmlFailed
+                        - 17 # LimitsAccepted
+                        - 18 # LimitsRejected
+                        - 19 # Submitted
+                        - 20 # Confirmed
+                        - 21 # ManuallyConfirmed
+                        - 22 # Confirmed2Fa
+                      description: The ticket status.
+                    ticketNumber:
+                      type: integer
+                      description: The ticket number.
+                    WithdrawTransactionDetails:
+                      type: object # Dynamic JSON object
+                      additionalProperties: true
+                      description: Withdrawal transaction details.
+                    withdrawType:
+                      type: string
+                      description: The withdrawal type (e.g., cryptocurrency or fiat).
+                    withdrawCode:
+                      type: string
+                      description: The withdrawal code (GUID).
+                    AssetType:
+                      type: integer
+                      enum:
+                        - 0 # Unknown
+                        - 1 # NationalCurrency
+                        - 2 # CryptoCurrency
+                        - 3 # Contract
+                      description: The asset type.
+                    reaccepted:
+                      type: boolean
+                      description: Was the ticket reaccepted?
+                    notionalProductId:
+                      type: integer
+                      description: The notional product ID.
+                  required:
+                    - amount
+                    - feeAmount
+                    - notionalValue
+                    - withdrawId
+                    - assetManagerId
+                    - accountId
+                    - assetId
+                    - templateForm
+                    - templateFormType
+                    - omsId
+                    - TicketStatus
+                    - ticketNumber
+                    - WithdrawTransactionDetails
+                    - withdrawType
+                    - withdrawCode
+                    - AssetType
+                    - reaccepted
+                    - notionalProductId
+                  example:
+                    amount: 0.0
+                    feeAmount: 0.0
+                    notionalValue: 0.0
+                    withdrawId: 0
+                    assetManagerId: 0
+                    accountId: 0
+                    assetId: 0
+                    templateForm:
+                      TemplateType: "TetherRPCWithdraw"
+                      Comment: "TestWithdraw"
+                      ExternalAddress: "ms6C3pKAAr8gRCcnVebs8VRkVrjcvqNYv3"
+                    templateFormType: "TetherRPCWithdraw"
+                    omsId: 0
+                    TicketStatus: 0
+                    ticketNumber: 0
+                    WithdrawTransactionDetails: {}
+                    withdrawType: ""
+                    withdrawCode: "490b4fa3-53fc-44f4-bd29-7e16be86fba3"
+                    AssetType: 0
+                    reaccepted: true
+                    notionalProductId: 0

@@ -1,0 +1,82 @@
+openapi: 3.0.0
+info:
+  title: Create Withdraw Ticket
+  description: Initiates the withdrawal of funds.
+  version: 1.0.0
+paths:
+  CreateWithdrawTicket:
+    post:
+      summary: Create Withdraw Ticket
+      tags:
+        - User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                OMSId:
+                  type: integer
+                  description: The Order Management System ID.
+                  required: true
+                AccountId:
+                  type: integer
+                  description: The account ID.
+                  required: true
+                ProductId:
+                  type: integer
+                  description: The product ID.
+                  required: true
+                Amount:
+                  type: number
+                  format: float
+                  description: The amount to withdraw.
+                  required: true
+                TemplateForm:
+                  type: object # Template form content is dynamic
+                  description: The withdrawal template form.
+                  additionalProperties: true # Allows any properties within the template
+                TemplateType:
+                  type: string
+                  description: The template type.
+                  required: true
+              example:
+                OMSId: 1
+                AccountId: 1
+                ProductId: 1
+                Amount: 100.00
+                TemplateForm:
+                  TemplateType: "ToExternalBitCoinAddress"
+                  Comment: ""
+                  ExternalAddress: "54123214"
+                TemplateType: "ToExternalBitCoinAddress"
+      responses:
+        "200":
+          description: Successful withdrawal ticket creation request receipt.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: True if successful, false otherwise.
+                  errormsg:
+                    type: string
+                    description: Error message.
+                  errorcode:
+                    type: integer
+                    description: Error code.
+                  detail:
+                    type: string
+                    description: Additional details.
+                required:
+                  - result
+                  - errormsg
+                  - errorcode
+                  - detail
+                example:
+                  result: true
+                  errormsg: "Invalid Request"
+                  errorcode: 100
+                  detail: "Insufficient Balance"
