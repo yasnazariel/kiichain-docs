@@ -1,0 +1,152 @@
+openapi: 3.0.0
+info:
+  title: Cancel Replace Order
+  description: Cancels an existing order and replaces it with a new order.
+  version: 1.0.0
+paths:
+  CancelReplaceOrder:
+    post:
+      summary: Cancel Replace Order
+      tags:
+        - User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                omsId:
+                  type: integer
+                  description: The Order Management System ID.
+                  required: true
+                orderIdToReplace:
+                  type: integer
+                  description: The ID of the order to replace.
+                  required: true
+                clientOrdId:
+                  type: integer
+                  description: The client order ID for the replacement order.
+                orderType:
+                  type: integer
+                  enum:
+                    - 0 # Unknown
+                    - 1 # Market
+                    - 2 # Limit
+                    - 3 # StopMarket
+                    - 4 # StopLimit
+                    - 5 # TrailingStopMarket
+                    - 6 # TrailingStopLimit
+                    - 7 # BlockTrade
+                  description: The type of the replacement order.
+                  required: true
+                side:
+                  type: integer
+                  enum:
+                    - 0 # Buy
+                    - 1 # Sell
+                    - 2 # Short
+                    - 3 # Unknown
+                  description: The side of the replacement order.
+                  required: true
+                accountId:
+                  type: integer
+                  description: The account ID.
+                  required: true
+                instrumentId:
+                  type: integer
+                  description: The instrument ID.
+                  required: true
+                useDisplayQuantity:
+                  type: boolean
+                  description: Use display quantity.
+                displayQuantity:
+                  type: number
+                  format: float
+                  description: The displayed quantity.
+                limitPrice:
+                  type: number
+                  format: float
+                  description: The limit price.
+                stopPrice:
+                  type: number
+                  format: float
+                  description: The stop price.
+                referencePrice:
+                  type: number
+                  format: float
+                  description: The reference price.
+                pegPriceType:
+                  type: integer
+                  enum:
+                    - 0 # Unknown
+                    - 1 # Last
+                    - 2 # Bid
+                    - 3 # Ask
+                    - 4 # Midpoint
+                  description: The peg price type.
+                timeInForce:
+                  type: integer
+                  enum:
+                    - 0 # Unknown
+                    - 1 # GTC
+                    - 2 # OPG
+                    - 3 # IOC
+                    - 4 # FOK
+                    - 5 # GTX
+                    - 6 # GTD
+                  description: The time in force.
+                orderIdOCO:
+                  type: integer
+                  description: One Cancels the Other order ID.
+                quantity:
+                  type: number
+                  format: float
+                  description: The quantity.
+                  required: true
+              example:
+                omsId: 0
+                orderIdToReplace: 0
+                clientOrdId: 0
+                orderType: 0
+                side: 0
+                accountId: 0
+                instrumentId: 0
+                useDisplayQuantity: false
+                displayQuantity: 0.0
+                limitPrice: 0.0
+                stopPrice: 0.0
+                referencePrice: 0.0
+                pegPriceType: 0
+                timeInForce: 0
+                orderIdOCO: 0
+                quantity: 0.0
+      responses:
+        "200":
+          description: Successful cancellation and replacement.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  replacementOrderId:
+                    type: integer
+                    description: The replacement order ID.
+                  replacementClOrdId:
+                    type: integer
+                    description: The replacement client order ID.
+                  origOrderId:
+                    type: integer
+                    description: The original order ID.
+                  origClOrdId:
+                    type: integer
+                    description: The original client order ID.
+                required:
+                  - replacementOrderId
+                  - replacementClOrdId
+                  - origOrderId
+                  - origClOrdId
+                example:
+                  replacementOrderId: 1234
+                  replacementClOrdId: 1561
+                  origOrderId: 5678
+                  origClOrdId: 91011

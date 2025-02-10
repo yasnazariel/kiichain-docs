@@ -1,0 +1,134 @@
+openapi: 3.0.0
+info:
+  title: Send Order
+  description: Creates an order.
+  version: 1.0.0
+paths:
+  SendOrder:
+    post:
+      summary: Send Order
+      tags:
+        - User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                InstrumentId:
+                  type: integer
+                  description: The ID of the instrument.
+                  required: true
+                OMSId:
+                  type: integer
+                  description: The Order Management System ID.
+                  required: true
+                AccountId:
+                  type: integer
+                  description: The account ID.
+                  required: true
+                TimeInForce:
+                  type: integer
+                  description: Time in force.
+                  enum:
+                    - 0 # Unknown
+                    - 1 # GTC
+                    - 2 # OPG
+                    - 3 # IOC
+                    - 4 # FOK
+                    - 5 # GTX
+                    - 6 # GTD
+                  required: true
+                ClientOrderId:
+                  type: integer
+                  description: The client order ID.
+                OrderIdOCO:
+                  type: integer
+                  description: The order ID for OCO.
+                UseDisplayQuantity:
+                  type: boolean
+                  description: Use display quantity?
+                Side:
+                  type: integer
+                  description: The side of the trade.
+                  enum:
+                    - 0 # Buy
+                    - 1 # Sell
+                    - 2 # Short
+                    - 3 # Unknown
+                  required: true
+                Quantity:
+                  type: number
+                  format: float
+                  description: The quantity of the order.
+                  required: true
+                OrderType:
+                  type: integer
+                  description: The type of order.
+                  enum:
+                    - 0 # Unknown
+                    - 1 # Market
+                    - 2 # Limit
+                    - 3 # StopMarket
+                    - 4 # StopLimit
+                    - 5 # TrailingStopMarket
+                    - 6 # TrailingStopLimit
+                    - 7 # BlockTrade
+                  required: true
+                PegPriceType:
+                  type: integer
+                  description: The peg price type.
+                  enum:
+                    - 1 # Last
+                    - 2 # Bid
+                    - 3 # Ask
+                    - 4 # Midpoint
+                LimitPrice:
+                  type: number
+                  format: float
+                  description: The limit price.
+                PostOnly:
+                  type: boolean
+                  description: Post only?
+              example:
+                InstrumentId: 1
+                OMSId: 1
+                AccountId: 1
+                TimeInForce: 1
+                ClientOrderId: 1
+                OrderIdOCO: 0
+                UseDisplayQuantity: false
+                Side: 0
+                Quantity: 1
+                OrderType: 2
+                PegPriceType: 3
+                LimitPrice: 8800
+                PostOnly: false
+      responses:
+        "200":
+          description: Order accepted.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                      - Accepted
+                      - Rejected
+                    description: The status of the order.
+                  errormsg:
+                    type: string
+                    description: Error message.
+                  OrderId:
+                    type: integer
+                    description: The server-assigned order ID.
+                required:
+                  - status
+                  - errormsg
+                  - OrderId
+                example:
+                  status: "Accepted"
+                  errormsg: ""
+                  OrderId: 123

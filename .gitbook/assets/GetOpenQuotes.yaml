@@ -1,0 +1,210 @@
+openapi: 3.0.0
+info:
+  title: Get Open Quotes
+  description: Returns bid and ask quotes for an instrument and account.
+  version: 1.0.0
+paths:
+  GetOpenQuotes: # More appropriate path
+    get:
+      summary: Get Open Quotes
+      tags:
+        - Marketmaker
+      parameters:
+        - in: query
+          name: omsId
+          schema:
+            type: integer
+          description: The ID of the Order Management System.
+          required: true
+        - in: query
+          name: accountId
+          schema:
+            type: integer
+          description: The account ID.
+          required: true
+        - in: query
+          name: instrumentId
+          schema:
+            type: integer
+          description: The instrument ID.
+          required: true
+      responses:
+        "200":
+          description: Successful retrieval of open quotes.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  bid:
+                    type: object
+                    properties:
+                      omsId:
+                        type: integer
+                        description: The Order Management System ID.
+                      side:
+                        type: integer
+                        enum:
+                          - 0 # Buy
+                          - 1 # Sell
+                          - 2 # Short
+                          - 3 # Unknown
+                        description: The side of the quote.
+                      orderId:
+                        type: integer
+                        description: The ID of the quote.
+                      price:
+                        type: number
+                        format: float
+                        description: The price of the quote.
+                      quantity:
+                        type: number
+                        format: float
+                        description: The quantity of the quote.
+                      displayQuantity:
+                        type: number
+                        format: float
+                        description: The displayed quantity.
+                      instrument:
+                        type: integer
+                        description: The instrument ID.
+                      account:
+                        type: integer
+                        description: The account ID.
+                      orderType:
+                        type: integer
+                        enum:
+                          - 0 # Unknown
+                          - 1 # Market
+                          - 2 # Limit
+                          - 3 # StopMarket
+                          - 4 # StopLimit
+                          - 5 # TrailingStopMarket
+                          - 6 # TrailingStopLimit
+                          - 7 # BlockTrade
+                        description: The type of quote.
+                      clientOrderId:
+                        type: integer
+                        description: The client order ID.
+                      orderState:
+                        type: integer
+                        enum:
+                          - 0 # Unknown
+                          - 1 # Working
+                          - 2 # Rejected
+                          - 3 # Canceled
+                          - 4 # Expired
+                          - 5 # FullyExecuted
+                        description: The state of the quote.
+                    required:
+                      - omsId
+                      - side
+                      - orderId
+                      - price
+                      - quantity
+                      - displayQuantity
+                      - instrument
+                      - account
+                      - orderType
+                      - clientOrderId
+                      - orderState
+                  ask:
+                    type: object
+                    properties:
+                      omsId:
+                        type: integer
+                        description: The Order Management System ID.
+                      side:
+                        type: integer
+                        enum:
+                          - 0 # Buy
+                          - 1 # Sell
+                          - 2 # Short
+                          - 3 # Unknown
+                        description: The side of the quote.
+                      orderId:
+                        type: integer
+                        description: The ID of the quote.
+                      price:
+                        type: number
+                        format: float
+                        description: The price of the quote.
+                      quantity:
+                        type: number
+                        format: float
+                        description: The quantity of the quote.
+                      displayQuantity:
+                        type: number
+                        format: float
+                        description: The displayed quantity.
+                      instrument:
+                        type: integer
+                        description: The instrument ID.
+                      account:
+                        type: integer
+                        description: The account ID.
+                      orderType:
+                        type: integer
+                        enum:
+                          - 0 # Unknown
+                          - 1 # Market
+                          - 2 # Limit
+                          - 3 # StopMarket
+                          - 4 # StopLimit
+                          - 5 # TrailingStopMarket
+                          - 6 # TrailingStopLimit
+                          - 7 # BlockTrade
+                        description: The type of quote.
+                      clientOrderId:
+                        type: integer
+                        description: The client order ID.
+                      orderState:
+                        type: integer
+                        enum:
+                          - 0 # Unknown
+                          - 1 # Working
+                          - 2 # Rejected
+                          - 3 # Canceled
+                          - 4 # Expired
+                          - 5 # FullyExecuted
+                        description: The state of the quote.
+                    required:
+                      - omsId
+                      - side
+                      - orderId
+                      - price
+                      - quantity
+                      - displayQuantity
+                      - instrument
+                      - account
+                      - orderType
+                      - clientOrderId
+                      - orderState
+                required:
+                  - bid
+                  - ask
+                example:
+                  bid:
+                    omsId: 0
+                    side: 0
+                    orderId: 0
+                    price: 0.0
+                    quantity: 0.0
+                    displayQuantity: 0.0
+                    instrument: 0
+                    account: 0
+                    orderType: 0
+                    clientOrderId: 0
+                    orderState: 0
+                  ask:
+                    omsId: 0
+                    side: 0
+                    orderId: 0
+                    price: 0.0
+                    quantity: 0.0
+                    displayQuantity: 0.0
+                    instrument: 0
+                    account: 0
+                    orderType: 0
+                    clientOrderId: 0
+                    orderState: 0

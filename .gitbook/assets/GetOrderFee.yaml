@@ -1,0 +1,114 @@
+openapi: 3.0.0
+info:
+  title: Get Order Fee
+  description: Returns an estimated transaction fee for an order.
+  version: 1.0.0
+paths:
+  GetOrderFee:
+    get: # Or post, depending on how the server expects it
+      summary: Get Order Fee
+      tags:
+        - User
+      parameters: # If using GET, parameters are here
+        - in: query
+          name: omsId
+          schema:
+            type: integer
+          description: The Order Management System ID.
+          required: true
+        - in: query
+          name: accountId
+          schema:
+            type: integer
+          description: The account ID.
+          required: true
+        - in: query
+          name: instrumentId
+          schema:
+            type: integer
+          description: The instrument ID.
+          required: true
+        - in: query
+          name: productId
+          schema:
+            type: integer
+          description: The product ID.
+          required: true
+        - in: query
+          name: amount
+          schema:
+            type: number
+            format: float
+          description: The amount of the trade.
+          required: true
+        - in: query
+          name: price
+          schema:
+            type: number
+            format: float
+          description: The price of the trade.
+          required: true
+        - in: query
+          name: orderType
+          schema:
+            type: integer
+            enum:
+              - 0 # Unknown
+              - 1 # Market
+              - 2 # Limit
+              - 3 # StopMarket
+              - 4 # StopLimit
+              - 5 # TrailingStopMarket
+              - 6 # TrailingStopLimit
+              - 7 # BlockTrade
+          description: The type of the order.
+          required: true
+        - in: query
+          name: makerTaker
+          schema:
+            type: integer
+            enum:
+              - 0 # Unknown
+              - 1 # Maker
+              - 2 # Taker
+          description: The maker/taker status.
+          required: true
+        - in: query
+          name: side
+          schema:
+            type: integer
+            enum:
+              - 0 # Buy
+              - 1 # Sell
+              - 2 # Short
+              - 3 # Unknown
+          description: The side of the trade.
+          required: true
+      # requestBody:  # If using POST, parameters are here instead
+      #   content:
+      #     application/json:
+      #       schema:
+      #         type: object
+      #         properties: # ... (same properties as above)
+      responses:
+        "200":
+          description: Successful retrieval of order fee.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  OrderFee:
+                    type: number
+                    format: float
+                    description: The estimated order fee.
+                    minimum: 0.01 # Minimum value
+                  ProductId:
+                    type: integer
+                    description: The product ID of the fee currency.
+                required:
+                  - OrderFee
+                  - ProductId
+                example:
+                  OrderFee: 0.01
+                  ProductId: 1

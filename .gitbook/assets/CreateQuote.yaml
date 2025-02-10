@@ -1,0 +1,128 @@
+openapi: 3.0.0
+info:
+  title: Create Quote
+  description: Creates a quote.
+  version: 1.0.0
+paths:
+  CreateQuote:
+    post:
+      summary: Create Quote
+      tags:
+        - Marketmaker
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                OMSId:
+                  type: integer
+                  description: The Order Management System ID.
+                  required: true
+                AccountId:
+                  type: integer
+                  description: The account ID.
+                InstrumentId:
+                  type: integer
+                  description: The instrument ID.
+                  required: true
+                Bid:
+                  type: number
+                  format: float
+                  description: The bid price.
+                  required: true
+                BidQty:
+                  type: number
+                  format: float
+                  description: The bid quantity.
+                  required: true
+                Ask:
+                  type: number
+                  format: float
+                  description: The ask price.
+                  required: true
+                AskQty:
+                  type: number
+                  format: float
+                  description: The ask quantity.
+                  required: true
+              example:
+                OMSId: 0
+                AccountId: 0
+                InstrumentId: 0
+                Bid: 0.0
+                BidQty: 0.0
+                Ask: 0.0
+                AskQty: 0.0
+      responses:
+        "200":
+          description: Successful quote creation request.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  bidQouteId:
+                    type: integer
+                    description: The bid quote ID.
+                  BidResult:
+                    type: object
+                    properties:
+                      result:
+                        type: boolean
+                        description: True if successful, false otherwise.
+                      errormsg:
+                        type: string
+                        description: Error message.
+                      errorcode:
+                        type: integer
+                        description: Error code.
+                      detail:
+                        type: string
+                        description: Additional details.
+                    required:
+                      - result
+                      - errormsg
+                      - errorcode
+                      - detail
+                  askQouteId:
+                    type: integer
+                    description: The ask quote ID.
+                  AskResult:
+                    type: object
+                    properties:
+                      result:
+                        type: boolean
+                        description: True if successful, false otherwise.
+                      errormsg:
+                        type: string
+                        description: Error message.
+                      errorcode:
+                        type: integer
+                        description: Error code.
+                      detail:
+                        type: string
+                        description: Additional details.
+                    required:
+                      - result
+                      - errormsg
+                      - errorcode
+                      - detail
+                required:
+                  - bidQouteId
+                  - BidResult
+                  - askQouteId
+                  - AskResult
+                example:
+                  bidQouteId: 0
+                  BidResult:
+                    result: true
+                    errormsg: ""
+                    errorcode: 0
+                    detail: ""
+                  askQouteId: 0
+                  AskResult:
+                    result: true
+                    errormsg: ""
+                    errorcode: 0
+                    detail: ""

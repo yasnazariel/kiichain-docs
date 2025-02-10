@@ -1,0 +1,129 @@
+openapi: 3.0.0
+info:
+  title: Update Quote
+  description: Updates an existing quote.
+  version: 1.0.0
+paths:
+  UpdateQuote:
+    post:
+      summary: Update Quote
+      tags:
+        - Marketmaker
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                OMSId:
+                  type: integer
+                  description: The Order Management System ID.
+                  required: true
+                AccountId:
+                  type: integer
+                  description: The account ID.
+                  required: true
+                InstrumentId:
+                  type: integer
+                  description: The instrument ID.
+                  required: true
+                BidQuoteId:
+                  type: integer
+                  description: The ID of the bid quote.
+                  required: true
+                Bid:
+                  type: number
+                  format: float
+                  description: The new bid price.
+                  required: true
+                BidQTY:
+                  type: number
+                  format: float
+                  description: The new bid quantity.
+                  required: true
+                AskQuoteId:
+                  type: integer
+                  description: The ID of the ask quote.
+                  required: true
+                Ask:
+                  type: number
+                  format: float
+                  description: The new ask price.
+                  required: true
+                AskQTY:
+                  type: number
+                  format: float
+                  description: The new ask quantity.
+                  required: true
+              example:
+                OMSId: 0
+                AccountId: 0
+                InstrumentId: 0
+                BidQuoteId: 0
+                Bid: 0.0
+                BidQTY: 0.0
+                AskQuoteId: 0
+                Ask: 0.0
+                AskQTY: 0.0
+      responses:
+        "200":
+          description: Successful quote update request receipt.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  BidResult:
+                    type: object
+                    properties:
+                      result:
+                        type: boolean
+                        description: True if successful, false otherwise.
+                      errormsg:
+                        type: string
+                        description: Error message.
+                      errorcode:
+                        type: integer
+                        description: Error code.
+                      detail:
+                        type: string
+                        description: Additional details.
+                    required:
+                      - result
+                      - errormsg
+                      - errorcode
+                      - detail
+                  AskResult:
+                    type: object
+                    properties:
+                      result:
+                        type: boolean
+                        description: True if successful, false otherwise.
+                      errormsg:
+                        type: string
+                        description: Error message.
+                      errorcode:
+                        type: integer
+                        description: Error code.
+                      detail:
+                        type: string
+                        description: Additional details.
+                    required:
+                      - result
+                      - errormsg
+                      - errorcode
+                      - detail
+                required:
+                  - BidResult
+                  - AskResult
+                example:
+                  BidResult:
+                    result: true
+                    errormsg: ""
+                    errorcode: 0
+                    detail: ""
+                  AskResult:
+                    result: true
+                    errormsg: ""
+                    errorcode: 0
+                    detail: ""

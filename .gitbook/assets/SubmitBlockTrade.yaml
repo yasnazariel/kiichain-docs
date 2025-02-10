@@ -1,0 +1,100 @@
+openapi: 3.0.0
+info:
+  title: Submit Block Trade
+  description: Reports an off-market trade.
+  version: 1.0.0
+paths:
+  SubmitBlockTrade:
+    post:
+      summary: Submit Block Trade
+      tags:
+        - User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                instrumentId:
+                  type: integer
+                  description: The ID of the instrument.
+                  required: true
+                accountId:
+                  type: integer
+                  description: The account ID.
+                  required: true
+                side:
+                  type: integer
+                  enum:
+                    - 0 # Buy
+                    - 1 # Sell
+                    - 2 # Short
+                    - 3 # Unknown
+                  description: The side of the trade.
+                  required: true
+                counterPartyId:
+                  type: string
+                  description: The badge of the other party.
+                ClientOrderId:
+                  type: integer
+                  description: The client order ID.
+                quantity:
+                  type: number
+                  format: float
+                  description: The quantity traded.
+                  required: true
+                limitPrice:
+                  type: number
+                  format: float
+                  description: The price of the trade.
+                  required: true
+                omsId:
+                  type: integer
+                  description: The Order Management System ID.
+                  required: true
+                lockedIn:
+                  type: boolean
+                  description: Is the trade locked in?
+                  required: true
+                timestamp:
+                  type: integer
+                  description: The timestamp of the trade (POSIX format).
+                  required: true
+              example:
+                instrumentId: 1
+                accountId: 5
+                side: 0
+                counterPartyId: "3"
+                quantity: 0.1
+                limitPrice: 5000.0
+                omsId: 0
+                lockedIn: true
+                timestamp: 158153615438
+      responses:
+        "200":
+          description: Block trade submitted.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                      - Accepted
+                      - Rejected
+                    description: The status of the submission.
+                  errormsg:
+                    type: string
+                    description: Error message.
+                  OrderId:
+                    type: integer
+                    description: The server-assigned order ID.
+                required:
+                  - status
+                  - errormsg
+                  - OrderId
+                example:
+                  status: "Accepted"
+                  errormsg: ""
+                  OrderId: 22

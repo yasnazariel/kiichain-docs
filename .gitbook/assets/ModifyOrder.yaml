@@ -1,0 +1,79 @@
+openapi: 3.0.0
+info:
+  title: Modify Order
+  description: Reduces an order's quantity.
+  version: 1.0.0
+paths:
+  ModifyOrder:
+    post:
+      summary: Modify Order
+      tags:
+        - User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                OMSId:
+                  type: integer
+                  description: The Order Management System ID.
+                  required: true
+                OrderId:
+                  type: integer
+                  description: The ID of the order to modify.
+                  required: true
+                InstrumentId:
+                  type: integer
+                  description: The instrument ID.
+                  required: true
+                PreviousOrderRevision:
+                  type: integer
+                  description: The revision number of the previous order.
+                  required: true
+                Quantity:
+                  type: number
+                  format: float
+                  description: The new quantity of the order.
+                  required: true
+                AccountId:
+                  type: integer
+                  description: The account ID.
+                  required: true
+              example:
+                OMSId: 0
+                OrderId: 0
+                InstrumentId: 0
+                PreviousOrderRevision: 0
+                Quantity: 0
+                AccountId: 0
+      responses:
+        "200":
+          description: Successful modification request receipt.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: True if successful, false otherwise.
+                  errormsg:
+                    type: string
+                    description: Error message.
+                  errorcode:
+                    type: integer
+                    description: Error code.
+                  detail:
+                    type: string
+                    description: Additional details.
+                required:
+                  - result
+                  - errormsg
+                  - errorcode
+                  - detail
+                example:
+                  result: false
+                  errormsg: ""
+                  errorcode: 0
+                  detail: ""

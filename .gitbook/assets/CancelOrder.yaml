@@ -1,0 +1,60 @@
+openapi: 3.0.0
+info:
+  title: Cancel Order
+  description: Cancels an open order.
+  version: 1.0.0
+paths:
+  CancelOrder:
+    post:
+      summary: Cancel Order
+      tags:
+        - User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                OMSId:
+                  type: integer
+                  description: The Order Management System ID.
+                  required: true
+                AccountId:
+                  type: integer
+                  description: The account ID.
+                ClOrderId:
+                  type: integer
+                  description: The client order ID.
+                OrderId:
+                  type: integer
+                  description: The order ID.
+              example:
+                OMSId: 0
+                AccountId: 0
+                ClOrderId: 0
+                OrderId: 0
+      responses:
+        "200":
+          description: Successful cancellation request.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: boolean
+                    description: True if successful, false otherwise.
+                  errormsg:
+                    type: string
+                    description: Error message (empty string if successful).
+                  errorcode:
+                    type: integer
+                    description: Error code (0 if successful).
+                  detail:
+                    type: string
+                    description: Additional details.
+                example:
+                  result: true
+                  errormsg: ""
+                  errorcode: 0
+                  detail: ""

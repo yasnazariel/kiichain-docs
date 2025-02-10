@@ -1,0 +1,103 @@
+openapi: 3.0.0
+info:
+  title: Cancel Quote
+  description: Cancels a quote.
+  version: 1.0.0
+paths:
+  CancelQuote: # More appropriate path
+    post:
+      summary: Cancel Quote
+      tags:
+        - Marketmaker # Correct tag
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                omsId:
+                  type: integer
+                  description: The Order Management System ID.
+                  required: true
+                accountId:
+                  type: integer
+                  description: The account ID.
+                instrumentId:
+                  type: integer
+                  description: The instrument ID.
+                bidQuoteId:
+                  type: integer
+                  description: The bid quote ID.
+                  required: true
+                askQuoteId:
+                  type: integer
+                  description: The ask quote ID.
+                  required: true
+              example:
+                omsId: 0
+                accountId: 0
+                instrumentId: 0
+                bidQuoteId: 0
+                askQuoteId: 0
+      responses:
+        "200":
+          description: Successful cancellation request.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  BidResult:
+                    type: object
+                    properties:
+                      result:
+                        type: boolean
+                        description: True if successful, false otherwise.
+                      errormsg:
+                        type: string
+                        description: Error message.
+                      errorcode:
+                        type: integer
+                        description: Error code.
+                      detail:
+                        type: string
+                        description: Additional details.
+                    required:
+                      - result
+                      - errormsg
+                      - errorcode
+                      - detail
+                  AskResult:
+                    type: object
+                    properties:
+                      result:
+                        type: boolean
+                        description: True if successful, false otherwise.
+                      errormsg:
+                        type: string
+                        description: Error message.
+                      errorcode:
+                        type: integer
+                        description: Error code.
+                      detail:
+                        type: string
+                        description: Additional details.
+                    required:
+                      - result
+                      - errormsg
+                      - errorcode
+                      - detail
+                required:
+                  - BidResult
+                  - AskResult
+                example:
+                  BidResult:
+                    result: true
+                    errormsg: ""
+                    errorcode: 0
+                    detail: ""
+                  AskResult:
+                    result: true
+                    errormsg: ""
+                    errorcode: 0
+                    detail: ""
