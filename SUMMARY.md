@@ -152,7 +152,6 @@
     * [GetAccountTransactions](kiiex/connect-to-kiiex-apis/trades/getaccounttransactions.md)
     * [GetAllOpenTradeReports](kiiex/connect-to-kiiex-apis/trades/getallopentradereports.md)
     * [GetOpenTradeReports](kiiex/connect-to-kiiex-apis/trades/getopentradereports.md)
-    * [GetAllOpenTradeReports](kiiex/connect-to-kiiex-apis/trades/getallopentradereports-1.md)
     * [GetTickerHistory](kiiex/connect-to-kiiex-apis/trades/gettickerhistory.md)
     * [GetTradesHistory](kiiex/connect-to-kiiex-apis/trades/gettradeshistory.md)
   * [OMS Orders](kiiex/connect-to-kiiex-apis/oms-orders/README.md)

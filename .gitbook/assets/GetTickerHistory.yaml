@@ -1,0 +1,68 @@
+openapi: 3.0.0
+info:
+  title: Get Ticker History
+  description: Retrieves historical ticker data for an instrument.
+  version: 1.0.0
+paths:
+  GetTickerHistory:
+    get:
+      summary: Get Ticker History
+      tags:
+        - Public
+      parameters:
+        - in: query
+          name: InstrumentId
+          schema:
+            type: integer
+          description: The ID of the instrument.
+          required: true
+        - in: query
+          name: Interval
+          schema:
+            type: integer
+          description: The time between ticks in seconds.
+          required: true
+        - in: query
+          name: FromDate
+          schema:
+            type: string
+            format: date
+          description: Oldest date for ticker history (YYYY-MM-DD).
+          required: true
+        - in: query
+          name: ToDate
+          schema:
+            type: string
+            format: date
+          description: Most recent date for ticker history (YYYY-MM-DD).
+          required: true
+        - in: query
+          name: OMSId
+          schema:
+            type: integer
+          description: The ID of the Order Management System.
+          required: true
+      responses:
+        "200":
+          description: Successful retrieval of ticker history.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: array
+                  items:
+                    type: number
+              example:
+                - [
+                    1501603632000,
+                    2700.33,
+                    2687.01,
+                    2687.01,
+                    2687.01,
+                    24.86100992,
+                    0,
+                    2870.95,
+                    1
+                  ]
+                - [1501604532000, 2792.73, 2667.95, 2687.01, 2700.81, 242.61340767, 0, 2871, 0]

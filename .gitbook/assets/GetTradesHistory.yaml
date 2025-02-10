@@ -1,0 +1,68 @@
+openapi: 3.0.0
+info:
+  title: Get Trades History
+  description: Retrieves a list of trades.
+  version: 1.0.0
+paths:
+  GetTradesHistory: # More descriptive path
+    get:
+      summary: Get Trades History
+      tags:
+        - User
+      parameters:
+        - in: query
+          name: omsId
+          schema:
+            type: integer
+          description: The ID of the Order Management System.
+          required: true # omsId is required
+        - in: query
+          name: accountId
+          schema:
+            type: integer
+          description: The account ID.
+        - in: query
+          name: instrumentId
+          schema:
+            type: integer
+          description: The instrument ID.
+        - in: query
+          name: tradeId
+          schema:
+            type: integer
+          description: The trade ID.
+        - in: query
+          name: orderId
+          schema:
+            type: integer
+          description: The order ID.
+        - in: query
+          name: userId
+          schema:
+            type: integer
+          description: The user ID.
+        - in: query
+          name: startTimestamp
+          schema:
+            type: integer
+          description: Start timestamp (POSIX format).
+        - in: query
+          name: endTimestamp
+          schema:
+            type: integer
+          description: End timestamp (POSIX format).
+        - in: query
+          name: depth
+          schema:
+            type: integer
+          description: The number of trades to return.
+        - in: query
+          name: startIndex
+          schema:
+            type: integer
+          description: The starting index.
+        - in: query
+          name: executionId
+          schema:
+            type: integer
+          description: The execution ID.
