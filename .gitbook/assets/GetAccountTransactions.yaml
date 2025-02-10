@@ -1,0 +1,184 @@
+openapi: 3.0.0
+info:
+  title: Get Account Transactions
+  description: Returns a list of transactions for a specific account.
+  version: 1.0.0
+paths:
+  /account/transactions:
+    get:
+      summary: Get Account Transactions
+      tags:
+        - User
+      parameters:
+        - in: query
+          name: omsId
+          schema:
+            type: integer
+          description: The ID of the Order Management System.
+          required: true
+        - in: query
+          name: accountId
+          schema:
+            type: integer
+          description: The ID of the account.
+        - in: query
+          name: depth
+          schema:
+            type: integer
+          description: The number of transactions to return.
+        - in: query
+          name: startIndex
+          schema:
+            type: integer
+          description: The starting index for transaction records.
+        - in: query
+          name: transactionId
+          schema:
+            type: integer
+          description: The specific transaction ID (0 for all).
+        - in: query
+          name: referenceId
+          schema:
+            type: integer
+          description: The reference ID.
+        - in: query
+          name: counterParty
+          schema:
+            type: integer
+          description: The counterparty ID.
+        - in: query
+          name: productId
+          schema:
+            type: integer
+          description: The product ID.
+        - in: query
+          name: userId
+          schema:
+            type: integer
+          description: The ID of the user.
+        - in: query
+          name: startTimestamp
+          schema:
+            type: integer
+          description: Start timestamp (seconds since epoch).
+        - in: query
+          name: endTimestamp
+          schema:
+            type: integer
+          description: End timestamp (seconds since epoch).
+        - in: query
+          name: transactionTypes
+          schema:
+            type: array
+            items:
+              type: integer
+          description: List of transaction types to filter by.
+        - in: query
+          name: transactionReferenceTypes
+          schema:
+            type: array
+            items:
+              type: integer
+          description: List of transaction reference types to filter by.
+      responses:
+        "200":
+          description: Successful retrieval of transactions.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TransactionInfo"
+components:
+  schemas:
+    TransactionInfo:
+      type: object
+      properties:
+        transactionId:
+          type: integer
+          description: The ID of the transaction.
+        omsId:
+          type: integer
+          description: The ID of the Order Management System.
+        accountId:
+          type: integer
+          description: The ID of the account.
+        cr:
+          type: number
+          format: float
+          description: Credit entry.
+        dr:
+          type: number
+          format: float
+          description: Debit entry.
+        counterparty:
+          type: integer
+          description: The counterparty ID.
+        transactionType:
+          type: integer
+          enum:
+            - 1 # Fee
+            - 2 # Trade
+            - 3 # Other
+            - 4 # Reverse
+            - 5 # Hold
+            - 6 # Rebate
+            - 7 # MarginAcquisition
+            - 8 # MarginRelinquish
+          description: Type of transaction.
+        referenceId:
+          type: integer
+          description: The reference ID.
+        referenceType:
+          type: integer
+          enum:
+            - 1 # Trade
+            - 2 # Deposit
+            - 3 # Withdraw
+            - 4 # Transfer
+            - 5 # OrderHold
+            - 6 # WithdrawHold
+            - 7 # DepositHold
+            - 8 # MarginHold
+            - 9 # ManualHold
+            - 10 # ManualEntry
+            - 11 # MarginAcquisition
+            - 12 # MarginRelinquish
+            - 13 # MarginQuoteHold
+          description: Type of reference.
+        productId:
+          type: integer
+          description: The product ID.
+        balance:
+          type: number
+          format: float
+          description: Account balance after the transaction.
+        timeStamp:
+          type: integer
+          description: Transaction timestamp (POSIX format).
+      required: # Add all required fields
+        - transactionId
+        - omsId
+        - accountId
+        - cr
+        - dr
+        - counterparty
+        - transactionType
+        - referenceId
+        - referenceType
+        - productId
+        - balance
+        - timeStamp
+      example:
+        transactionId: 0
+        omsId: 0
+        accountId: 0
+        cr: 0.0
+        dr: 0.0
+        counterparty: 0
+        transactionType: 0
+        referenceId: 0
+        referenceType: 0
+        productId: 0
+        balance: 0.0
+        timeStamp: 0
