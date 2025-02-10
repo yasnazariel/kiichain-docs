@@ -1,0 +1,230 @@
+openapi: 3.0.0
+info:
+  title: Get All Open Trade Reports (Block Trades)
+  description: Retrieves open block trade information for a given instrument.
+  version: 1.0.0
+paths:
+  GetAllOpenTradeReports:
+    get:
+      summary: Get All Open Block Trade Reports
+      tags:
+        - User
+      parameters:
+        - in: query
+          name: OMSId
+          schema:
+            type: integer
+          description: The ID of the Order Management System.
+          required: true
+        - in: query
+          name: InstrumentId
+          schema:
+            type: integer
+          description: The ID of the instrument.
+          required: true
+      responses:
+        "200":
+          description: Successful retrieval of open block trade reports.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    Side:
+                      type: string
+                      enum:
+                        - Buy
+                        - Sell
+                        - Short
+                        - Unknown
+                      description: Side of the trade.
+                    OrderId:
+                      type: integer
+                      description: The ID of the open order.
+                    Price:
+                      type: number
+                      format: float
+                      description: The price of the order.
+                    Quantity:
+                      type: number
+                      format: float
+                      description: The quantity of the order.
+                    DisplayQuantity:
+                      type: number
+                      format: float
+                      description: The displayed quantity.
+                    Instrument:
+                      type: integer
+                      description: The ID of the instrument.
+                    Account:
+                      type: integer
+                      description: The ID of the account.
+                    OrderType:
+                      type: string
+                      enum:
+                        - Unknown
+                        - Market
+                        - Limit
+                        - StopMarket
+                        - StopLimit
+                        - TrailingStopMarket
+                        - TrailingStopLimit
+                        - BlockTrade
+                      description: Type of order.
+                    ClientOrderId:
+                      type: integer
+                      description: Client order ID.
+                    OrderState:
+                      type: string
+                      enum:
+                        - Unknown
+                        - Working
+                        - Rejected
+                        - Canceled
+                        - Expired
+                        - FullyExecuted
+                      description: State of the order.
+                    ReceiveTime:
+                      type: integer
+                      description: Receive time (POSIX format).
+                    ReceiveTimeTicks:
+                      type: integer
+                      description: Receive time (ticks).
+                    OrigQuantity:
+                      type: number
+                      format: float
+                      description: Original quantity.
+                    QuantityExecuted:
+                      type: number
+                      format: float
+                      description: Executed quantity.
+                    AvgPrice:
+                      type: number
+                      format: float
+                      description: Average price.
+                    CounterPartyId:
+                      type: integer
+                      description: Counterparty ID.
+                    ChangeReason:
+                      type: string
+                      enum:
+                        - Unknown
+                        - NewInputAccepted
+                        - NewInputRejected
+                        - OtherRejected
+                        - Expired
+                        - Trade
+                        - SystemCanceled_NoMoreMarket
+                        - SystemCanceled_BelowMinimum
+                        - SystemCanceled_PriceCollar
+                        - SystemCanceled_MarginFailed
+                        - UserModified
+                      description: Reason for change.
+                    OrigOrderId:
+                      type: integer
+                      description: Original order ID.
+                    OrigClOrdId:
+                      type: integer
+                      description: Original client order ID.
+                    EnteredBy:
+                      type: integer
+                      description: Entered by user ID.
+                    IsQuote:
+                      type: boolean
+                      description: Is it a quote?
+                    InsideAsk:
+                      type: number
+                      format: float
+                      description: Inside ask price.
+                    InsideAskSize:
+                      type: number
+                      format: float
+                      description: Inside ask size.
+                    InsideBid:
+                      type: number
+                      format: float
+                      description: Inside bid price.
+                    InsideBidSize:
+                      type: number
+                      format: float
+                      description: Inside bid size.
+                    LastTradePrice:
+                      type: number
+                      format: float
+                      description: Last trade price.
+                    RejectReason:
+                      type: string
+                      description: Rejection reason.
+                    IsLockedIn:
+                      type: boolean
+                      description: Is it locked in?
+                    CancelReason:
+                      type: string
+                      description: Cancellation reason.
+                    OMSId:
+                      type: integer
+                      description: The ID of the Order Management System.
+                  required: # All required fields
+                    - Side
+                    - OrderId
+                    - Price
+                    - Quantity
+                    - DisplayQuantity
+                    - Instrument
+                    - Account
+                    - OrderType
+                    - ClientOrderId
+                    - OrderState
+                    - ReceiveTime
+                    - ReceiveTimeTicks
+                    - OrigQuantity
+                    - QuantityExecuted
+                    - AvgPrice
+                    - CounterPartyId
+                    - ChangeReason
+                    - OrigOrderId
+                    - OrigClOrdId
+                    - EnteredBy
+                    - IsQuote
+                    - InsideAsk
+                    - InsideAskSize
+                    - InsideBid
+                    - InsideBidSize
+                    - LastTradePrice
+                    - RejectReason
+                    - IsLockedIn
+                    - CancelReason
+                    - OMSId
+                  example: # Example data
+                    Side: "Buy"
+                    OrderId: 0
+                    Price: 0.0
+                    Quantity: 0.0
+                    DisplayQuantity: 0.0
+                    Instrument: 0
+                    Account: 0
+                    OrderType: "Unknown"
+                    ClientOrderId: 0
+                    OrderState: "Unknown"
+                    ReceiveTime: 0
+                    ReceiveTimeTicks: 0
+                    OrigQuantity: 0.0
+                    QuantityExecuted: 0.0
+                    AvgPrice: 0.0
+                    CounterPartyId: 0
+                    ChangeReason: "Unknown"
+                    OrigOrderId: 0
+                    OrigClOrdId: 0
+                    EnteredBy: 0
+                    IsQuote: false
+                    InsideAsk: 0.0
+                    InsideAskSize: 0.0
+                    InsideBid: 0.0
+                    InsideBidSize: 0.0
+                    LastTradePrice: 0.0
+                    RejectReason: ""
+                    IsLockedIn: false
+                    CancelReason: ""
+                    OMSId: 0
