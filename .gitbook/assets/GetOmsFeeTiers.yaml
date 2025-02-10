@@ -1,0 +1,114 @@
+openapi: 3.0.0
+info:
+  title: Get OMS Fee Tiers
+  description: Gets a list of fees specified on an Instrument.
+  version: 1.0.0
+paths:
+  /oms-fee-tiers:
+    get:
+      summary: Get OMS Fee Tiers
+      tags:
+        - Operator
+      parameters:
+        - in: query
+          name: omsId
+          schema:
+            type: integer
+          description: The ID of the Order Management System.
+          required: true
+        - in: query
+          name: instrumentId
+          schema:
+            type: integer
+          description: The ID of the instrument.
+          required: true
+      responses:
+        "200":
+          description: Successful retrieval of fee tiers.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    omsId:
+                      type: integer
+                      description: The Order Management System ID.
+                    accountId:
+                      type: integer
+                      description: The account ID.
+                    instrumentId:
+                      type: integer
+                      description: The instrument ID.
+                    orderType:
+                      type: string
+                      enum:
+                        - Unknown
+                        - Market
+                        - Limit
+                        - StopMarket
+                        - StopLimit
+                        - TrailingStopMarket
+                        - TrailingStopLimit
+                        - BlockTrade
+                      description: The type of order.
+                    feeId:
+                      type: integer
+                      description: The ID of the fee.
+                    feeAmt:
+                      type: number
+                      format: float # Or decimal if that's the actual type
+                      description: The fee amount.
+                    feeCalcType:
+                      type: string
+                      enum:
+                        - FlatRate
+                        - Percentage
+                      description: The fee calculation type.
+                    feeType:
+                      type: string
+                      enum:
+                        - Flat
+                        - Ladder
+                        - Exemption
+                        - AdminFee
+                        - AffiliateFee
+                        - MakerFee
+                        - TakerFee
+                        - FlatPegToProduct
+                      description: The type of fee.
+                    ladderThreshold:
+                      type: number
+                      format: float # Or decimal if that's the actual type
+                      description: Ladder threshold.
+                    ladderSeconds:
+                      type: integer
+                      description: Ladder seconds.
+                    isActive:
+                      type: boolean
+                      description: Is the fee active?
+                  required:
+                    - omsId
+                    - accountId
+                    - instrumentId
+                    - orderType
+                    - feeId
+                    - feeAmt
+                    - feeCalcType
+                    - feeType
+                    - ladderThreshold
+                    - ladderSeconds
+                    - isActive
+                  example:
+                    omsId: 0
+                    accountId: 0
+                    instrumentId: 0
+                    orderType: "Unknown"
+                    feeId: 0
+                    feeAmt: 0.0
+                    feeCalcType: "Percentage"
+                    feeType: "Flat"
+                    ladderThreshold: 0
+                    ladderSeconds: 0
+                    isActive: true
