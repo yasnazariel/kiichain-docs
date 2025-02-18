@@ -32,12 +32,13 @@ Q4: Started KiiChain Testnet V3 upgrades with new EVM module, RWA protocol, Orac
 
 Q1 & Q2:&#x20;
 
-* Incentivized testnet, XP and Oro rewards, featuring on-chain tasks and partnerships.&#x20;
+* Incentivized testnet, XP and Oro rewards, featuring on-chain tasks and partnerships ([https://kiichain.io/testnet](https://kiichain.io/testnet)).&#x20;
 * Public sale, listing and mainnet.&#x20;
 * PayFi module integration with mainnet.
-* KIIEX version 2.0 will be released with new UI/UX and third party dispersions.&#x20;
+* KIIEX version 2.0 will be released with new UI/UX and third party ramp features.&#x20;
 * KIIDEX integration into KIIEX with listing of RWA products.&#x20;
 * DASP license in El Salvador for both KIIEX and KiiChain.
+* IBC and Wasm upgrades.
 
 Q3:&#x20;
 
@@ -48,6 +49,6 @@ Q3:&#x20;
 
 Q4:&#x20;
 
-* Payfi financing protocol (ecosystem partnership) integrated with Payfi module users to extend credit to web2 and web3 companies and users.
+* Payfi financing protocol (ecosystem partnership) integrated with the Payfi module register profiles to extend credit to web2 and web3 companies and users.
 * On-chain invoice factoring and financing.&#x20;
 * SVM module.&#x20;
