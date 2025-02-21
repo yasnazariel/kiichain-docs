@@ -123,8 +123,12 @@ sha256sum $NODE_HOME/config/genesis.json
 The expected SHA256 checksum is: `e22442f19149db7658bcf777d086b52b38d834ea17010c313cd8aece137b647a`
 
 {% hint style="warning" %}
-This configuration runs a full node. For validators, update the configuration accordingly:
+This configuration runs a full node. For validators, update the configuration accordingly!
 {% endhint %}
+
+### Full node vs validator node
+
+The current configuration sets the node as a full node. If you need to run a validator the following flag must be set:
 
 ```bash
 # Set the node as validator
@@ -248,6 +252,23 @@ The transaction must be done on the machine running the node
 
 Further instructions on how to run a validator can be found at [Running a Validator](https://hub.cosmos.network/main/validators/validator-setup.html).
 
+### Turning your node into an archival node
+
+Newly created nodes have the pruning option configured as default. If you desire to turn your node into an archival node, the following flag must be changed:
+
+1. Go to `$NODE_HOME/config/config.toml`and update the following flag:
+
+```
+pruning = "nothing"
+```
+
+Other options available as default for pruning are:
+
+* `default`: Keep the recent 362880 blocks and prune is triggered every 10 blocks
+* `nothing`: all historic states will be saved, and nothing will be deleted (i.e. archiving node)
+* `everything`: all saved states will be deleted, storing only the recent 2 blocks; pruning at every block
+* `custom`: allow pruning options to be manually specified through 'pruning-keep-recent' and 'pruning-interval'
+
 ### Cosmosvisor
 
 Cosmosvisor is a process manager for handling chain upgrades. It enables low maintenance and automatic updates for nodes.
@@ -255,7 +276,47 @@ Cosmosvisor is a process manager for handling chain upgrades. It enables low mai
 * If an upgrade is scheduled, cosmosvisor has the capability of automatically downloading binaries and restarting any Kiichain processes
 * This gives the node low maintenance and auto updates capabilities
 
-More information about cosmovision can be found at [Cosmosvisor Quick Start](https://docs.cosmos.network/v0.45/run-node/cosmovisor.html)
+A version of our node bootstrapper can install cosmosvisor for you:
+
+```
+curl -O https://raw.githubusercontent.com/KiiChain/testnets/refs/heads/main/testnet_oro/join_oro_cv.sh
+chmod +x join_oro_cv.sh
+./join_oro_cv.sh
+```
+
+More information about cosmovision can be found at [Cosmosvisor Quick Start](https://docs.cosmos.network/v0.45/run-node/cosmovisor.html).
+
+#### Preparing cosmosvisor upgrade
+
+First, you need to compile new binaries:
+
+* A new Kiichaind binary must be compiled with the target OS in mind
+* Ideally, you should compile all binaries on it’s own machines
+* **The build must be done on top of the upgrade tag (E.g. v1.0.1, v2.0.0)**
+* Check the section [Binary Installation](step-by-step-guide.md#binary-installation) on how to do it
+
+Make sure that the binary has the correct version with:
+
+```
+kiichaind version
+```
+
+To add a new upgrade you must run the following command on Cosmovisor:
+
+```
+cosmovisor add-upgrade <upgrade-name> <path-to-binary>
+```
+
+Where:
+
+* `<upgrade-name>` is the on-chain upgrade name
+* `<path-to-binary>` is the full path for the binary
+
+Example:
+
+```
+cosmovisor add-upgrade 1.3.0 /home/ubuntu/kiichain/build/kiichaind
+```
 
 ### Node Architecture for validators
 
