@@ -12,7 +12,7 @@ Go to Metamask.io and download and install the web extension browser. Make sure 
 
 ### Step 2: Launch the Explorer App and Connect your Wallet to Testnet Oro.
 
-Go to [https://app.kiichain.io](https://app.kiiglobal.io/) and make sure you are connected to the "Testnet Oro" network by selecting the dropdown in the top right.&#x20;
+Go to [https://explorer.kiichain.io](https://app.kiiglobal.io/) and make sure you are connected to the "Testnet Oro" network by selecting the dropdown in the top right.&#x20;
 
 <figure><img src="../../.gitbook/assets/Screenshot 2025-01-06 at 1.07.24 PM.png" alt="" width="365"><figcaption></figcaption></figure>
 
