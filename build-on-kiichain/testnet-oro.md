@@ -50,7 +50,7 @@ Here you can find further information about Testnet Oro:
 
 Instructions on how to join the network can be found at:
 
-* [Step-by-Step Guide](../validate-the-network/run-a-validator-full-node/step-by-step-guide.md)
+* [Step-by-Step Guide](../validate-the-network/run-a-validator-full-node/step-by-step-guide/)
 
 ## Faucet
 

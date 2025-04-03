@@ -6,7 +6,7 @@ description: Onboarding for validators
 
 It's always nice to see new users onboarding into the Testnet Oro.
 
-This will guide you through the process of running your own node and becoming a validator.
+This will guide you through the process of running your own full node, then [becoming a validator](becoming-a-validator.md) and finally running[ the price feeder](running-the-price-feeder.md)
 
 ## Install
 
@@ -126,13 +126,53 @@ The expected SHA256 checksum is: `e22442f19149db7658bcf777d086b52b38d834ea17010c
 This configuration runs a full node. For validators, update the configuration accordingly!
 {% endhint %}
 
-### Full node vs validator node
+### Cosmosvisor
 
-The current configuration sets the node as a full node. If you need to run a validator the following flag must be set:
+Cosmosvisor is a process manager for handling chain upgrades. It enables low maintenance and automatic updates for nodes.
 
-```bash
-# Set the node as validator
-sed -i 's/mode = "full"/mode = "validator"/g' $NODE_HOME/config/config.toml
+* If an upgrade is scheduled, cosmosvisor has the capability of automatically downloading binaries and restarting any Kiichain processes
+* This gives the node low maintenance and auto updates capabilities
+
+A version of our node bootstrapper can install cosmosvisor for you:
+
+```
+curl -O https://raw.githubusercontent.com/KiiChain/testnets/refs/heads/main/testnet_oro/join_oro_cv.sh
+chmod +x join_oro_cv.sh
+./join_oro_cv.sh
+```
+
+More information about cosmovision can be found at [Cosmosvisor Quick Start](https://docs.cosmos.network/v0.45/run-node/cosmovisor.html).
+
+#### Preparing cosmosvisor upgrade
+
+First, you need to compile new binaries:
+
+* A new Kiichaind binary must be compiled with the target OS in mind
+* Ideally, you should compile all binaries on it’s own machines
+* **The build must be done on top of the upgrade tag (E.g. v1.0.1, v2.0.0)**
+* Check the section [Binary Installation](./#binary-installation) on how to do it
+
+Make sure that the binary has the correct version with:
+
+```
+kiichaind version
+```
+
+To add a new upgrade you must run the following command on Cosmovisor:
+
+```
+cosmovisor add-upgrade <upgrade-name> <path-to-binary>
+```
+
+Where:
+
+* `<upgrade-name>` is the on-chain upgrade name
+* `<path-to-binary>` is the full path for the binary
+
+Example:
+
+```
+cosmovisor add-upgrade 1.3.0 /home/ubuntu/kiichain/build/kiichaind
 ```
 
 ### Configure state sync
@@ -171,92 +211,11 @@ sed -i.bak -e "s|^trust-height *=.*|trust-height = $SYNC_BLOCK_HEIGHT|" $NODE_HO
 sed -i.bak -e "s|^trust-hash *=.*|trust-hash = \"$SYNC_BLOCK_HASH\"|" $NODE_HOME/config/config.toml
 ```
 
-## Becoming a validator
-
-Validators are the main responsible of validating and committing blocks. The main advantages of becoming a validator are:
-
-* **Fees.** Each transaction has fees, and validators are the main entry points of fee distribution. And due to his help on decentralization, part of the fee is exclusive for validators.
-
-### Creating a validator
-
-1. **Key creation**
-
-To create a validator, you first must have a key available for transactions. A new key can be created with:
-
-```bash
-kiichaind keys add $VALIDATOR_KEY_NAME
-```
-
-You will get an output such as:
-
-```
-- name: asd
-  type: local
-  address: kii1507zhg2k7al477zqarzru7n4566lvcp9xnsxll
-  evm_address: ""
-  pubkey: '{"@type":"/cosmos.crypto.secp256k1.PubKey","key":"Ak5kTpx4OIzXYWAOPjEVNFnn/9O+6BUgSbYCYpnUpRU5"}'
-  mnemonic: ""
-
-**Important** write this mnemonic phrase in a safe place.
-It is the only way to recover your account if you ever forget your password.
-
-invite hollow salon dutch since six embrace squeeze label other pass bean size public lazy scissors spare blood safe nothing rapid list ritual license
-```
-
-2. **Transfer funds**
-
-Ensure your account has sufficient funds for fees and self-delegation.
-
-3. **Create the validator**
-
-A validator will be created based on your consensus public key. You can check your current public key using:
-
-```bash
-kiichaind tendermint show-validator
-```
-
-To create a validator you can use the following command:
-
-```bash
-# Basic chain information
-CHAIN_ID=kiichain3
-
-# Define the validator information
-MONIKER=<my-moniker>
-AMOUNT=1000000000ukii # 1000 kii as self delegation
-COMMISSION_MAX_CHANGE_RATE=0.1
-COMMISSION_MAX_RATE=0.1
-COMMISSION_RATE=0.1
-MIN_SELF_DELEGATION_AMOUNT=1000000000
-
-kiichaind tx staking create-validator \
-  --amount=$AMOUNT \
-  --pubkey=$(kiichaind tendermint show-validator) \
-  --moniker=$MONIKER \
-  --chain-id=$CHAIN_ID \
-  --commission-rate=$COMMISSION_RATE \
-  --commission-max-rate=$COMMISSION_MAX_RATE \
-  --commission-max-change-rate=$COMMISSION_MAX_CHANGE_RATE \
-  --min-self-delegation=$MIN_SELF_DELEGATION_AMOUNT \
-  --gas="auto" \
-  --gas-adjustment 1.3 \
-  --gas-prices="0.01ukii" \
-  --from=$VALIDATOR_KEY_NAME
-```
-
-{% hint style="warning" %}
-The transaction must be done on the machine running the node
-
-* An additional flag `--node` can be passed to point to an available RPC node
-{% endhint %}
-
-Further instructions on how to run a validator can be found at [Running a Validator](https://hub.cosmos.network/main/validators/validator-setup.html).
-
 ### Turning your node into an archival node
 
 Newly created nodes have the pruning option configured as default. If you desire to turn your node into an archival node, the following flag must be changed:
 
-1. Go to `$NODE_HOME/config/config.toml`and update the following flag:
+1. Go to `$NODE_HOME/config/app.toml`and update the following flag:
 
 ```
 pruning = "nothing"
@@ -269,58 +228,9 @@ Other options available as default for pruning are:
 * `everything`: all saved states will be deleted, storing only the recent 2 blocks; pruning at every block
 * `custom`: allow pruning options to be manually specified through 'pruning-keep-recent' and 'pruning-interval'
 
-### Cosmosvisor
+### Node Architecture for Validators
 
-Cosmosvisor is a process manager for handling chain upgrades. It enables low maintenance and automatic updates for nodes.
-
-* If an upgrade is scheduled, cosmosvisor has the capability of automatically downloading binaries and restarting any Kiichain processes
-* This gives the node low maintenance and auto updates capabilities
-
-A version of our node bootstrapper can install cosmosvisor for you:
-
-```
-curl -O https://raw.githubusercontent.com/KiiChain/testnets/refs/heads/main/testnet_oro/join_oro_cv.sh
-chmod +x join_oro_cv.sh
-./join_oro_cv.sh
-```
-
-More information about cosmovision can be found at [Cosmosvisor Quick Start](https://docs.cosmos.network/v0.45/run-node/cosmovisor.html).
-
-#### Preparing cosmosvisor upgrade
-
-First, you need to compile new binaries:
-
-* A new Kiichaind binary must be compiled with the target OS in mind
-* Ideally, you should compile all binaries on it’s own machines
-* **The build must be done on top of the upgrade tag (E.g. v1.0.1, v2.0.0)**
-* Check the section [Binary Installation](step-by-step-guide.md#binary-installation) on how to do it
-
-Make sure that the binary has the correct version with:
-
-```
-kiichaind version
-```
-
-To add a new upgrade you must run the following command on Cosmovisor:
-
-```
-cosmovisor add-upgrade <upgrade-name> <path-to-binary>
-```
-
-Where:
-
-* `<upgrade-name>` is the on-chain upgrade name
-* `<path-to-binary>` is the full path for the binary
-
-Example:
-
-```
-cosmovisor add-upgrade 1.3.0 /home/ubuntu/kiichain/build/kiichaind
-```
-
-### Node Architecture for validators
-
-Further instruction on how to build a great node architecture can be found on:
+Further instructions on how to build a great node architecture can be found on:
 
 * [Playbook For Cosmos Validators: Node Architecture Choices](https://medium.com/@kidinamoto/tech-choices-for-cosmos-validators-27c7242061ea)
 

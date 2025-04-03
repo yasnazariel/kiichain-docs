@@ -39,6 +39,7 @@ Q1 & Q2:&#x20;
 * KIIDEX integration into KIIEX with listing of RWA products.&#x20;
 * DASP license in El Salvador for both KIIEX and KiiChain.
 * IBC and Wasm upgrades.
+* ICS module with dual staking.&#x20;
 
 Q3:&#x20;
 

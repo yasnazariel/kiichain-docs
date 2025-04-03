@@ -1,26 +1,28 @@
 # EVM
 
-{% swagger src="../../../.gitbook/assets/swagger.yml" path="/kiichain/evm/evm_address" method="get" %}
-[swagger.yml](../../../.gitbook/assets/swagger.yml)
-{% endswagger %}
+{% openapi src="../../../.gitbook/assets/swagger (1).json" path="/kiichain/evm/evm_address" method="get" %}
+[swagger (1).json](<../../../.gitbook/assets/swagger (1).json>)
+{% endopenapi %}
 
-{% swagger src="../../../.gitbook/assets/swagger.yml" path="/kiichain/evm/kii_address" method="get" %}
-[swagger.yml](../../../.gitbook/assets/swagger.yml)
-{% endswagger %}
+{% openapi src="../../../.gitbook/assets/swagger (1).json" path="/kiichain/evm/kii_address" method="get" %}
+[swagger (1).json](<../../../.gitbook/assets/swagger (1).json>)
+{% endopenapi %}
 
-{% swagger src="../../../.gitbook/assets/swagger.yml" path="/kiichain/evm/pointee" method="get" %}
-[swagger.yml](../../../.gitbook/assets/swagger.yml)
-{% endswagger %}
+{% openapi src="../../../.gitbook/assets/swagger (1).json" path="/kiichain/evm/pointee" method="get" %}
+[swagger (1).json](<../../../.gitbook/assets/swagger (1).json>)
+{% endopenapi %}
 
-{% swagger src="../../../.gitbook/assets/swagger.yml" path="/kiichain/evm/pointer" method="get" %}
-[swagger.yml](../../../.gitbook/assets/swagger.yml)
-{% endswagger %}
+{% openapi src="../../../.gitbook/assets/swagger (1).json" path="/kiichain/evm/pointer" method="get" %}
+[swagger (1).json](<../../../.gitbook/assets/swagger (1).json>)
+{% endopenapi %}
 
-{% swagger src="../../../.gitbook/assets/swagger.yml" path="/kiichain/evm/pointer_version" method="get" %}
-[swagger.yml](../../../.gitbook/assets/swagger.yml)
-{% endswagger %}
+{% openapi src="../../../.gitbook/assets/swagger (1).json" path="/kiichain/evm/pointer_version" method="get" %}
+[swagger (1).json](<../../../.gitbook/assets/swagger (1).json>)
+{% endopenapi %}
 
-{% swagger src="../../../.gitbook/assets/swagger.yml" path="/kiichain/evm/static_call" method="get" %}
-[swagger.yml](../../../.gitbook/assets/swagger.yml)
-{% endswagger %}
+{% openapi src="../../../.gitbook/assets/swagger (1).json" path="/kiichain/evm/static_call" method="get" %}
+[swagger (1).json](<../../../.gitbook/assets/swagger (1).json>)
+{% endopenapi %}
+
+
 
