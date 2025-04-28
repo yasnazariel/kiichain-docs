@@ -32,6 +32,14 @@ Awesome, nice work! Your wallet has been created. Make sure you store your keys 
 
 Wallets like MetaMask and Keplr can be manually connected to various testnets. MetaMask supports EVM-compatible blockchains, and at default, is set to the Ethereum network. You will need to manually connect to the KiiChain network.
 
+The link can be done though multiple sources:
+
+* [Kiichain Testnet Page](https://kiichain.io/testnet)
+* [Explorer App](https://explorer.kiichain.io/testnet)
+* [Chain lists](https://chainlist.org/chain/1336)
+
+### Manually setting the wallet
+
 Click the "Ethereum Mainnet" dropdown bar on the top left and then click "Add Network" on the pop-up box.&#x20;
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2024-06-11 at 6.28.26 PM.png" alt="" width="563"><figcaption></figcaption></figure>
@@ -45,8 +53,8 @@ Manually add the following testnet chain ID to add the network.&#x20;
 | Network name       | Kiichain Testnet Oro                                                                                                 |
 | New RPC URL        | [https://json-rpc.dos.sentry.testnet.v3.kiivalidator.com/](https://json-rpc.dos.sentry.testnet.v3.kiivalidator.com/) |
 | Chain ID           | 1336                                                                                                                 |
-| Currency symbol    | ukii                                                                                                                 |
-| Block explorer URL | [https://app.kiiglobal.io/kiichain3](https://app.kiiglobal.io/kiichain3)                                             |
+| Currency symbol    | KII                                                                                                                  |
+| Block explorer URL | [https://explorer.kiichain.io/testnet](https://explorer.kiichain.io/testnet)                                         |
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2024-06-12 at 11.50.44 AM.png" alt="" width="563"><figcaption></figcaption></figure>
 

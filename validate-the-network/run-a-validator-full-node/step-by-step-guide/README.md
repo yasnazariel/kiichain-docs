@@ -14,12 +14,8 @@ This will guide you through the process of running your own full node, then [bec
 
 ### Requirements
 
-* **Golang version:** `v1.21.x` or `v1.22.x`
+* **Golang version:** `v1.23.x`
 * **Build tools:** `build-essential` package (Linux)
-
-{% hint style="warning" %}
-Using Golang `v1.23.x` or higher will result in compilation errors. Please ensure you install an appropriate version.
-{% endhint %}
 
 ### Binary installation
 
@@ -45,8 +41,8 @@ To join the Testnet Oro, you must have the daemon `kiichaind` installed in your 
 
 For optimal performance, we recommend:
 
-* 16 vCPU x86\_64
-* 64 GB RAM
+* 4 vCPU x86\_64
+* 8 GB RAM
 * 1 TB NVME SSD
 
 ### Quick bootstrap
@@ -79,9 +75,9 @@ Prepare your system by backing up and removing old configurations:
 
 ```bash
 # Backup old configuration
-cp -r $HOME/.kiichain3 $HOME/.kiichain3-bk
+cp -r $HOME/.kiichain $HOME/.kiichain-bk
 # Clean any old configuration
-rm -r $HOME/.kiichain3
+rm -r $HOME/.kiichain
 ```
 
 Connect to the testnet with the following commands:
@@ -89,22 +85,19 @@ Connect to the testnet with the following commands:
 ```bash
 # Variables used during the configuration
 PERSISTENT_PEERS="5b6aa55124c0fd28e47d7da091a69973964a9fe1@uno.sentry.testnet.v3.kiivalidator.com:26656,5e6b283c8879e8d1b0866bda20949f9886aff967@dos.sentry.testnet.v3.kiivalidator.com:26656"
-CHAIN_ID=kiichain3
-NODE_HOME=~/.kiichain3
+CHAIN_ID="oro_1336-1"
+NODE_HOME=~/.kiichain
 NODE_MONIKER=testnet_oro
 GENESIS_URL=https://raw.githubusercontent.com/KiiChain/testnets/refs/heads/main/testnet_oro/genesis.json
+MINIMUM_GAS_PRICES="1000000000akii"
 
 # Initialize the chain
 kiichaind init $NODE_MONIKER --chain-id $CHAIN_ID --home $NODE_HOME
 
 # Set the persistent-peers
 sed -i -e "/persistent-peers =/ s^= .*^= \"$PERSISTENT_PEERS\"^" $NODE_HOME/config/config.toml
-
-# Enable DB
-sed -i.bak -e "s|^occ-enabled *=.*|occ-enabled = true|" $NODE_HOME/config/app.toml
-sed -i.bak -e "s|^sc-enable *=.*|sc-enable = true|" $NODE_HOME/config/app.toml
-sed -i.bak -e "s|^ss-enable *=.*|ss-enable = true|" $NODE_HOME/config/app.toml
-sed -i.bak -e 's/^# concurrency-workers = 20$/concurrency-workers = 500/' $NODE_HOME/config/app.toml
+# Set the min gas price
+sed -i -e "/minimum-gas-prices =/ s^= .*^= \"$MINIMUM_GAS_PRICES\"^" $NODE_HOME/config/app.toml
 
 # Set the genesis
 wget $GENESIS_URL -O genesis.json
@@ -120,7 +113,7 @@ kiichaind start --home $NODE_HOME
 sha256sum $NODE_HOME/config/genesis.json
 ```
 
-The expected SHA256 checksum is: `e22442f19149db7658bcf777d086b52b38d834ea17010c313cd8aece137b647a`
+The expected SHA256 checksum is: `TBA`
 
 {% hint style="warning" %}
 This configuration runs a full node. For validators, update the configuration accordingly!
@@ -205,10 +198,9 @@ Modify the `config.toml` file to enable state sync and set the required paramete
 
 ```bash
 sed -i.bak -e "s|^enable *=.*|enable = true|" $NODE_HOME/config/config.toml
-sed -i.bak -e "s|^rpc-servers *=.*|rpc-servers = \"https://rpc.uno.sentry.testnet.v3.kiivalidator.com,https://rpc.dos.sentry.testnet.v3.kiivalidator.com\"|" $NODE_HOME/config/config.toml
-sed -i.bak -e "s|^db-sync-enable *=.*|db-sync-enable = false|" $NODE_HOME/config/config.toml
-sed -i.bak -e "s|^trust-height *=.*|trust-height = $SYNC_BLOCK_HEIGHT|" $NODE_HOME/config/config.toml
-sed -i.bak -e "s|^trust-hash *=.*|trust-hash = \"$SYNC_BLOCK_HASH\"|" $NODE_HOME/config/config.toml
+sed -i.bak -e "s|^rpc_servers *=.*|rpc_servers = \"$PRIMARY_ENDPOINT,$SECONDARY_ENDPOINT\"|" $NODE_HOME/config/config.toml
+sed -i.bak -e "s|^trust_height *=.*|trust_height = $SYNC_BLOCK_HEIGHT|" $NODE_HOME/config/config.toml
+sed -i.bak -e "s|^trust_hash *=.*|trust_hash = \"$SYNC_BLOCK_HASH\"|" $NODE_HOME/config/config.toml
 ```
 
 ### Turning your node into an archival node

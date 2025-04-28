@@ -23,17 +23,16 @@ kiichaind keys add $VALIDATOR_KEY_NAME
 You will get an output such as:
 
 ```
-- name: asd
+- address: kii105xft78q4wm565sn62chq4dxxvzq6uhqu0dawp
+  name: "1234"
+  pubkey: '{"@type":"/cosmos.evm.crypto.v1.ethsecp256k1.PubKey","key":"AxA37KswOGRQJ7R4JsDMbglhqh0TcPoiPEq/GCNZ1AJx"}'
   type: local
-  address: kii1507zhg2k7al477zqarzru7n4566lvcp9xnsxll
-  evm_address: ""
-  pubkey: '{"@type":"/cosmos.crypto.secp256k1.PubKey","key":"Ak5kTpx4OIzXYWAOPjEVNFnn/9O+6BUgSbYCYpnUpRU5"}'
-  mnemonic: ""
+
 
 **Important** write this mnemonic phrase in a safe place.
 It is the only way to recover your account if you ever forget your password.
 
-invite hollow salon dutch since six embrace squeeze label other pass bean size public lazy scissors spare blood safe nothing rapid list ritual license
+mom half sting horn fashion pizza citizen lonely random february knee miss vibrant peasant among pool suffer street alert eager notable net leave wrestle
 ```
 
 2. **Transfer funds**
@@ -52,15 +51,15 @@ To create a validator you can use the following command:
 
 ```bash
 # Basic chain information
-CHAIN_ID=kiichain3
+CHAIN_ID="oro_1336-1"
 
 # Define the validator information
 MONIKER=<my-moniker>
-AMOUNT=1000000000ukii # 1000 kii as self delegation
+AMOUNT=1000000000000000000000akii # 1000 kii as self delegation
 COMMISSION_MAX_CHANGE_RATE=0.1
 COMMISSION_MAX_RATE=0.1
 COMMISSION_RATE=0.1
-MIN_SELF_DELEGATION_AMOUNT=1000000000
+MIN_SELF_DELEGATION_AMOUNT=1000000000000000000
 
 kiichaind tx staking create-validator \
   --amount=$AMOUNT \
@@ -73,7 +72,7 @@ kiichaind tx staking create-validator \
   --min-self-delegation=$MIN_SELF_DELEGATION_AMOUNT \
   --gas="auto" \
   --gas-adjustment 1.3 \
-  --gas-prices="0.01ukii" \
+  --gas-prices="1000000000akii" \
   --from=$VALIDATOR_KEY_NAME
 ```
 
@@ -100,7 +99,7 @@ kiichaind tx staking edit-validator
   --chain-id=<chain_id> \
   --gas="auto" \
   --gas-adjustment 1.3 \
-  --gas-prices="0.01ukii" \
+  --gas-prices="1000000000akii" \
   --from=<key_name> \
   --commission-rate="0.10"
 ```
@@ -126,7 +125,7 @@ kiichaind tx slashing unjail \
  --from=<key_name> \
  --chain-id=<chain_id>
  --gas="auto" \
- --gas-prices="0.0025ukii"
+ --gas-prices="1000000000akii"
 ```
 
 ## Halting Your Validator <a href="#halting-your-validator" id="halting-your-validator"></a>

@@ -1,5 +1,6 @@
 ---
 description: How to run your own Oracle and price feeder
+hidden: true
 ---
 
 # Running the Price feeder
@@ -99,5 +100,5 @@ These are the prices stored on the blockchain (represented in USD).
 * [Oracle definition by Cosmos](https://docs.cosmos.network/v0.50/tutorials/vote-extensions/oracle/what-is-an-oracle)
 * [Run the price feeder](https://github.com/KiiChain/testnets/blob/main/testnet_oro/run_price_feeder.sh)
 * [Price feeder README](https://github.com/KiiChain/kiichain/blob/main/oracle/price_feeder/README.md)
-* [Oracle endpoints](../../../build-on-kiichain/endpoints-cosmos/kiichain/oracle.md)
+* [Oracle endpoints](../../../build-on-kiichain/endpoints-cosmos-1/kiichain/oracle.md)
 

@@ -1,14 +1,13 @@
 # Authz
 
-{% swagger src="../../../.gitbook/assets/swagger (1).yml" path="/cosmos/authz/v1beta1/grants" method="get" %}
-[swagger (1).yml](<../../../.gitbook/assets/swagger (1).yml>)
-{% endswagger %}
+{% openapi-operation spec="testnet-https" path="/cosmos/authz/v1beta1/grants" method="get" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
 
-{% swagger src="../../../.gitbook/assets/swagger (1).yml" path="/cosmos/authz/v1beta1/grants/grantee/{grantee}" method="get" %}
-[swagger (1).yml](<../../../.gitbook/assets/swagger (1).yml>)
-{% endswagger %}
+{% openapi-operation spec="testnet-https" path="/cosmos/authz/v1beta1/grants/grantee/{grantee}" method="get" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
 
-{% swagger src="../../../.gitbook/assets/swagger (1).yml" path="/cosmos/authz/v1beta1/grants/granter/{granter}" method="get" %}
-[swagger (1).yml](<../../../.gitbook/assets/swagger (1).yml>)
-{% endswagger %}
-
+{% openapi-operation spec="testnet-https" path="/cosmos/authz/v1beta1/grants/granter/{granter}" method="get" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}

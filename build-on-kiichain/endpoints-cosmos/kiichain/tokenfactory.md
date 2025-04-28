@@ -1,22 +1,17 @@
-# Tokenfactory
+# TokenFactory
 
-{% swagger src="../../../.gitbook/assets/swagger.yml" path="/kiichain/tokenfactory/params" method="get" %}
-[swagger.yml](../../../.gitbook/assets/swagger.yml)
-{% endswagger %}
+{% openapi-operation spec="testnet-https" path="/kiichain/tokenfactory/v1beta1/params" method="get" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
 
-{% swagger src="../../../.gitbook/assets/swagger.yml" path="/kiichain/tokenfactory/denoms_from_creator/{creator}" method="get" %}
-[swagger.yml](../../../.gitbook/assets/swagger.yml)
-{% endswagger %}
+{% openapi-operation spec="testnet-https" path="/kiichain/tokenfactory/v1beta1/denoms/{denom}/authority_metadata" method="get" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
 
-{% swagger src="../../../.gitbook/assets/swagger.yml" path="/kiichain/tokenfactory/denoms/{denom}/authority_metadata" method="get" %}
-[swagger.yml](../../../.gitbook/assets/swagger.yml)
-{% endswagger %}
+{% openapi-operation spec="testnet-https" path="/kiichain/tokenfactory/v1beta1/denoms_from_admin/{admin}" method="get" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
 
-{% swagger src="../../../.gitbook/assets/swagger.yml" path="/kiichain/tokenfactory/denoms/metadata" method="get" %}
-[swagger.yml](../../../.gitbook/assets/swagger.yml)
-{% endswagger %}
-
-{% swagger src="../../../.gitbook/assets/swagger.yml" path="/kiichain/tokenfactory/denoms/allow_list" method="get" %}
-[swagger.yml](../../../.gitbook/assets/swagger.yml)
-{% endswagger %}
-
+{% openapi-operation spec="testnet-https" path="/kiichain/tokenfactory/v1beta1/denoms_from_creator/{creator}" method="get" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}

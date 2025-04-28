@@ -6,15 +6,6 @@ description: How to run your own Kiichain Validator
 
 The configuration followed before, set your node as a **full node**, this page will guide you to upgrade your node into a validator. &#x20;
 
-## Set the node as a validator node
-
-Run the following command to change the flag that determines the type of your node.
-
-```bash
-# Set the node as validator
-sed -i 's/mode = "full"/mode = "validator"/g' $NODE_HOME/config/config.toml
-```
-
 ## Becoming a validator
 
 Validators are mainly responsible&#x20;
@@ -91,15 +82,15 @@ To create a validator, you can use the following command:
 
 ```bash
 # Basic chain information
-CHAIN_ID=kiichain3
+CHAIN_ID="oro_1336-1"
 
 # Define the validator information
 MONIKER=<my-moniker>
-AMOUNT=1000000000ukii # 1000 kii as self delegation
+AMOUNT=1000000000000000000000akii # 1000 kii as self delegation
 COMMISSION_MAX_CHANGE_RATE=0.1
 COMMISSION_MAX_RATE=0.1
 COMMISSION_RATE=0.1
-MIN_SELF_DELEGATION_AMOUNT=1000000000
+MIN_SELF_DELEGATION_AMOUNT=1000000000000000000
 
 kiichaind tx staking create-validator \
   --amount=$AMOUNT \
@@ -112,7 +103,7 @@ kiichaind tx staking create-validator \
   --min-self-delegation=$MIN_SELF_DELEGATION_AMOUNT \
   --gas="auto" \
   --gas-adjustment 1.3 \
-  --gas-prices="0.01ukii" \
+  --gas-prices="1000000000akii" \
   --from=$VALIDATOR_KEY_NAME
 ```
 
@@ -120,12 +111,6 @@ kiichaind tx staking create-validator \
 The transaction must be done on the machine running the node
 
 * An additional flag `--node` can be passed to point to an available RPC node
-{% endhint %}
-
-{% hint style="warning" %}
-In order to avoid being jailed, since version v4.0.0, validators need to run a **price feeder.**
-
-Check it on the next page.
 {% endhint %}
 
 Further instructions on how to run a validator can be found at [Running a Validator](https://hub.cosmos.network/main/validators/validator-setup.html).

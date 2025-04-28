@@ -8,7 +8,7 @@ description: >-
 
 ## **Testnets**
 
-Testnet Oro is our public testnet that is currently active.&#x20;
+Testnet Oro is our public testnet that is currently active.
 
 Testnet Oro is the permanent testnet with smart contract functionality and EVM compatibility. All Hackathons, Builds, Airdrops, and test deployments should be done on this network. You can find more information such as endpoints, chain data, and general guides here:
 
@@ -32,10 +32,10 @@ Kii protocols can be found at these links:
 
 Generally, our chains (testnets and mainnet) follow the same set of endpoints. More information about our endpoints can be found here:
 
-* [Endpoints](endpoints-cosmos/)
+* [Endpoints](endpoints-cosmos-1/)
 
 ## **KiiChain Discord Server**
 
-If you would like to connect directly with the community and ask questions related to building on the network, join the discord server where our internal developers are ready to field any questions you have.&#x20;
+If you would like to connect directly with the community and ask questions related to building on the network, join the discord server where our internal developers are ready to field any questions you have.
 
 * [Discord Kiichain invite](https://discord.com/invite/fUcfeYYtVF)

@@ -40,9 +40,9 @@ Currently, there are no seed nodes or persistent peers available to the public.
 
 Here you can find further information about Testnet Oro:
 
-* **Chain ID:** `kiichain3`
+* **Chain ID:** `oro_1336-1`
 * **Total Supply:** `1.8b Kii`
-* **Token Denom:** `ukii`
+* **Token Denom:** `akii`
 * **EVM Chain ID:** `1336`
 * **Bench32 Prefix:** `kii`
 
@@ -84,7 +84,7 @@ You can find guides to the testnet at our [Developer Tools](testnet-oro.md#devel
 
 Rest endpoints for the testnet Oro can be found here:
 
-* [Endpoints](endpoints-cosmos/)
+* [Endpoints](endpoints-cosmos-1/)
 
 ## **EVM / CW Addresses**
 
@@ -99,7 +99,5 @@ kii123abc...
 ```
 
 ## **Tokens**
-
-Kiichain Testnet Oro introduces a mirrored token system comprising uKII in both ERC and CW token standards. KiiChain is a Cosmos-based blockchain built with the Cosmos SDK, therefore, all functionalities will be based on CW tokens. ERC tokens are mirrored from the cosmos environment through precompiled smart contracts that give users and builders access to EVM infrastructure.
 
 KII serves as the primary utility token within the KiiChain ecosystem, facilitating transactions and powering network operations, notably through the payment of gas fees. Distinguished by its fungibility and interoperability, KII can be seamlessly transferred and utilized across various wallet providers, including popular EVM rpc-based options like MetaMask & Coinbase wallet and cosmos-based wallets like Keplr and Leap. By leveraging KII, users can engage in a diverse array of interactions within the KiiChain network, ranging from simple transactions to more complex smart contract executions, thereby driving the adoption and utility of the native token within the broader blockchain landscape.
