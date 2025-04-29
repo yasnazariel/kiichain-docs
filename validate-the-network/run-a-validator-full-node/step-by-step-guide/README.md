@@ -113,7 +113,7 @@ kiichaind start --home $NODE_HOME
 sha256sum $NODE_HOME/config/genesis.json
 ```
 
-The expected SHA256 checksum is: `TBA`
+The expected SHA256 checksum is: `2805ae1752dc8c3435afd6bdceea929b3bbd2883606f3f3589f4d62c99156d2d`
 
 {% hint style="warning" %}
 This configuration runs a full node. For validators, update the configuration accordingly!
