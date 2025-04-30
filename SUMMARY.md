@@ -85,6 +85,9 @@
   * [Resources](build-on-kiichain/developer-tools/resources.md)
   * [Precompiled Contracts](build-on-kiichain/developer-tools/precompiled-contracts.md)
 * [Smart contracts](build-on-kiichain/smart-contracts.md)
+* [Modules](build-on-kiichain/modules/README.md)
+  * [TokenFactory](build-on-kiichain/modules/tokenfactory.md)
+  * [EVM](build-on-kiichain/modules/evm.md)
 
 ## Validate the Network
 
