@@ -2,6 +2,11 @@
     "retryOn429": true,
     "retryCount": 5,
     "fallbackRetryDelay": "5s",
+    "ignorePatterns": [
+        {
+            "pattern": "broken-reference"
+        }
+    ],
     "aliveStatusCodes": [
         200,
         206,
