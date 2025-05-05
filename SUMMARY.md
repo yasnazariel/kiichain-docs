@@ -84,7 +84,7 @@
   * [Testnet faucet](build-on-kiichain/developer-tools/testnet-faucet.md)
   * [Resources](build-on-kiichain/developer-tools/resources.md)
   * [Precompiled Contracts](build-on-kiichain/developer-tools/precompiled-contracts.md)
-* [Smart contracts](build-on-kiichain/smart-contracts.md)
+* [Smart Contracts](build-on-kiichain/smart-contracts.md)
 * [Modules](build-on-kiichain/modules/README.md)
   * [TokenFactory](build-on-kiichain/modules/tokenfactory.md)
   * [EVM](build-on-kiichain/modules/evm.md)
