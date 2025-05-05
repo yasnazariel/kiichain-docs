@@ -119,6 +119,15 @@
   * [Security considerations](validate-the-network/delegator-information/security-considerations.md)
   * [Risks to consider](validate-the-network/delegator-information/risks-to-consider.md)
 
+## KII AMBASSADORS
+
+* [What does it mean to be a KiiAmbassador?](kii-ambassadors/what-does-it-mean-to-be-a-kiiambassador.md)
+* [Your Core Responsibilities](kii-ambassadors/your-core-responsibilities.md)
+* [Participation Perks](kii-ambassadors/participation-perks.md)
+* [Points System & Performance](kii-ambassadors/points-system-and-performance.md)
+* [How to lose the Role](kii-ambassadors/how-to-lose-the-role.md)
+* [Evaluation Process](kii-ambassadors/evaluation-process.md)
+
 ## KIIEX
 
 * [Set Up KIIEX Account](kiiex/set-up-kiiex-account/README.md)
