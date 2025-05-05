@@ -99,6 +99,5 @@ These are the prices stored on the blockchain (represented in USD).
 * [Oracle definition by Kii team](../../getting-started/what-is-an-oracle.md)
 * [Oracle definition by Cosmos](https://docs.cosmos.network/v0.50/tutorials/vote-extensions/oracle/what-is-an-oracle)
 * [Run the price feeder](https://github.com/KiiChain/testnets/blob/main/testnet_oro/run_price_feeder.sh)
-* [Price feeder README](https://github.com/KiiChain/kiichain/blob/main/oracle/price_feeder/README.md)
+* [Price feeder README](https://github.com/KiiChain/kiichain3/blob/main/oracle/price_feeder/README.md)
 * [Oracle endpoints](broken-reference)
-
