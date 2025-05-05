@@ -53,7 +53,6 @@
 * [Developer Tools](build-on-kiichain/developer-tools/README.md)
   * [RWA Protocol](build-on-kiichain/developer-tools/rwa-protocol.md)
   * [Rust SDK](build-on-kiichain/developer-tools/rust-sdk.md)
-  * [Python SDK](build-on-kiichain/developer-tools/python-sdk.md)
   * [JS/TS SDK](build-on-kiichain/developer-tools/js-ts-sdk.md)
   * [Deploy a smart contract](build-on-kiichain/developer-tools/deploy-a-smart-contract.md)
   * [Deploy a dApp](build-on-kiichain/developer-tools/deploy-a-dapp.md)
