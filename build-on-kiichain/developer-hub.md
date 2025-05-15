@@ -20,7 +20,7 @@ If you are a developer we also have our official SKDs for development:
 
 * [Rust SDK](developer-tools/rust-sdk.md)
 * [Python SDK](broken-reference)
-* [JS/TS SDK](developer-tools/js-ts-sdk.md)
+* [JS/TS SDK](developer-tools/js-ts-sdk/)
 
 ## Protocols
 
