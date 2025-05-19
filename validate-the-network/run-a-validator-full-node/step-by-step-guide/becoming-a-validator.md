@@ -78,32 +78,54 @@ A validator will be created based on your consensus public key. You can check yo
 kiichaind tendermint show-validator
 ```
 
-To create a validator, you can use the following command:
+To create a validator, first you will need to create a JSON with your validator information.
+
+This template can be used when creating the validator:
+
+```json
+{
+    "pubkey": {"@type":"/cosmos.crypto.ed25519.PubKey","key":"C2xVqc+u101PQShdTJxGOF2HFCtYWwMDYLl4r2swiGE="},
+    "amount": "1000000000000000000000akii",
+    "moniker": "MY VALIDATOR",
+    "identity": "optional identity signature (ex. UPort or Keybase)",
+    "website": "validator's (optional) website",
+    "security": "validator's (optional) security contact email",
+    "details": "validator's (optional) details",
+    "commission-rate": "0.1",
+    "commission-max-rate": "0.2",
+    "commission-max-change-rate": "0.01",
+    "min-self-delegation": "1"
+}
+```
+
+Where:
+
+* `pubkey` : Validator's public key used for signing blocks (ed25519).&#x20;
+* `amount`: Amount of tokens to self-delegate (e.g., 1000 akii with 18 decimals).
+* `moniker`: Validator's display name.
+* `identity` (optional): Identity string (e.g., Keybase or UPort for verification).
+* `website` (optional): Validator’s website URL.
+* `security` (optional): Security contact email for incident disclosure.
+* `details` (optional): Additional description of the validator.
+* **`commission-rate`** :Initial commission rate (e.g., 0.1 = 10%).
+* **`commission-max-rate`**: Maximum commission rate allowed (e.g., 20%).
+* **`commission-max-change-rate`**: Max daily change in commission (e.g., 1%).
+* `min-self-delegation`: Minimum tokens validator must always self-delegate to stay active.
+
+To apply, you can use the following command:
 
 ```bash
 # Basic chain information
 CHAIN_ID="oro_1336-1"
+VALIDATOR_KEY_NAME=<my-validator-key>
 
-# Define the validator information
-MONIKER=<my-moniker>
-AMOUNT=1000000000000000000000akii # 1000 kii as self delegation
-COMMISSION_MAX_CHANGE_RATE=0.1
-COMMISSION_MAX_RATE=0.1
-COMMISSION_RATE=0.1
-MIN_SELF_DELEGATION_AMOUNT=1000000000000000000
-
-kiichaind tx staking create-validator \
-  --amount=$AMOUNT \
-  --pubkey=$(kiichaind tendermint show-validator) \
-  --moniker=$MONIKER \
-  --chain-id=$CHAIN_ID \
-  --commission-rate=$COMMISSION_RATE \
-  --commission-max-rate=$COMMISSION_MAX_RATE \
-  --commission-max-change-rate=$COMMISSION_MAX_CHANGE_RATE \
-  --min-self-delegation=$MIN_SELF_DELEGATION_AMOUNT \
-  --gas="auto" \
-  --gas-adjustment 1.3 \
-  --gas-prices="1000000000akii" \
+# Apply the create validator transaction
+kiichaind tx staking create-validator /
+  ./validator.json /
+  --chain-id=$CHAIN_ID /
+  --gas="auto" /
+  --gas-adjustment 1.3 /
+  --gas-prices="1000000000akii" /
   --from=$VALIDATOR_KEY_NAME
 ```
 
