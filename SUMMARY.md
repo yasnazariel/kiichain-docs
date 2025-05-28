@@ -23,6 +23,10 @@
   * [Set Up a Web Wallet](learn/getting-started/set-up-a-web-wallet.md)
   * [Connect Wallet to Explorer App](learn/getting-started/connect-wallet-to-explorer-app.md)
 
+***
+
+* [Kii Ambassadors](kii-ambassadors.md)
+
 ## BUILD ON KIICHAIN
 
 * [Developer Hub](build-on-kiichain/developer-hub.md)
@@ -98,12 +102,12 @@
 
 ## KII AMBASSADORS
 
-* [What does it mean to be a KiiAmbassador?](kii-ambassadors/what-does-it-mean-to-be-a-kiiambassador.md)
-* [Your Core Responsibilities](kii-ambassadors/your-core-responsibilities.md)
-* [Participation Perks](kii-ambassadors/participation-perks.md)
-* [Points System & Performance](kii-ambassadors/points-system-and-performance.md)
-* [How to lose the Role](kii-ambassadors/how-to-lose-the-role.md)
-* [Evaluation Process](kii-ambassadors/evaluation-process.md)
+* [What does it mean to be a KiiAmbassador?](kii-ambassadors-1/what-does-it-mean-to-be-a-kiiambassador.md)
+* [Your Core Responsibilities](kii-ambassadors-1/your-core-responsibilities.md)
+* [Participation Perks](kii-ambassadors-1/participation-perks.md)
+* [Points System & Performance](kii-ambassadors-1/points-system-and-performance.md)
+* [How to lose the Role](kii-ambassadors-1/how-to-lose-the-role.md)
+* [Evaluation Process](kii-ambassadors-1/evaluation-process.md)
 
 ## KIIEX
 
