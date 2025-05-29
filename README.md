@@ -2,7 +2,6 @@
 description: >-
   KIIEX is a hybrid centralized-decentralized exchange platform designed for
   on-chain FX trading, cross-border payments and finance solutions.
-hidden: true
 ---
 
 # What is KIIEX?
