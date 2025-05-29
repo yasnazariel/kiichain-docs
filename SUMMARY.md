@@ -2,7 +2,8 @@
 
 ## Learn
 
-* [What is KiiChain?](README.md)
+* [What is KIIEX?](README.md)
+* [What is KiiChain?](<README (1).md>)
 * [KiiChain](learn/kiichain/README.md)
   * [Vision of KiiChain](learn/kiichain/vision-of-kiichain.md)
   * [Blockchain Features](learn/kiichain/blockchain-features.md)
