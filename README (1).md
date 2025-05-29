@@ -3,8 +3,6 @@ description: >-
   KiiChain is the first FX layer 1 AppChain built for stablecoins and RWAs.
   KiiChain empowers users, developers and businesses who are building the future
   of finance in emerging markets.
-cover: .gitbook/assets/Kii Banner.jpeg
-coverY: 0
 ---
 
 # What is KiiChain?
