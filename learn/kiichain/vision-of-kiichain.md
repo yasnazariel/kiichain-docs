@@ -4,12 +4,14 @@ description: Our vision of what and why we are building relentlessly everyday.
 
 # Vision of KiiChain
 
-### Why KII?
+### FX settlement layer for Stablecoins and tokenized Real-World Assets
 
-While the cryptocurrency space is saturated with a myriad of options, Kii Global distinguishes itself through its profound commitment to societal betterment. Beyond the technical marvels and financial prospects, KiiChain's ethos is rooted in fostering an accessible, and inclusive financial landscape, especially for the Latino community.&#x20;
+KiiChain is a supercharged unified liquidity network for international trade, finance and payments – specifically built for emerging markets. It seamlessly melds with prevailing payment infrastructures, aiming to alleviate the exorbitant costs and reduce barriers in global economic transactions. Unlike other monolithic blockchain layers, KiiChain is purpose-built for emerging markets and “last mile” integrations into local economies, breathing life into previously liquidity-constrained sectors that cannot financially communicate with the rest of the world.&#x20;
 
-Currently, 50% of citizens in developing countries are unbanked, or underbanked. The main reason: their income isn’t sufficient enough to pay for the monthly costs associated with traditional financial services. As a result, these users, and many small businesses associated, lack access to basic financial services and credit lines.&#x20;
+The blockchain rides on the back of the CometBFT consensus mechanism built with the Cosmos SDK - a testament to its decentralization and commitment to achieve lightning-fast finality and minuscule network fees. Primarily, its design suits the daily exigencies of emerging economies, taking into account the wealth imbalances that exist. KiiChain’s Comet consensus mechanism boasts supercar-fast validators that produce blocks in seconds, allowing for instantaneous cross-chain settlement times and a fee on the network less than one peso.
 
-As the world rapidly pivots to a decentralized financial paradigm, Kii Global envisions itself at the forefront - not merely as a passive participant but as an active change-maker. By continually iterating on its offerings, forging meaningful partnerships, and staying attuned to the real-world needs of its users, Kii Global is not just building a blockchain; it's crafting the future of finance by combining zero-fixed cost solutions with problem-solving web3 applications.&#x20;
+The Kii blueprint saw expansion within its product and app suite, incorporating custom on-chain protocols and modules to allow any user, builder or business to connect directly to the network. KiiChains flagship native app, KIIEX, is a hybrid centralized-decentralized exchange specifically conceptualized for liquidity assimilations in RWA and payment settlement. KiiChain is amplified by a series of protocols and modules that provide interconnectivity between Ethereum, Solana, Cosmos and more – providing unified access to tradeable assets across ecosystems on one network.&#x20;
 
-At the heart of it all, Kii Global is more than just a blockchain company. It's a beacon of hope, a promise of a brighter financial future, and a testament to what's possible when innovation meets empathy. Our main goal: create a systemic shift in the middle class in emerging markets.&#x20;
+The product suite provides institutional infrastructure and liquidity, connecting global players to local operators. KiiChain is EVM compatible and supports smart contracts in both Solidity and Rust. It’s a permissionless ecosystem for open finance, where web2 and web3 developers can build a wide variety of dApps and protocols.
+
+\
