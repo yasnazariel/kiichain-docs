@@ -19,7 +19,6 @@ Testnet Oro is the permanent testnet with smart contract functionality and EVM c
 If you are a developer we also have our official SKDs for development:
 
 * [Rust SDK](developer-tools/rust-sdk.md)
-* [Python SDK](broken-reference)
 * [JS/TS SDK](developer-tools/js-ts-sdk/)
 
 ## Protocols
