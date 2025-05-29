@@ -1,5 +1,6 @@
 ---
 description: Available on the App Store and Google Play
+hidden: true
 ---
 
 # Download a Mobile Wallet
