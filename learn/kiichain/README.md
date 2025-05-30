@@ -1,7 +1,5 @@
 ---
 description: A background on why we're relentlessly building every day.
-cover: ../../.gitbook/assets/Kii Banner.jpeg
-coverY: 0
 ---
 
 # KiiChain
