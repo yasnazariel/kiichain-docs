@@ -4,7 +4,7 @@ description: A background on why we're relentlessly building every day.
 
 # KiiChain
 
-### About KII
+### About Kii
 
 A lot has transpired since Satoshi’s whitepaper announcing the arrival of Bitcoin in 2008 as Bitcoin has become the digital gold standard and is positioning itself as the reserve currency of the world. In 2013, Ethereum established itself as the leader in layer 1 infrastructure, initiating the cycle of growth among web3 businesses. Since then, over 1 million tokens have been publicly launched, each with their unique focus.
 
