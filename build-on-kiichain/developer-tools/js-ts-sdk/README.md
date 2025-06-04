@@ -4,7 +4,7 @@ description: An SDK written in Javascript/Typescript for KiiChain
 
 # JS/TS SDK
 
-**Note: This project is still under development so future changes will be made.**&#x20;
+**Note: This project is still under development, so future changes will be made.**&#x20;
 
 ## Kiijs-SDK
 
@@ -12,16 +12,17 @@ KiiJS is a monorepo that contains multiple NPM libraries for writing application
 
 ### Documentation
 
-Each package has it's own documentation under its readme file.
+Each package has its own documentation under its readme file.
 
 ### Packages
 
 KiiJS consists of smaller NPM packages within the @kiichain namespace. For more detailed documentation on each package, please refer to the table below.
 
-| Package                                 | Description                                                                              |
-| --------------------------------------- | ---------------------------------------------------------------------------------------- |
-| [@kiichain/kiijs-evm](kiijs-evm.md)     | Typescript library containing helper functions for interacting with the EVM on Kiichain. |
-| [@kiichain/kiijs-proto](kiijs-proto.md) | Typescript support for KiiChain protofiles, generated with Telescope                     |
+| Package                                 | Description                                                                                            |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| [@kiichain/kiijs-evm](kiijs-evm.md)     | Typescript library containing helper functions for interacting with the EVM on Kiichain.               |
+| [@kiichain/kiijs-proto](kiijs-proto.md) | Typescript support for KiiChain protofiles, generated with Telescope                                   |
+| [@kiichain/kiijs-utils](kiijs-utils.md) | Typescript support for a few generic Kiichain functions, like address conversion or ethscp256-1 signer |
 
 ### Contributing
 

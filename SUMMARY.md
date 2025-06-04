@@ -180,6 +180,7 @@
   * [JS/TS SDK](build-on-kiichain/developer-tools/js-ts-sdk/README.md)
     * [Kiijs-evm](build-on-kiichain/developer-tools/js-ts-sdk/kiijs-evm.md)
     * [Kiijs-proto](build-on-kiichain/developer-tools/js-ts-sdk/kiijs-proto.md)
+    * [Kiijs-utils](build-on-kiichain/developer-tools/js-ts-sdk/kiijs-utils.md)
   * [Deploy a smart contract](build-on-kiichain/developer-tools/deploy-a-smart-contract.md)
   * [Deploy a dApp](build-on-kiichain/developer-tools/deploy-a-dapp.md)
   * [Testnet faucet](build-on-kiichain/developer-tools/testnet-faucet.md)
@@ -189,6 +190,10 @@
 * [Modules](build-on-kiichain/modules/README.md)
   * [TokenFactory](build-on-kiichain/modules/tokenfactory.md)
   * [EVM](build-on-kiichain/modules/evm.md)
+
+***
+
+* [Precompiled contracts](precompiled-contracts.md)
 
 ## Validate the Network
 

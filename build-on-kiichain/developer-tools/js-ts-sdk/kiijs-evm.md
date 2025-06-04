@@ -51,7 +51,7 @@ This package exports `viem` Chains and precompile ABI's for KiiChain. The ABI us
 
 ### Interoperability with Cosmos
 
-KiiChain v3 supports both EVM JSON-RPC and Cosmos RPC interfaces. In order to easily interact with certain Cosmos modules, KiiChain v3 has a set of precompiled contracts that can be called from the EVM.
+KiiChain supports both EVM JSON-RPC and Cosmos RPC interfaces. In order to easily interact with certain Cosmos modules, KiiChain has a set of precompiled contracts that can be called from the EVM.
 
 | Precompile                                                      | Description                                                                                              |
 | --------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
@@ -59,6 +59,7 @@ KiiChain v3 supports both EVM JSON-RPC and Cosmos RPC interfaces. In order to ea
 | [Bech32 Precompile](kiijs-evm.md#bech32-precompile)             | Facilitates conversion between hex address and bech32                                                    |
 | [Distribution Precompile](kiijs-evm.md#distribution-precompile) | Deals with reward distribution and related                                                               |
 | [Governance Precompile](kiijs-evm.md#governance-precompile)     | Supports actions such as depositing funds into proposals, voting and interacting with proposals.         |
+| [IBC Precompile](kiijs-evm.md#ibc-precompile)                   | Allows IBC transfers                                                                                     |
 | [ICS20 Precompile](kiijs-evm.md#ics20-precompile)               | Facilitates conversion between hex address and bech32                                                    |
 | [Slashing Precompile](kiijs-evm.md#slashing-precompile)         | Provides management and query options for penalties                                                      |
 | [Staking Precompile](kiijs-evm.md#staking-precompile)           | Enables staking functionalities like delegation and undelegation or obtaining information on validators. |
@@ -162,6 +163,21 @@ The Governance precompile contract supports actions to deposit funds into propos
 **Precompile Addresses**
 
 0x0000000000000000000000000000000000000805
+
+### IBC Precompile
+
+Enables cross-chain token transfers via IBC with simplified parameters
+
+**Functions**
+
+| Function Name                    | Input Parameters                                                                                                                                                                                                                                                                                                                                                  | Return Value       | Description                                                                           |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------- |
+| **`transfer`**                   | <p><code>receiver: string</code> (address)<br><code>port: string</code><br><code>channel: string</code><br><code>denom: string</code><br><code>amount: string</code> (uint256)<br><code>revisionNumber: number</code> (uint64)<br><code>revisionHeight: number</code> (uint64)<br><code>timeoutTimestamp: number</code> (uint64)<br><code>memo: string</code></p> | `success: boolean` | Initiates an IBC token transfer with full timeout control (both height and timestamp) |
+| **`transferWithDefaultTimeout`** | <p><code>receiver: string</code> (address)<br><code>port: string</code><br><code>channel: string</code><br><code>denom: string</code><br><code>amount: string</code> (uint256)<br><code>memo: string</code></p>                                                                                                                                                   | `success: boolean` | Initiates an IBC transfer using default timeout values (simplified interface)         |
+
+**Precompile Addresses**
+
+0x0000000000000000000000000000000000001002
 
 ### ICS20 Precompile
 

@@ -1,6 +1,6 @@
 # Kiijs-proto
 
-## kiijs-proto
+## @kiichain/kiijs-evm
 
 ### install
 
