@@ -30,11 +30,11 @@
 
 ## CONNECT TO KIIEX
 
-* [Set up your KiiEx Account](connect-to-kiiex/set-up-your-kiiex-account/README.md)
+* [Set up your KIIEX Account](connect-to-kiiex/set-up-your-kiiex-account/README.md)
   * [Upgrade your Account to Enterprise Level](connect-to-kiiex/set-up-your-kiiex-account/upgrade-your-account-to-enterprise-level.md)
-* [KiiEx APIs Quick Start](connect-to-kiiex/kiiex-apis-quick-start.md)
-* [Swap USDT to COPM](connect-to-kiiex/swap-usdt-to-copm.md)
-* [KiiEx API's](connect-to-kiiex/kiiex-apis/README.md)
+* [Stablecoin FX Quick Start](connect-to-kiiex/stablecoin-fx-quick-start/README.md)
+  * [Swap USDT to COPM with UI](connect-to-kiiex/stablecoin-fx-quick-start/swap-usdt-to-copm-with-ui.md)
+* [KIIEX API's](connect-to-kiiex/kiiex-apis/README.md)
   * ```yaml
     type: builtin:openapi
     props:

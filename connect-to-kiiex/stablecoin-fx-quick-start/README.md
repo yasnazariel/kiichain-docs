@@ -5,7 +5,7 @@ description: >-
   and verifying execution.
 ---
 
-# KiiEx APIs Quick Start
+# Stablecoin FX Quick Start
 
 **Requirements to be able to trade stable coins on KIIEX, via dashboard or api:**
 
@@ -39,7 +39,7 @@ These are the prerequisites for the step-by-step guide.
 
 1. Create your KiiEx account:
    1. Go to [https://kiiex.io/](https://kiiex.io/) and click on login, and create your user
-      1. You can also follow our guide on [set-up-your-kiiex-account](set-up-your-kiiex-account/ "mention")
+      1. You can also follow our guide on [set-up-your-kiiex-account](../set-up-your-kiiex-account/ "mention")
 2. Update your account from level 0 to level 1 by following our KYC flow to be able to swap
 3. Create your trader API Key on our panel to follow the next steps.
 
@@ -48,24 +48,24 @@ These are the prerequisites for the step-by-step guide.
 These are the steps to fully create a swap and withdraw it:
 
 1. Authenticate your user via api
-   1. [#authenticate-your-user-via-api](kiiex-apis-quick-start.md#authenticate-your-user-via-api "mention")
+   1. [#authenticate-your-user-via-api](./#authenticate-your-user-via-api "mention")
 2. Create a USDT deposit. If you have already created a deposit, check your current balance
-   1. [#create-deposit](kiiex-apis-quick-start.md#create-deposit "mention")
-   2. [#post-getaccountpositions](kiiex-apis-quick-start.md#post-getaccountpositions "mention")
+   1. [#create-deposit](./#create-deposit "mention")
+   2. [#post-getaccountpositions](./#post-getaccountpositions "mention")
 3. Get the current COPM/USDT rate
-   1. [#get-current-rate](kiiex-apis-quick-start.md#get-current-rate "mention")
+   1. [#get-current-rate](./#get-current-rate "mention")
 4. Create market order (buy COPM)
-   1. [#create-a-swap](kiiex-apis-quick-start.md#create-a-swap "mention")
+   1. [#create-a-swap](./#create-a-swap "mention")
 5. Verify order was filled
-   1. [#get-swap-status](kiiex-apis-quick-start.md#get-swap-status "mention")
+   1. [#get-swap-status](./#get-swap-status "mention")
 6. Get trade details (swap info)
-   1. [#post-gettradeshistory](kiiex-apis-quick-start.md#post-gettradeshistory "mention")
+   1. [#post-gettradeshistory](./#post-gettradeshistory "mention")
 7. Confirm the new COPM balance using the get account positions endpoint
-   1. [#get-account-balances](kiiex-apis-quick-start.md#get-account-balances "mention")
+   1. [#get-account-balances](./#get-account-balances "mention")
 8. Create a COPM withdrawal, it could be to another wallet or to your bank account
-   1. [#create-a-withdrawal](kiiex-apis-quick-start.md#create-a-withdrawal "mention")
+   1. [#create-a-withdrawal](./#create-a-withdrawal "mention")
 9. Check your COPM withdrawal status
-   1. [#check-withdrawal-status](kiiex-apis-quick-start.md#check-withdrawal-status "mention")
+   1. [#check-withdrawal-status](./#check-withdrawal-status "mention")
 
 **How do I perform the swap workflow using the API?**
 

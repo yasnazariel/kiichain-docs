@@ -4,7 +4,7 @@ description: >-
   on your dashboard step by step though our UI
 ---
 
-# Swap USDT to COPM
+# Swap USDT to COPM with UI
 
 **Prerequisites**
 
@@ -21,37 +21,37 @@ description: >-
 
 
 
-<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
 2.  Once the deposit is complete, you will see the new balance available in your account and can start swapping on the SWAP page.
 
     1. On the screen, you will see the cryptocurrency you are going to exchange as options; You can choose which one you want to exchange it for, and the exchange rate.
 
-    <figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
     Click on  confirm, and confirm your swap
 
-<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
 You’ll see a confirmation message on your screen, and your balance in the crypto you swapped will be updated.
 
-<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 
 Now that you have a balance, go to the Deposit/Withdraw page, select 'Withdraw', and choose the cryptocurrency you want to withdraw — in this case, COPM
 
-<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 
 Fill out the form with the details of the bank account you own and where you want to receive the COPM as COP
 
-<figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 
 Click on confirm, you'll see a confirmation message on top of the page
 
-<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
 
 You'll receive a withdraw confirmation e-mail, click on accept withdrawal ticket
 
-<figure><img src="../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
 
 Once you confirm your withdrawal, the payment will be processed. After the money is sent to your bank account, you’ll receive an email confirming the completion of your withdrawal cycle, and your balance will be updated both in your bank account and within the exchange
 
@@ -63,11 +63,11 @@ Withdraw to Wallet account
 
 To make an on-chain withdrawal to a wallet, select the 'Wallet' option.&#x20;
 
-<figure><img src="../.gitbook/assets/image (29).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (29).png" alt=""><figcaption></figcaption></figure>
 
 If the wallet is new, you need to add it to the whitelist by filling out the form.&#x20;
 
-<figure><img src="../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
 
 If it already exists, just select it and confirm the operation.&#x20;
 
