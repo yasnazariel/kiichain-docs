@@ -31,7 +31,7 @@ Kii protocols can be found at these links:
 
 Generally, our chains (testnets and mainnet) follow the same set of endpoints. More information about our endpoints can be found here:
 
-* [Endpoints](broken-reference)
+* [Endpoints](endpoints-cosmos/)
 
 ## **KiiChain Discord Server**
 
