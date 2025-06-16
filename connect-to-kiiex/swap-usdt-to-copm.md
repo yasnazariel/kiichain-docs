@@ -54,3 +54,23 @@ You'll receive a withdraw confirmation e-mail, click on accept withdrawal ticket
 <figure><img src="../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
 
 Once you confirm your withdrawal, the payment will be processed. After the money is sent to your bank account, you’ll receive an email confirming the completion of your withdrawal cycle, and your balance will be updated both in your bank account and within the exchange
+
+
+
+Withdraw to Wallet account
+
+
+
+To make an on-chain withdrawal to a wallet, select the 'Wallet' option.&#x20;
+
+<figure><img src="../.gitbook/assets/image (29).png" alt=""><figcaption></figcaption></figure>
+
+If the wallet is new, you need to add it to the whitelist by filling out the form.&#x20;
+
+<figure><img src="../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
+
+If it already exists, just select it and confirm the operation.&#x20;
+
+Congrats 🥳✨
+
+&#x20;Your withdrawal was successful! The funds have been sent to your wallet, and you’ll receive a confirmation email shortly.
