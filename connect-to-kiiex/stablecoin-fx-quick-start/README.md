@@ -1,13 +1,13 @@
 ---
 description: >-
-  This guide explains how to swap any  stablecoin using our KIIEX API. It covers
-  retrieving balances, checking the current exchange rate, sending the order,
-  and verifying execution.
+  This guide explains how to swap any stablecoin using our KIIEX API. It covers
+  retrieving balances, checking the current exchange rate, sending the order and
+  verifying execution.
 ---
 
 # Stablecoin FX Quick Start
 
-**Requirements to be able to trade stable coins on KIIEX, via dashboard or api:**
+**Requirements to be able to trade stablecoins on KIIEX, via dashboard or API:**
 
 * Have a user&#x20;
 * Have an account level 1 at least (to upgrade from level 0 to level 1, you need to complete our KYC verification inside your user settings)&#x20;
@@ -37,11 +37,11 @@ For this example will assume a goal and specify what to do in order, also we'll 
 
 These are the prerequisites for the step-by-step guide.
 
-1. Create your KiiEx account:
+1. Create your KIIEX account:
    1. Go to [https://kiiex.io/](https://kiiex.io/) and click on login, and create your user
       1. You can also follow our guide on [set-up-your-kiiex-account](../set-up-your-kiiex-account/ "mention")
 2. Update your account from level 0 to level 1 by following our KYC flow to be able to swap
-3. Create your trader API Key on our panel to follow the next steps.
+3. Create your trader API Key on our panel to follow the next steps
 
 ### Step-by-step
 
