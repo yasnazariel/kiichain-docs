@@ -87,11 +87,11 @@ $ npx hardhat ignition deploy ignition/modules/<contractName>.ts --network kiich
 
 Remix is a web compiler page where you can write smart contracts, scripts and deploy using your wallet from Metamask. You can enter Remix [here](https://remix.ethereum.org/#lang=en\&optimize=false\&runs=200\&evmVersion=null).
 
-<figure><img src="../../.gitbook/assets/image (15).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (15) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 In the Workspace create the file which contains the Smart contract with the .sol extension.
 
-<figure><img src="../../.gitbook/assets/image (16).png" alt="" width="272"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (16) (1).png" alt="" width="272"><figcaption></figcaption></figure>
 
 After writing the smart contract, go to the Solidity Compiler section and select your compiler version, is recommended to use the most recent one.
 
