@@ -21,7 +21,7 @@ description: >-
 
 
 
-<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
 
 2.  Once the deposit is complete, you will see the new balance available in your account and can start swapping on the SWAP page.
 
