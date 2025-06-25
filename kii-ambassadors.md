@@ -10,38 +10,42 @@ Welcome to the KiiAmbassadors Program, our exclusive initiative to spotlight and
 
 This is not just a title — it's a role of influence and responsibility, for those who believe in our vision and want to help us grow the project both on-chain and online.
 
-You can apply to join the Ambassadors Program through the official KiiChain Discord: [https://discord.gg/kiichain](https://discord.gg/kiichain)
+_All information, tasks, and rewards are shared through the **Private Ambassadors Channel** on our official Discord_.&#x20;
 
-KiiAmbassadors are selected community members who:
+You can apply to join the Ambassadors Program through the official KiiChain Discord (Official Links Channel): [https://discord.gg/kiichain](https://discord.gg/kiichain)
+
+#### KiiAmbassadors are selected community members who:
 
 * Amplify our core messages on Twitter and other platforms.
 * Stay active and helpful in Discord.
 * Help bring new users to the chain and nurture the community spirit.
 * Represent the KiiChain brand publicly, respectfully and consistently.
 
+### To be accepted into the program, you must:
+
+* Have a good follower base and engagement level on social media.
+* Follow KiiChain on X and be registered on the ORO Testnet.
+
 ### Your core responsibilities
 
-To maintain your role, we expect:
+**To maintain your role, we expect:**
 
 * Engage weekly in the Kii Discord, especially in public channels.
-* React, share, and comment on KiiChain’s official posts on Twitter.
-* Participate in the weekly tasks, shared in this channel.
+* React, share, and comment on KiiChain’s official posts on X.
+* Participate in the weekly tasks, shared in the Ambassadors Channel.
 * Help grow the community by inviting new users or explaining Kii to newcomers.
-* Report scams or malicious behavior to the mod team.
 * Suggest strong candidates who could join the program in the future.
 
 ### Participation perks
 
 Ambassadors who complete tasks consistently and with high quality may receive:
 
-* XP for the airdrop, redeemable for $KII at Mainnet launch
-* Monthly raffle for top ambassadors with prizes in USDT
-* GigaAmbassador role, which grants an airdrop multiplier
-* Shoutouts on our official socials and Discord
-* Access to exclusive giveaways
-* Special Q\&A sessions with the KiiChain Core Team
-* Early access to new features, tools, and campaigns
-* Promotional content kits (logos, graphics, memes, templates)
+* Rewards in $ORO and $KII.
+* Monthly raffles for top ambassadors with USDT prizes.
+* Shoutouts on our official socials and Discord.
+* Access to exclusive giveaways.
+* Special Q\&A sessions with the KiiChain Core Team.
+* Early access to new features, tools, and campaigns.
 
 ### Points system and performance
 
@@ -53,7 +57,42 @@ At the end of each month, top-performing ambassadors will be rewarded based on t
 
 In the table below, you can see how the points system is structured.
 
-<figure><img src=".gitbook/assets/KIIAmbassadorPOINTS_V2 (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/KIIAmbassadorPOINTS_Junio_2025 (1).png" alt=""><figcaption></figcaption></figure>
+
+### Rewards
+
+#### Monthly Reward
+
+* **2,000 USDT in Rewards for the Top Contributors of the Month.** Climb the leaderboard and secure your reward.
+* Every active ambassador is eligible to receive $300 USD worth of $KII per month, subject to the following conditions:
+  * Publish at least 1 original post per week (e.g., thread, infographic, video).
+  * Engage (like, retweet, and comment) with every official Kii post shared in the ambassador group.
+  * Be active in public Discord channels with at least 3 helpful messages per week.
+  * Complete and submit weekly tasks through our tracking system
+
+&#x20;       _Rewards are vested with a 3-month cliff followed by 18-month linear vesting, and are based on a $100M fully diluted valuation (FDV) for $KII._
+
+### Ambassador Incentives & Referral-Based Role System
+
+The KiiAmbassadors program rewards not only consistency and engagement, but also your ability to grow the community by bringing in other qualified contributors.
+
+We’ve created a referral-based role progression system, designed to reward ambassadors who actively expand the program with high-quality participants.
+
+#### Role Progression Based on Referrals
+
+For every 3 new KOLs (Key Opinion Leaders) you refer who are accepted into the program, your role is upgraded and you receive a bonus of $200 USD worth of $KII. This structure incentivizes high-quality referrals and gives ambassadors recognition as they grow the program. All bonuses follow the same vesting schedule as the base incentive (3-month cliff, 18-month linear vesting).
+
+To remain active in the program, ambassadors are also required to publish at least 4 pieces of original content per month.
+
+<figure><img src=".gitbook/assets/AmbassadorsRoleProgression_Kii_2025 (2) (1).jpg" alt=""><figcaption></figcaption></figure>
+
+How to Qualify a Referral
+
+To count as a valid referral:
+
+* The referred KOL must follow KiiChain on X.
+* They must join and be approved into the official Ambassador Discord server.
+* The referral must be reported and verified by the Kii team.
 
 ### How to lose the role
 
