@@ -6,7 +6,7 @@ description: Onboarding for validators
 
 It's always nice to see new users onboarding into the Testnet Oro.
 
-This will guide you through the process of running your own full node, then [becoming a validator](becoming-a-validator.md) and finally running[ the price feeder](running-the-price-feeder.md)
+This will guide you through the process of running your own full node, then [becoming a validator](becoming-a-validator.md) and finally running[ the price feeder](../running-the-price-feeder.md)
 
 ## Install
 

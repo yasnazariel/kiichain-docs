@@ -9,12 +9,12 @@ description: How to run your own Oracle and price feeder
 {% hint style="warning" %}
 Only validators are required to run the price-feeder. The module doesn't affect full nodes.
 
-* Validators who don't provide feeds for the oracle module **will be slashed**
+* Validators who don't provide feeds for the oracle module **will be slashed.**
 {% endhint %}
 
 ## Price feeder details
 
-[The Price Feeder](https://github.com/KiiChain/price-feeder) is an essential component for validators added to Kiichain since version **v3.0.0** to provide accurate cryptocurrency price data to the Kiichain network using the [Oracle module](../../getting-started/what-is-an-oracle.md).&#x20;
+[The Price Feeder](https://github.com/KiiChain/price-feeder) is an essential component for validators added to Kiichain since version **v3.0.0** to provide accurate cryptocurrency price data to the Kiichain network using the [Oracle module](../getting-started/what-is-an-oracle.md).&#x20;
 
 ### Prerequisites
 
@@ -280,11 +280,11 @@ If you are using **os** as `KEYRING_BACKEND` make sure you have set the env vari
 
 ## References
 
-* [Oracle definition by Kii team](../../getting-started/what-is-an-oracle.md)
+* [Oracle definition by Kii team](../getting-started/what-is-an-oracle.md)
 * [Oracle definition by Cosmos](https://docs.cosmos.network/v0.50/tutorials/vote-extensions/oracle/what-is-an-oracle)
 * [Run the price feeder](https://github.com/KiiChain/testnets/blob/main/testnet_oro/run_price_feeder.sh)
 * [Price feeder README](https://github.com/KiiChain/price-feeder/blob/main/README.md)
-* [Oracle module details](../../../build-on-kiichain/modules/oracle.md)
+* [Oracle module details](../../build-on-kiichain/modules/oracle.md)
 
 ## Acknowledgment
 
