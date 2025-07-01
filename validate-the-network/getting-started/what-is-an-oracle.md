@@ -2,7 +2,6 @@
 description: >-
   An oracle is a blockchain component that provides external real-world data and
   store on the Blockchain
-hidden: true
 ---
 
 # What is an Oracle?

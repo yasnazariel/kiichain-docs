@@ -90,6 +90,7 @@
 * [Modules](build-on-kiichain/modules/README.md)
   * [TokenFactory](build-on-kiichain/modules/tokenfactory.md)
   * [EVM](build-on-kiichain/modules/evm.md)
+  * [Oracle](build-on-kiichain/modules/oracle.md)
 
 ***
 
@@ -105,13 +106,12 @@
   * [Getting started](validate-the-network/run-a-validator-full-node/getting-started.md)
   * [Step-by-Step Guide](validate-the-network/run-a-validator-full-node/step-by-step-guide/README.md)
     * [Becoming a Validator](validate-the-network/run-a-validator-full-node/step-by-step-guide/becoming-a-validator.md)
-    * [Running the Price feeder](validate-the-network/run-a-validator-full-node/step-by-step-guide/running-the-price-feeder.md)
     * [Recovering Legacy Addresses](validate-the-network/run-a-validator-full-node/step-by-step-guide/recovering-legacy-addresses.md)
+    * [Running the Price feeder](validate-the-network/run-a-validator-full-node/step-by-step-guide/running-the-price-feeder.md)
   * [Maintaining a validator](validate-the-network/run-a-validator-full-node/maintaining-a-validator.md)
   * [Incentive](validate-the-network/run-a-validator-full-node/incentive.md)
   * [Technical requirements](validate-the-network/run-a-validator-full-node/technical-requirements.md)
   * [Validator Security](validate-the-network/run-a-validator-full-node/validator-security.md)
-  * [Step by step guide](validate-the-network/run-a-validator-full-node/step-by-step-guide-1.md)
 * [Economics](validate-the-network/economics/README.md)
   * [Staking Requirements](validate-the-network/economics/staking-requirements.md)
   * [Delegation / Staking](validate-the-network/economics/delegation-staking.md)
