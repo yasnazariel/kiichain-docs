@@ -126,7 +126,7 @@ You can also install the price-feeder manually by following these steps:
 
 ```bash
 # Clone the price feeder
-git clone git@github.com:KiiChain/price-feeder.git
+git clone https://github.com/KiiChain/price-feeder.git
 
 # Install the application
 cd price-feeder
