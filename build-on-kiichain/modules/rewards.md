@@ -134,13 +134,13 @@ message Params {
 
 The releaser has a few edge cases that happen when it is initializing or going inactive:
 
-#### First iteration:
+#### First iteration
 
 * There is no previous release time, so we cannot calculate a reward distribution
 * Instead of calculating the reward, we just set the last release as the block time
 * Next iteration will cover it well
 
-#### Last iteration:
+#### Last iteration
 
 * As the first release is delayed, so will be the last one
 * Once the EndTime is passed, all the remaining rewards will be distributed
