@@ -37,9 +37,9 @@
   * [Swap USDT to COPM with UI](connect-to-kiiex/stablecoin-fx-quick-start/swap-usdt-to-copm-with-ui.md)
 * [KIIEX API's](connect-to-kiiex/kiiex-apis/README.md)
   * ```yaml
-    type: builtin:openapi
     props:
       models: true
+    type: builtin:openapi
     dependencies:
       spec:
         ref:
@@ -90,6 +90,7 @@
 * [Modules](build-on-kiichain/modules/README.md)
   * [TokenFactory](build-on-kiichain/modules/tokenfactory.md)
   * [EVM](build-on-kiichain/modules/evm.md)
+  * [Rewards](build-on-kiichain/modules/rewards.md)
   * [Oracle](build-on-kiichain/modules/oracle.md)
 
 ***
