@@ -207,7 +207,7 @@ journalctl -fu price_feeder.service
 
 There are multiple configurations that are important when managing the price feeder:
 
-* The main template for configuration [can be found here](https://github.com/KiiChain/price-feeder/blob/main/config.toml)
+* The main template for configuration [can be found here](https://github.com/KiiChain/price-feeder/blob/main/config.example.toml)
 
 Some important configurations are:
 
