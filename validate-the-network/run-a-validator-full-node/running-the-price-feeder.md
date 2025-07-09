@@ -112,6 +112,14 @@ The script will automatically:
 * Fund the feeder account
 * Configure the systemd service
 
+To execute it, just run:
+
+```bash
+wget https://raw.githubusercontent.com/KiiChain/testnets/main/testnet_oro/run_price_feeder.sh
+chmod +x run_price_feeder.sh
+./run_price_feeder.sh
+```
+
 {% hint style="success" %}
 We highly recommend using this bootstrap script to setup the price-feeder.
 
