@@ -33,23 +33,25 @@ Q4: Started KiiChain Testnet V3 upgrades with new EVM module, RWA protocol, Orac
 Q1 & Q2:&#x20;
 
 * Incentivized testnet, XP and Oro rewards, featuring on-chain tasks and partnerships ([https://kiichain.io/testnet](https://kiichain.io/testnet)).&#x20;
-* Public sale, listing and mainnet.&#x20;
-* PayFi module integration with mainnet.
 * KIIEX version 2.0 will be released with new UI/UX and third party ramp features.&#x20;
-* KIIDEX integration into KIIEX with listing of RWA products.&#x20;
-* DASP license in El Salvador for both KIIEX and KiiChain.
 * IBC and Wasm upgrades.
-* ICS module with dual staking.&#x20;
+* EVM upgrades.
+* Utility rewards module.&#x20;
 
 Q3:&#x20;
 
-* PayFi module fiat rail integrations and expansions. Connect to local payment gateways in target markets.&#x20;
+* Public sale, listing and mainnet.&#x20;
+* KIIDEX integration into KIIEX with listing of RWA products.&#x20;
+* PayFi module integration with mainnet.
 * Kii RWA protocol dApp that lets users manage cross-chain transfers of their RWA tokens.
 * KIIEX API integrations for 30+ countries.
-* KIIEX Debit and Credit cards (with lend-borrow financing).&#x20;
+* DASP license in El Salvador for both KIIEX and KiiChain.
+* EVM gas free abstraction for stablecoins.&#x20;
 
 Q4:&#x20;
 
 * Payfi financing protocol (ecosystem partnership) integrated with the Payfi module register profiles to extend credit to web2 and web3 companies and users.
+* PayFi module fiat rail integrations and expansions. Connect to local payment gateways in target markets.&#x20;
 * On-chain invoice factoring and financing.&#x20;
-* SVM module.&#x20;
+* KIIEX Debit and Credit cards (with lend-borrow financing).&#x20;
+
