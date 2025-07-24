@@ -26,9 +26,11 @@ $ npm install --save-dev hardhat
 
 After installing Hardhat, create a project. You can create it using typescript or javascript in the following screen:
 
-```tsx
+```yaml
 $ npx hardhat init
+```
 
+```tsx
 888    888                      888 888               888
 888    888                      888 888               888
 888    888                      888 888               888
@@ -48,7 +50,7 @@ Welcome to Hardhat v2.22.8
   Quit
 ```
 
-#### 3. Create a Smart contract and Compile protect
+#### 3. Create a Smart contract and Compile project
 
 After creating the smart contract in the “Contracts” folder, run the following command to check your code.
 
@@ -56,7 +58,7 @@ After creating the smart contract in the “Contracts” folder, run the followi
 $ npx hardhat compile 
 ```
 
-#### 5. Set the hardhat configuration file and deploy the smart contract
+#### 4. Set the hardhat configuration file and deploy the smart contract
 
 After creating the ignition deploy file, let's set the blockchain information into the hardhat.config file, with the following information:
 
@@ -68,9 +70,9 @@ const config: HardhatUserConfig = {
   solidity: "0.8.20", // Solidity Version
   networks: {
     kiichain: {
-      url: "<https://a.sentry.testnet.kiivalidator.com:8645>",
-      chainId: 123454321,
-      accounts: [`0x${yourApiKey}`],
+      url: "https://json-rpc.uno.sentry.testnet.v3.kiivalidator.com/",
+      chainId: 1336,
+      accounts: [`0x${yourPrivateKey}`],
     },
   },
 };
@@ -119,8 +121,8 @@ Finally, you can interact with the different functions in the same section above
 
 Run the following commands in your terminal in order to start the foundry’s installation.
 
-```json
-curl -L [<https://foundry.paradigm.xyz>](<https://foundry.paradigm.xyz/>) | bash
+```bash
+curl -L https://foundry.paradigm.xyz | bash
 ```
 
 then run the following command in another terminal or restart the current one for finishing the installation process.
@@ -201,13 +203,13 @@ forge build
 First, you need to run a simulation.
 
 ```bash
-forge script script/Counter.s.sol:CounterScript --fork-url <https://a.sentry.testnet.kiivalidator.com:8645/> --private-key yourPrivateKey
+forge script script/Counter.s.sol:CounterScript --fork-url https://json-rpc.uno.sentry.testnet.v3.kiivalidator.com/ --private-key yourPrivateKey
 ```
 
 The simulation will be complete after that, and you can run with broadcast.
 
 ```bash
-forge script script/Counter.s.sol:CounterScript --fork-url <https://a.sentry.testnet.kiivalidator.com:8645/> --private-key yourPrivateKey --broadcast
+forge script script/Counter.s.sol:CounterScript --fork-url https://json-rpc.uno.sentry.testnet.v3.kiivalidator.com/ --private-key yourPrivateKey --broadcast
 ```
 
 A success message should appear.
@@ -218,9 +220,9 @@ In this example, we will create a ERC721 (Non fungible token).
 
 #### 1. Create an account
 
-Create an account in thrirdweb, create an API key [here](https://thirdweb.com/dashboard/settings/api-keys), and link your wallet.
+Create an account in thirdweb, create an API key [here](https://thirdweb.com/dashboard/settings/api-keys), and link your wallet.
 
-Storage the API key in a secure place.
+Store the API key in a secure place.
 
 #### 2. Create a project
 
